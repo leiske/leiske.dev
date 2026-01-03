@@ -296,10 +296,10 @@
    - [x] Generate `dist/404.html` in build script
    - [x] Update Vite config to use custom 404 if supported
 
-- [ ] Verify date formatting edge cases
-  - [ ] Test with different date formats in frontmatter
-  - [ ] Ensure locale formatting works correctly
-  - [ ] Test with posts on different dates
+- [x] Verify date formatting edge cases
+   - [x] Test with different date formats in frontmatter
+   - [x] Ensure locale formatting works correctly
+   - [x] Test with posts on different dates
 
 ## Phase 15: Testing with Multiple Posts
 

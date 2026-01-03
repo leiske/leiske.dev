@@ -13,6 +13,10 @@ dist-ssr
 dist-scripts
 *.local
 
+# Generated files
+.content-collections/generated/
+src/routeTree.gen.ts
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

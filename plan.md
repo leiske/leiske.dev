@@ -561,9 +561,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Run: `rm -rf dist-scripts`
    - Verify directory is removed
 
-- [ ] Remove build script references from package.json
-  - Ensure no references to custom build scripts
-  - Verify scripts.build uses "vinxi build"
+ - [x] Remove build script references from package.json
+   - Ensure no references to custom build scripts
+   - Verify scripts.build uses "vite build" (TanStack Start migrated from Vinxi to Vite in v1.121.0)
 
 ### 7.2 Remove Old Pages
 

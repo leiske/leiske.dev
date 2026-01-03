@@ -60,9 +60,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Run: `npm install remark-gfm`
    - Verify package appears in dependencies
 
-- [ ] Install remark-rehype
-  - Run: `npm install remark-rehype`
-  - Verify package appears in dependencies
+ - [x] Install remark-rehype
+   - Run: `npm install remark-rehype`
+   - Verify package appears in dependencies
 
 - [ ] Install rehype-raw
   - Run: `npm install rehype-raw`

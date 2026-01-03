@@ -133,19 +133,19 @@
 
 ## Phase 7: Update App Entry Point
 
-- [ ] Update App.tsx for development
-  - [ ] Modify `src/App.tsx` to conditionally render based on URL
-  - [ ] For development mode: use simple client-side routing (check `window.location.pathname`)
-    - If path is `/`, render `Home`
-    - If path matches `/blog/{slug}/`, extract slug and render `BlogPost` with that slug
-    - Otherwise, render 404 or redirect to home
-  - [ ] Keep it simple for dev - full static generation happens in build
+- [x] Update App.tsx for development
+  - [x] Modify `src/App.tsx` to conditionally render based on URL
+  - [x] For development mode: use simple client-side routing (check `window.location.pathname`)
+    - [x] If path is `/`, render `Home`
+    - [x] If path matches `/blog/{slug}/`, extract slug and render `BlogPost` with that slug
+    - [x] Otherwise, render 404 or redirect to home
+  - [x] Keep it simple for dev - full static generation happens in build
 
-- [ ] Test development routing
-  - [ ] Run `npm run dev`
-  - [ ] Navigate to `/` and verify posts list displays
-  - [ ] Navigate to `/blog/opencode-cursor-thoughts/` and verify post displays
-  - [ ] Check that metadata (date, reading time, tags) renders correctly
+- [x] Test development routing
+  - [x] Run `npm run dev`
+  - [x] Navigate to `/` and verify posts list displays
+  - [x] Navigate to `/blog/opencode-cursor-thoughts/` and verify post displays
+  - [x] Check that metadata (date, reading time, tags) renders correctly
 
 ## Phase 8: Build Script for Static Generation
 

@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import type { PostMeta } from '../types/post.js';
 
 interface PostListProps {
@@ -13,12 +14,13 @@ export function PostList({ posts }: PostListProps) {
     <ul className="space-y-4">
       {posts.map((post) => (
         <li key={post.slug} className="border-b pb-4 last:border-b-0">
-          <a
-            href={`/blog/${post.slug}/`}
+          <Link
+            to="/blog/$slug"
+            params={{ slug: post.slug }}
             className="block text-xl font-semibold hover:text-blue-600 transition-colors"
           >
             {post.title}
-          </a>
+          </Link>
           <time className="text-sm text-gray-600">
             {new Date(post.date).toLocaleDateString()}
           </time>

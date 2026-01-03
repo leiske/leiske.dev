@@ -427,19 +427,19 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 5.1 Update PostList Component
 
-- [ ] Read src/components/PostList.tsx
+- [x] Read src/components/PostList.tsx
   - Review current implementation
 
-- [ ] Update imports
+- [x] Update imports
   - Import Link from '@tanstack/react-router'
   - Keep PostMeta type import
 
-- [ ] Update component to use Link
+- [x] Update component to use Link
   - Replace anchor tags (<a>) with Link components
   - Set Link to={`/blog/${post.slug}`}
   - Keep className and styling unchanged
 
-- [ ] Verify component exports
+- [x] Verify component exports
   - Ensure component is named export
 
 ### 5.2 Update PostContent Component

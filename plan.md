@@ -286,16 +286,16 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 3.3 Update Root Route for Tailwind
 
-- [ ] Create src/routes/__root.tsx
+- [x] Create src/routes/__root.tsx
   - Import createFileRoute from @tanstack/react-router
   - Import app.css from '../styles/app.css?url'
 
-- [ ] Configure root route
+- [x] Configure root route
   - Use createFileRoute('/')
   - Add head function with links array
   - Add stylesheet link: `{ rel: 'stylesheet', href: appCss }`
 
-- [ ] Add root component
+- [x] Add root component
   - Return Outlet component for child routes
   - Return basic HTML structure with doctype and head
 

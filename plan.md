@@ -237,13 +237,13 @@
    - [x] Read `dist/blog/opencode-cursor-thoughts/index.html` - verify post structure
    - [x] Check that HTML includes proper DOCTYPE, head, and body
 
-- [ ] Test preview mode
-  - [ ] Run `npm run preview`
-  - [ ] Navigate to `http://localhost:4173/` (or whatever port)
-  - [ ] Verify homepage displays correctly
-  - [ ] Click on post link or navigate to `/blog/opencode-cursor-thoughts/`
-  - [ ] Verify post displays correctly
-  - [ ] Check that "Next post" link works if there are multiple posts
+ - [x] Test preview mode
+   - [x] Run `npm run preview`
+   - [x] Navigate to `http://localhost:4173/` (or whatever port)
+   - [x] Verify homepage displays correctly
+   - [x] Click on post link or navigate to `/blog/opencode-cursor-thoughts/`
+   - [x] Verify post displays correctly
+   - [x] Check that "Next post" link works if there are multiple posts
 
 ## Phase 12: Linting and Type Checking
 

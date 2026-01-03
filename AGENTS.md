@@ -16,6 +16,7 @@
 - Testing library: @testing-library/react with jest-dom matchers
 - Test config: `vitest.config.ts`
 - Test setup: `src/test/setup.ts`
+- IMPORTANT: When using vitest `globals: true`, must add `"vitest/globals"` to `types` array in `tsconfig.app.json` for TypeScript support
 
 ### Type Checking
 - Integrated into build via `tsc -b`

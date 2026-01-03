@@ -58,16 +58,16 @@ This plan focuses on **high-value behavioral tests** that verify user-facing out
      "test:run": "vitest run"
      ```
 
-- [ ] Verify setup works
-  - Create `src/test/smoke.test.ts` with:
-    ```typescript
-    describe('Vitest is working', () => {
-      it('can run a simple test', () => {
-        expect(1 + 1).toBe(2)
-      })
-    })
-    ```
-  - Run `npm run test` and verify it passes
+ - [x] Verify setup works
+   - Create `src/test/smoke.test.ts` with:
+     ```typescript
+     describe('Vitest is working', () => {
+       it('can run a simple test', () => {
+         expect(1 + 1).toBe(2)
+       })
+     })
+     ```
+   - Run `npm run test` and verify it passes
 
 ---
 

@@ -368,16 +368,16 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 4.4 Create Blog Post Route
 
-- [ ] Create src/routes/blog.$slug.tsx
+- [x] Create src/routes/blog.$slug.tsx
   - Import createFileRoute, notFound from '@tanstack/react-router'
-  - Import allPosts from 'content-collections'
+  - Import allPosts from '.content-collections/generated'
   - Import PostContent from '../components/PostContent'
 
-- [ ] Configure route
+- [x] Configure route
   - Use createFileRoute('/blog/$slug')
   - Add loader function that accepts params
 
-- [ ] Implement loader
+- [x] Implement loader
   - Find post by slug in allPosts
   - If post not found, throw notFound()
   - If post.test is true in production, throw notFound()
@@ -387,7 +387,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
   - Get nextPost if index > 0 (previous in sorted array)
   - Return { post, nextPost }
 
-- [ ] Add SEO meta tags with dynamic data
+- [x] Add SEO meta tags with dynamic data
   - Add head function that accepts loaderData
   - Set title to loaderData.post.title
   - Set description to loaderData.post.description
@@ -402,7 +402,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
     - datePublished: post.date
     - tags: post.tags
 
-- [ ] Implement BlogPost component
+- [x] Implement BlogPost component
   - Use Route.useLoaderData() to get post and nextPost
   - Render PostContent component with post and nextPost
 

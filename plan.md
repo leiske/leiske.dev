@@ -719,7 +719,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 8.9 Run Existing Tests
 
-- [ ] Run test suite
+- [x] Run test suite
   - Run: `npm run test:run`
   - Review test results
   - Update tests that fail due to migration

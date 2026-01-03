@@ -8,5 +8,11 @@
   "main": "@tanstack/react-start/server-entry",
   "observability": {
     "enabled": true
-  }
+  },
+  "routes": [
+    {
+      "pattern": "leiske.dev",
+      "custom_domain": true
+    }
+  ]
 }

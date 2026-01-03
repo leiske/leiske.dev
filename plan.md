@@ -313,9 +313,9 @@
    - [x] Check homepage shows newest 5 posts
    - [x] Verify "Next post" links work in chronological order
 
- - [ ] Test tag rendering
-   - [ ] Ensure tags are rendered as badges or list items
-   - [ ] Test with varying numbers of tags (0, 1, many)
+  - [x] Test tag rendering
+    - [x] Ensure tags are rendered as badges or list items
+    - [x] Test with varying numbers of tags (0, 1, many)
 
  - [x] Test reading time calculation
    - [x] Create a very short post and verify reading time

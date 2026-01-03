@@ -567,9 +567,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 7.2 Remove Old Pages
 
-- [ ] Delete src/pages/Home.tsx
-  - Run: `rm src/pages/Home.tsx`
-  - Verify file is removed
+ - [x] Delete src/pages/Home.tsx
+   - Run: `rm src/pages/Home.tsx`
+   - Verify file is removed
 
 - [ ] Delete src/pages/BlogPost.tsx
   - Run: `rm src/pages/BlogPost.tsx`

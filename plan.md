@@ -408,18 +408,15 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 4.5 Create 404 Route
 
-- [ ] Create src/routes/404.tsx (or src/routes/not-found.tsx)
-  - Import createFileRoute from '@tanstack/react-router'
-
-- [ ] Configure route
-  - Use createFileRoute('/404')
-  - Add meta tags for 404 page
-  - Implement component with "Page not found" message
-  - Add link back to home page
+- [x] Add notFoundComponent to root route
+   - Import Link from '@tanstack/react-router'
+   - Add NotFound component with Tailwind styling
+   - Display "404 - Page not found" message
+   - Add "Back to home" link
 
 ### 4.6 Generate Route Tree
 
-- [ ] Generate route tree
+- [x] Generate route tree
   - Run: `npm run dev` (TanStack Start will auto-generate routeTree.gen.ts)
   - Verify src/routeTree.gen.ts is created
   - Verify route tree includes all routes

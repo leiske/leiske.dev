@@ -10,6 +10,9 @@ import type { Post } from './.content-collections/generated/index.d.js'
 export default defineConfig({
   server: {
     port: 3000,
+    watch: {
+      ignored: ['.content-collections/generated/', 'src/routeTree.gen.ts'],
+    },
   },
   plugins: [
     contentCollections(),

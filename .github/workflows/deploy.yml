@@ -29,10 +29,9 @@ jobs:
 
       - name: Deploy to gh-pages branch
         run: |
-          cd dist
-          git init
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add .
+          git checkout gh-pages
+          git add ./dist -f
           git commit -m "Deploy to gh-pages"
-          git push -f https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git main:gh-pages
+          git push

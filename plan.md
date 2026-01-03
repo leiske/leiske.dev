@@ -49,22 +49,22 @@
   - [x] Calculate reading time from markdown content
   - [x] Return `Post` object or `null` if file not found
 
-- [ ] Implement getAllPosts function
-  - [ ] Create `getAllPosts(): Post[]` function
-  - [ ] Use `fs.readdirSync` to list all `.md` files in `posts/` directory
-  - [ ] Filter for files ending with `.md`
-  - [ ] Map each filename to `getPostBySlug(filename without .md)`
-  - [ ] Filter out any null results (posts that failed to parse)
-  - [ ] Sort posts by `date` in descending order (newest first)
-  - [ ] Return sorted array
+- [x] Implement getAllPosts function
+  - [x] Create `getAllPosts(): Post[]` function
+  - [x] Use `fs.readdirSync` to list all `.md` files in `posts/` directory
+  - [x] Filter for files ending with `.md`
+  - [x] Map each filename to `getPostBySlug(filename without .md)`
+  - [x] Filter out any null results (posts that failed to parse)
+  - [x] Sort posts by `date` in descending order (newest first)
+  - [x] Return sorted array
 
-- [ ] Test post loading functions
-  - [ ] Create a temporary test script or log output in `src/App.tsx`
-  - [ ] Test `getAllPosts()` returns the existing post
-  - [ ] Verify frontmatter fields are parsed correctly
-  - [ ] Verify markdown content is converted to HTML
-  - [ ] Verify reading time is calculated
-  - [ ] Clean up test code
+- [x] Test post loading functions
+  - [x] Create a temporary test script or log output in `src/App.tsx`
+  - [x] Test `getAllPosts()` returns the existing post
+  - [x] Verify frontmatter fields are parsed correctly
+  - [x] Verify markdown content is converted to HTML
+  - [x] Verify reading time is calculated
+  - [x] Clean up test code
 
 ## Phase 4: Update Sample Post Frontmatter
 

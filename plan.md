@@ -792,10 +792,11 @@ Migrate the custom static site generator to TanStack Start with content-collecti
   - Add: `Sitemap: https://leiske.dev/sitemap.xml`
   - Save file
 
-- [ ] Verify robots.txt is served
+- [x] Verify robots.txt is served
   - Run: `npm run dev`
   - Navigate to /robots.txt
   - Verify robots.txt content is displayed
+  - VERIFIED: robots.txt is served correctly with expected content
 
 ### 9.3 Test SEO Files
 

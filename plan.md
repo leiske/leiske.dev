@@ -695,12 +695,12 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 8.7 Test SEO Meta Tags
 
-- [ ] Verify home page meta tags
-  - Open browser dev tools
-  - Check <title> tag
-  - Check meta description
-  - Check Open Graph tags
-  - Check Twitter card tags
+- [x] Verify home page meta tags
+   - Open browser dev tools
+   - Check <title> tag
+   - Check meta description
+   - Check Open Graph tags
+   - Check Twitter card tags
 
 - [ ] Verify blog post meta tags
   - Navigate to a blog post

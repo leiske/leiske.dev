@@ -270,10 +270,10 @@
    - [x] Document how to add new posts
    - [x] Document build process
 
-- [ ] Remove any test or debug code
-  - [ ] Review all created files
-  - [ ] Remove console.log statements
-  - [ ] Remove temporary test imports
+ - [x] Remove any test or debug code
+   - [x] Review all created files
+   - [x] Remove console.log statements
+   - [x] Remove temporary test imports
 
 - [ ] Create a README for the blog feature (optional)
   - [ ] Document how to create a new post
@@ -286,10 +286,10 @@
    - [x] Update `getPostBySlug` to provide default values for missing fields
    - [x] Log warnings when required fields are missing
 
-- [ ] Handle malformed markdown
-  - [ ] Test with markdown that has syntax errors
-  - [ ] Ensure the build doesn't crash
-  - [ ] Log errors for problematic files
+ - [x] Handle malformed markdown
+   - [x] Test with markdown that has syntax errors
+   - [x] Ensure the build doesn't crash
+   - [x] Log errors for problematic files
 
 - [x] Add 404 page for static build
    - [x] Create a simple 404 page component

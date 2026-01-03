@@ -17,7 +17,13 @@ export function getPostBySlug(slug: string): Post | null {
     const fileContent = readFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);
 
-    const htmlContent = marked(content) as string;
+    let htmlContent: string;
+    try {
+      htmlContent = marked(content) as string;
+    } catch (markdownError) {
+      console.error(`Failed to parse markdown for post: ${slug}`, markdownError);
+      return null;
+    }
     const readingTime = calculateReadingTime(content);
 
     if (!data.title) console.warn(`Missing 'title' in frontmatter for post: ${slug}`);

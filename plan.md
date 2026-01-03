@@ -102,9 +102,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Run: `npm install unist-util-visit`
    - Verify package appears in dependencies
 
-- [ ] Install hast-util-to-string (AST to string)
-  - Run: `npm install hast-util-to-string`
-  - Verify package appears in dependencies
+  - [x] Install hast-util-to-string (AST to string)
+    - Run: `npm install hast-util-to-string`
+    - Verify package appears in dependencies
 
 ### 1.5 Install Tailwind CSS
 

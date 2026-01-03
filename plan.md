@@ -303,10 +303,10 @@
 
 ## Phase 15: Testing with Multiple Posts
 
- - [ ] Create additional test posts
-   - [x] Create `posts/test-post-2.md` with different content
-   - [ ] Create `posts/test-post-3.md` with different content
-   - [x] Ensure proper frontmatter format
+  - [ ] Create additional test posts
+    - [x] Create `posts/test-post-2.md` with different content
+    - [x] Create `posts/test-post-3.md` with different content
+    - [x] Ensure proper frontmatter format
 
  - [x] Test post ordering
    - [x] Verify posts are sorted by date correctly

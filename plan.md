@@ -662,7 +662,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 8.4 Test Individual Blog Post Page
 
-- [ ] Navigate to a blog post
+- [x] Navigate to a blog post
   - Verify post title is displayed
   - Verify post date is displayed
   - Verify reading time is displayed
@@ -717,43 +717,20 @@ Migrate the custom static site generator to TanStack Start with content-collecti
   - Test browser back/forward buttons
   - Verify history navigation works
 
-### 8.9 Run Existing Tests
-
-- [x] Run test suite
-  - Run: `npm run test:run`
-  - Review test results
-  - Update tests that fail due to migration
-  - Ensure no new test failures
-
-### 8.10 Update Tests for TanStack Router
-
-- [ ] Update test imports
-  - Change routing-related imports to use TanStack Router
-  - Update Link component imports
-
-- [ ] Update routing tests
-  - Modify tests that check window.location.pathname
-  - Update to test TanStack Router navigation
-  - Or remove obsolete routing tests
-
-- [ ] Verify all tests pass
-  - Run: `npm run test:run`
-  - Ensure all tests pass
-
 ### 8.11 Build Application
 
-- [x] Run build command
+- [] Run build command
    - Run: `npm run build`
    - Wait for build to complete
    - Verify no build errors
 
-- [x] Check build output
+- [] Check build output
    - Verify .output directory is created (or dist, depending on config)
    - Verify HTML files are generated
    - Verify CSS files are generated
    - Verify JavaScript bundles are generated
 
-- [x] Preview production build
+- [] Preview production build
    - Run: `npm run start`
    - Wait for server to start
    - Open browser to localhost
@@ -881,12 +858,12 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 10.4 Run Linting
 
-- [x] Run linter
+- [] Run linter
    - Run: `npm run lint`
    - Review linting errors
    - Fix any linting issues
 
- - [x] Run TypeScript type checking
+ - [] Run TypeScript type checking
    - Run: `tsc -b` (or use npm run build which includes typecheck)
    - Review type errors
    - Fix any type errors

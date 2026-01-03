@@ -330,7 +330,7 @@
 ## Completion Criteria
 
 - [x] Homepage (`/`) displays up to 5 most recent posts with titles and dates
-- [ ] Post pages (`/blog/{slug}/`) display full content with metadata
+- [x] Post pages (`/blog/{slug}/`) display full content with metadata
 - [ ] All pages are pre-rendered as static HTML
 - [ ] Date formatting uses user's locale
 - [ ] Reading time is displayed on post pages

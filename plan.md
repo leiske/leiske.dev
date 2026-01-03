@@ -277,10 +277,10 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 3.2 Create Tailwind CSS File
 
-- [ ] Create src/styles directory
+- [x] Create src/styles directory
   - Run: `mkdir -p src/styles`
 
-- [ ] Create src/styles/app.css
+- [x] Create src/styles/app.css
   - Add line: `@import 'tailwindcss';`
   - Save file
 

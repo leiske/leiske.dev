@@ -37,11 +37,21 @@ function RootComponent() {
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html>
+    <html className="overflow-y-scroll">
       <head>
         <HeadContent />
       </head>
       <body>
+        <header className="sticky top-0 z-10 bg-gray-100 border-b border-gray-200">
+          <div className="max-w-4xl mx-auto px-4 py-4">
+            <Link to="/" className="text-xl font-semibold text-gray-900 hover:text-blue-600 mr-6">
+              leiske.dev
+            </Link>
+            <Link to="/blog" className="text-gray-600 hover:text-blue-600">
+              Blog
+            </Link>
+          </div>
+        </header>
         {children}
         <Scripts />
       </body>

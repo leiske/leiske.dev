@@ -264,11 +264,11 @@
 
 ## Phase 13: Documentation and Cleanup
 
-- [ ] Update AGENTS.md with new information
-  - [ ] Document the blog structure in `AGENTS.md`
-  - [ ] Add notes about post format (frontmatter schema)
-  - [ ] Document how to add new posts
-  - [ ] Document build process
+ - [x] Update AGENTS.md with new information
+   - [x] Document the blog structure in `AGENTS.md`
+   - [x] Add notes about post format (frontmatter schema)
+   - [x] Document how to add new posts
+   - [x] Document build process
 
 - [ ] Remove any test or debug code
   - [ ] Review all created files

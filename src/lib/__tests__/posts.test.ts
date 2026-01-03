@@ -295,4 +295,50 @@ New post content
       }
     }
   });
+
+  it('excludes posts with test: true flag', () => {
+    const productionPostSlug = 'test-production-post';
+    const testPostSlug = 'test-test-post';
+
+    const productionPostPath = join(process.cwd(), 'posts', `${productionPostSlug}.md`);
+    const testPostPath = join(process.cwd(), 'posts', `${testPostSlug}.md`);
+
+    const productionPostContent = `---
+title: Production Post
+date: 2026-01-01
+slug: ${productionPostSlug}
+description: Production post description
+---
+Production post content
+`;
+
+    const testPostContent = `---
+title: Test Post
+date: 2026-01-02
+slug: ${testPostSlug}
+description: Test post description
+test: true
+---
+Test post content
+`;
+
+    writeFileSync(productionPostPath, productionPostContent, 'utf-8');
+    writeFileSync(testPostPath, testPostContent, 'utf-8');
+
+    try {
+      const result = getAllPosts();
+      const hasProductionPost = result.some((post) => post.slug === productionPostSlug);
+      const hasTestPost = result.some((post) => post.slug === testPostSlug);
+
+      expect(hasProductionPost).toBe(true);
+      expect(hasTestPost).toBe(false);
+    } finally {
+      if (existsSync(productionPostPath)) {
+        unlinkSync(productionPostPath);
+      }
+      if (existsSync(testPostPath)) {
+        unlinkSync(testPostPath);
+      }
+    }
+  });
 });

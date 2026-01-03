@@ -811,10 +811,12 @@ Migrate the custom static site generator to TanStack Start with content-collecti
     - Blog post (/blog/opencode-cursor-thoughts): 200
     - Sitemap.xml itself: 200
 
-- [ ] Validate robots.txt
-  - Open robots.txt in browser
-  - Verify content is correct
-  - Use Google's robots.txt tester if desired
+ - [x] Validate robots.txt
+   - Open robots.txt in browser
+   - Verify content is correct
+   - Use Google's robots.txt tester if desired
+   - VERIFIED: robots.txt is served correctly at /robots.txt with expected content
+   - VERIFIED: Sitemap URL in robots.txt is accessible (HTTP 200)
 
 ---
 

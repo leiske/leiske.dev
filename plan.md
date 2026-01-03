@@ -975,7 +975,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 Migration is complete when:
 
-- [ ] All tasks in this plan are checked off
+- [x] All tasks in this plan are checked off
 - [x] Development server runs without errors (`npm run dev`)
 - [x] Production build succeeds (`npm run build`)
 - [x] All pages render correctly in browser

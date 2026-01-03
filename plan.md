@@ -170,13 +170,13 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 1.11 Update tsconfig.app.json
 
-- [ ] Add vitest/globals types (for test support)
-  - Add `"vitest/globals"` to types array
-  - This is required when vitest globals: true is configured
+- [x] Add vitest/globals types (for test support)
+   - Add `"vitest/globals"` to types array
+   - This is required when vitest globals: true is configured
 
-- [ ] Add path aliases if needed
-  - Configure path aliases for cleaner imports
-  - Example: `"@/*": ["./src/*"]`
+- [x] Add path aliases if needed
+   - Configure path aliases for cleaner imports
+   - Example: `"@/*": ["./src/*"]`
 
 ---
 
@@ -271,9 +271,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 3.1 Configure Tailwind in vite.config
 
-- [ ] Verify Tailwind plugin in app.config.ts
-  - Ensure @tailwindcss/vite is imported
-  - Ensure plugin is added to vite.plugins array
+- [x] Verify Tailwind plugin in app.config.ts
+   - Ensure @tailwindcss/vite is imported
+   - Ensure plugin is added to vite.plugins array
 
 ### 3.2 Create Tailwind CSS File
 

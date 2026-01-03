@@ -76,9 +76,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Run: `npm install rehype-autolink-headings`
    - Verify package appears in dependencies
 
-- [ ] Install rehype-stringify
-  - Run: `npm install rehype-stringify`
-  - Verify package appears in dependencies
+ - [x] Install rehype-stringify
+   - Run: `npm install rehype-stringify`
+   - Verify package appears in dependencies
 
 ### 1.4 Install Rendering & Utility Dependencies
 

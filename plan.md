@@ -899,7 +899,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Blog posts load
    - 404 page displays
 
-- [ ] All components render correctly
+- [x] All components render correctly
   - PostList displays posts
   - PostContent displays full post
   - Markdown renders properly

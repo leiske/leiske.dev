@@ -16,21 +16,21 @@
 
 ## Phase 2: Type Definitions
 
-- [ ] Create post type definitions
-  - [ ] Create `src/types/post.ts`
-  - [ ] Define `PostMeta` interface with fields: `slug`, `title`, `date`, `description`, `tags` (string[])
-  - [ ] Define `Post` interface extending `PostMeta` with: `content` (string HTML), `readingTime` (number)
+- [x] Create post type definitions
+  - [x] Create `src/types/post.ts`
+  - [x] Define `PostMeta` interface with fields: `slug`, `title`, `date`, `description`, `tags` (string[])
+  - [x] Define `Post` interface extending `PostMeta` with: `content` (string HTML), `readingTime` (number)
 
-- [ ] Verify types are importable
-  - [ ] Create a test import in `src/App.tsx` to ensure types load correctly
-  - [ ] Remove test import after verification
+- [x] Verify types are importable
+  - [x] Create a test import in `src/App.tsx` to ensure types load correctly
+  - [x] Remove test import after verification
 
 ## Phase 3: Post Loading Utilities
 
-- [ ] Create post parsing utilities
-  - [ ] Create `src/lib/posts.ts`
-  - [ ] Import `gray-matter` for frontmatter parsing
-  - [ ] Import `marked` for markdown-to-HTML conversion
+- [x] Create post parsing utilities
+  - [x] Create `src/lib/posts.ts`
+  - [x] Import `gray-matter` for frontmatter parsing
+  - [x] Import `marked` for markdown-to-HTML conversion
 
 - [ ] Implement calculateReadingTime function
   - [ ] Create `calculateReadingTime(content: string): number` function

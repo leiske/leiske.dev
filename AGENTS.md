@@ -42,6 +42,7 @@
 - Use `!` for non-null assertions only when certain (e.g., `document.getElementById('root')!`)
 - No unused locals or parameters allowed
 - Type errors will fail builds
+- Node types are available in tsconfig.app.json for build-time utilities (fs, path, etc.)
 
 ### Components
 - Use functional components with arrow or function declaration

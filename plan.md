@@ -301,7 +301,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 3.4 Verify Tailwind Works
 
-- [ ] Test dev server
+- [x] Test dev server
   - Run: `npm run dev`
   - Verify server starts without errors
   - Check that Tailwind styles are loaded

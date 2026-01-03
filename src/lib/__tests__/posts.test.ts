@@ -155,4 +155,100 @@ Paragraph with **bold** text.
       }
     }
   });
+
+  it('warns and defaults to empty string when title is missing', () => {
+    const testSlug = 'test-missing-title';
+    const testFilePath = join(process.cwd(), 'posts', `${testSlug}.md`);
+    const frontmatter = `---
+date: 2026-01-02
+slug: test-missing-title
+description: Test description
+---
+Some content
+`;
+
+    writeFileSync(testFilePath, frontmatter, 'utf-8');
+
+    try {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      const result = getPostBySlug(testSlug);
+
+      expect(result).not.toBe(null);
+      expect(result?.title).toBe('');
+      expect(warnSpy).toHaveBeenCalledWith(
+        expect.stringContaining("Missing 'title' in frontmatter for post: test-missing-title")
+      );
+
+      warnSpy.mockRestore();
+    } finally {
+      if (existsSync(testFilePath)) {
+        unlinkSync(testFilePath);
+      }
+    }
+  });
+
+  it('warns and defaults to empty string when date is missing', () => {
+    const testSlug = 'test-missing-date';
+    const testFilePath = join(process.cwd(), 'posts', `${testSlug}.md`);
+    const frontmatter = `---
+title: Test Post
+slug: test-missing-date
+description: Test description
+---
+Some content
+`;
+
+    writeFileSync(testFilePath, frontmatter, 'utf-8');
+
+    try {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      const result = getPostBySlug(testSlug);
+
+      expect(result).not.toBe(null);
+      expect(result?.date).toBe('');
+      expect(warnSpy).toHaveBeenCalledWith(
+        expect.stringContaining("Missing 'date' in frontmatter for post: test-missing-date")
+      );
+
+      warnSpy.mockRestore();
+    } finally {
+      if (existsSync(testFilePath)) {
+        unlinkSync(testFilePath);
+      }
+    }
+  });
+
+  it('warns and defaults to empty string when description is missing', () => {
+    const testSlug = 'test-missing-description';
+    const testFilePath = join(process.cwd(), 'posts', `${testSlug}.md`);
+    const frontmatter = `---
+title: Test Post
+date: 2026-01-02
+slug: test-missing-description
+---
+Some content
+`;
+
+    writeFileSync(testFilePath, frontmatter, 'utf-8');
+
+    try {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      const result = getPostBySlug(testSlug);
+
+      expect(result).not.toBe(null);
+      expect(result?.description).toBe('');
+      expect(warnSpy).toHaveBeenCalledWith(
+        expect.stringContaining("Missing 'description' in frontmatter for post: test-missing-description")
+      );
+
+      warnSpy.mockRestore();
+    } finally {
+      if (existsSync(testFilePath)) {
+        unlinkSync(testFilePath);
+      }
+    }
+  });
 });

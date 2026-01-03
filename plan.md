@@ -129,10 +129,10 @@ Blog utilities (`src/lib/posts.ts`) are the core of data processing. Bugs here a
   - Clean up test file after test
   - Explanation: Verifies end-to-end parsing from markdown to Post object
 
-- [ ] Test markdown to HTML conversion
-  - Create test post with markdown: `# Header\n\nParagraph with **bold** text`
-  - Verify returned `content` contains `<h1>Header</h1>` and `<strong>bold</strong>`
-  - Explanation: Ensures markdown is properly converted to HTML for rendering
+ - [x] Test markdown to HTML conversion
+   - Create test post with markdown: `# Header\n\nParagraph with **bold** text`
+   - Verify returned `content` contains `<h1>Header</h1>` and `<strong>bold</strong>`
+   - Explanation: Ensures markdown is properly converted to HTML for rendering
 
  - [x] Test missing optional frontmatter fields
    - Create test post with no `tags` field
@@ -141,15 +141,15 @@ Blog utilities (`src/lib/posts.ts`) are the core of data processing. Bugs here a
    - Verify `test` defaults to `false`
    - Explanation: Tests default value behavior for optional fields
 
-- [ ] Test required field warnings
-  - Create test post missing `title` field
-  - Verify `title` defaults to `''` and console.warn was called
-  - Create test post missing `date` field
-  - Verify `date` defaults to `''` and console.warn was called
-  - Create test post missing `description` field
-  - Verify `description` defaults to `''` and console.warn was called
-  - Use `vi.spyOn(console, 'warn')` to verify warnings are logged
-  - Explanation: Ensures missing required fields are handled and warnings are logged
+ - [x] Test required field warnings
+   - Create test post missing `title` field
+   - Verify `title` defaults to `''` and console.warn was called
+   - Create test post missing `date` field
+   - Verify `date` defaults to `''` and console.warn was called
+   - Create test post missing `description` field
+   - Verify `description` defaults to `''` and console.warn was called
+   - Use `vi.spyOn(console, 'warn')` to verify warnings are logged
+   - Explanation: Ensures missing required fields are handled and warnings are logged
 
 - [ ] Test markdown parse error handling
   - Create test post that causes marked() to throw an error (malformed markdown)

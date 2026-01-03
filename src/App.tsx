@@ -1,6 +1,6 @@
-import { Home } from './pages/Home.js';
-import { BlogPost } from './pages/BlogPost.js';
-import { NotFound } from './pages/NotFound.js';
+import { Home } from './pages/Home.tsx';
+import { BlogPost } from './pages/BlogPost.tsx';
+import { NotFound } from './pages/NotFound.tsx';
 
 export function App() {
   const pathname = window.location.pathname;

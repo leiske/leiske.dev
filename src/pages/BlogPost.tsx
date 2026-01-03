@@ -1,5 +1,5 @@
-import { PostContent } from '../components/PostContent.js';
-import { getAllPosts, getPostBySlug } from '../lib/posts.js';
+import { PostContent } from '../components/PostContent.tsx';
+import { getAllPosts, getPostBySlug } from '../lib/posts.ts';
 
 interface BlogPostProps {
   slug: string;

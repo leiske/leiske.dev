@@ -78,16 +78,18 @@
 
 ### Required Files
 - `vite.config.ts` - Main configuration with tanstackStart plugin
+- `content-collections.ts` - Content collections configuration for markdown processing
 - `src/router.tsx` - Router configuration with routeTree
 - `src/routes/__root.tsx` - Root layout route
 - `src/routeTree.gen.ts` - Auto-generated route tree (created by dev server)
 
 ### Plugin Order in vite.config.ts
 The plugins array must have this specific order:
-1. `tsConfigPaths()` - For path aliases
-2. `tanstackStart()` - TanStack Start main plugin
-3. `tailwindcss()` - Tailwind CSS
-4. `viteReact()` - React plugin (must come after tanstackStart)
+1. `contentCollections()` - Content collections plugin (must come first)
+2. `tsConfigPaths()` - For path aliases
+3. `tanstackStart()` - TanStack Start main plugin
+4. `tailwindcss()` - Tailwind CSS
+5. `viteReact()` - React plugin (must come after tanstackStart)
 
 ### TanStack Router Routes
 - Routes in `src/routes/` directory use file-based routing
@@ -97,6 +99,35 @@ The plugins array must have this specific order:
 - `blog.index.tsx` - Blog index (/blog)
 - Use `createFileRoute()` from '@tanstack/react-router'
 - Use `Route.useLoaderData()` to access loader data in components
+
+## Content Collections Configuration
+
+### Configuration File
+- `content-collections.ts` - Defines markdown processing configuration in project root
+- Imports: `defineCollection`, `defineConfig` from '@content-collections/core'
+- Imports: `matter` from 'gray-matter', `z` from 'zod'
+
+### Schema Definition
+- Use `defineCollection()` to define collections
+- Use `z.object()` to define schema with zod validation
+- Required fields: title, date, description, slug, tags, content
+- Optional fields: test (boolean)
+
+### Transform Function
+- Process markdown files with gray-matter
+- Override slug to use `_meta.path`
+- Calculate reading time: split content by whitespace, count words, divide by 200, Math.ceil
+- Return object with all schema fields plus readingTime
+
+### Generated Files
+- `.content-collections/generated/allPosts.js` - All posts data
+- `.content-collections/generated/index.d.ts` - TypeScript types
+- Import with: `import { allPosts } from 'content-collections'`
+
+### Important Notes
+- Add explicit `content` field to schema to avoid deprecation warning
+- Transform function receives validated schema fields in `document` parameter
+- Use `matter(document.content)` to separate frontmatter from markdown body
 
 ## Static Site Generation
 - Build script at `scripts/build-static.ts` generates static HTML

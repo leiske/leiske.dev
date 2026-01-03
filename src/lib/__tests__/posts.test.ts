@@ -1,4 +1,4 @@
-import { calculateReadingTime } from '../posts.js';
+import { calculateReadingTime, getPostBySlug } from '../posts.js';
 
 describe('calculateReadingTime', () => {
   it('calculates 1 minute for 100 words', () => {
@@ -26,5 +26,12 @@ describe('calculateReadingTime', () => {
 
   it('handles various whitespace characters', () => {
     expect(calculateReadingTime('word\nword\tword')).toBe(1);
+  });
+});
+
+describe('getPostBySlug', () => {
+  it('returns null for non-existent post', () => {
+    const result = getPostBySlug('non-existent-post');
+    expect(result).toBe(null);
   });
 });

@@ -654,11 +654,11 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 8.3 Test Blog Index Page
 
-- [ ] Navigate to /blog
-  - Verify "All Posts" heading is displayed
-  - Verify all non-test posts are listed
-  - Verify posts are sorted by date (newest first)
-  - Click on a post link, verify navigation works
+- [x] Navigate to /blog
+   - Verify "All Posts" heading is displayed
+   - Verify all non-test posts are listed
+   - Verify posts are sorted by date (newest first)
+   - Click on a post link, verify navigation works
 
 ### 8.4 Test Individual Blog Post Page
 
@@ -881,15 +881,15 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 10.4 Run Linting
 
-- [ ] Run linter
-  - Run: `npm run lint`
-  - Review linting errors
-  - Fix any linting issues
+- [x] Run linter
+   - Run: `npm run lint`
+   - Review linting errors
+   - Fix any linting issues
 
-- [ ] Run TypeScript type checking
-  - Run: `tsc -b` (or use npm run build which includes typecheck)
-  - Review type errors
-  - Fix any type errors
+ - [x] Run TypeScript type checking
+   - Run: `tsc -b` (or use npm run build which includes typecheck)
+   - Review type errors
+   - Fix any type errors
 
 ### 10.5 Final Verification Checklist
 

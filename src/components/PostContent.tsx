@@ -1,6 +1,7 @@
 import type { Post } from '../types/post.js';
 import { Link } from '@tanstack/react-router';
 import { Markdown } from './Markdown';
+import { SocialLinks } from './SocialLinks';
 
 interface PostContentProps {
   post: Post;
@@ -35,22 +36,25 @@ export function PostContent({ post, nextPost }: PostContentProps) {
       
       <Markdown content={post.content} className="prose prose-lg max-w-none" />
       
-      <div className="mt-12 pt-8 border-t flex justify-between items-center">
-        <Link
-          to="/"
-          className="text-blue-600 hover:text-blue-800 font-medium"
-        >
-          ← Back to home
-        </Link>
-        {nextPost && (
+      <div className="mt-12 pt-8 border-t flex flex-col gap-4">
+        <div className="flex justify-between items-center">
           <Link
-            to="/blog/$slug"
-            params={{ slug: nextPost.slug }}
+            to="/"
             className="text-blue-600 hover:text-blue-800 font-medium"
           >
-            Next post: {nextPost.title} →
+            ← Back to home
           </Link>
-        )}
+          {nextPost && (
+            <Link
+              to="/blog/$slug"
+              params={{ slug: nextPost.slug }}
+              className="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              Next post: {nextPost.title} →
+            </Link>
+          )}
+        </div>
+        <SocialLinks />
       </div>
     </article>
   );

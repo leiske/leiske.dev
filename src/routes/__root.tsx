@@ -50,6 +50,9 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
             <Link to="/blog" className="text-gray-600 hover:text-blue-600">
               Blog
             </Link>
+            <Link to="/about" className="text-gray-600 hover:text-blue-600 ml-6">
+              About
+            </Link>
           </div>
         </header>
         {children}

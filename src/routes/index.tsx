@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { allPosts } from 'content-collections';
 import type { Post } from 'content-collections';
 import { PostList } from '../components/PostList.js';
+import { SocialLinks } from '../components/SocialLinks';
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -29,6 +30,9 @@ function Home() {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Recent Posts</h1>
       <PostList posts={recentPosts} />
+      <div className="mt-12 pt-8 border-t">
+        <SocialLinks />
+      </div>
     </div>
   );
 }

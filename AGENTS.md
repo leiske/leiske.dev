@@ -101,6 +101,14 @@ The plugins array must have this specific order:
 - Use `Route.useLoaderData()` to access loader data in components
 - 404 pages: Add `notFoundComponent` to root route configuration (do NOT create separate 404.tsx file)
 
+### TanStack Router Link Component
+- Import from '@tanstack/react-router': `import { Link } from '@tanstack/react-router'`
+- Static routes: `<Link to="/blog">Blog</Link>`
+- Dynamic routes: Use route pattern in `to` prop and pass params via `params` prop
+  - Example: `<Link to="/blog/$slug" params={{ slug: 'my-post' }}>My Post</Link>`
+  - The `to` prop must match the route pattern (e.g., `/blog/$slug` for `blog.$slug.tsx`)
+  - Dynamic parameters are passed separately via `params` object, not interpolated in the string
+
 ## Content Collections Configuration
 
 ### Configuration File

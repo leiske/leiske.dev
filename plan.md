@@ -111,12 +111,12 @@ Blog utilities (`src/lib/posts.ts`) are the core of data processing. Bugs here a
 
 **File:** Continue in `src/lib/__tests__/posts.test.ts`
 
-- [ ] Test missing post returns null
-  - Create test: `getPostBySlug('non-existent-post')` returns `null`
-  - Use `vi.spyOn(console, 'warn').mockImplementation(() => {})` to suppress expected errors
-  - Explanation: Verifies graceful handling when post file doesn't exist
+ - [x] Test missing post returns null
+   - Create test: `getPostBySlug('non-existent-post')` returns `null`
+   - Use `vi.spyOn(console, 'warn').mockImplementation(() => {})` to suppress expected errors
+   - Explanation: Verifies graceful handling when post file doesn't exist
 
-- [ ] Test valid post parsing
+- [x] Test valid post parsing
   - Create a temporary test post in `posts/__tests__/valid-post.md` with complete frontmatter
   - Test that `getPostBySlug('valid-post')` returns object with:
     - `slug` matches the input slug

@@ -118,9 +118,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Run: `npm uninstall marked`
    - Verify package removed from dependencies
 
-- [ ] Remove @vitejs/plugin-react (TanStack Start handles this)
-  - Run: `npm uninstall @vitejs/plugin-react`
-  - Verify package removed from devDependencies
+- [x] Remove @vitejs/plugin-react (TanStack Start handles this)
+   - Run: `npm uninstall @vitejs/plugin-react`
+   - Verify package removed from devDependencies
 
 ### 1.7 Update package.json Scripts
 

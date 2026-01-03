@@ -16,6 +16,7 @@ dist-scripts
 # Generated files
 .content-collections/generated/
 src/routeTree.gen.ts
+public/sitemap.xml
 
 # Editor directories and files
 .vscode/*

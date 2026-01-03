@@ -336,6 +336,6 @@
 - [x] Reading time is displayed on post pages
 - [x] "Next post" navigation works when applicable
 - [x] Build process completes without errors
-- [ ] `npm run lint` passes
+- [x] `npm run lint` passes
 - [ ] `npm run build` generates correct static files
 - [ ] `npm run preview` shows working static site

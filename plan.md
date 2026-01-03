@@ -146,20 +146,21 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 1.8 Create app.config.ts
 
-- [ ] Create app.config.ts in project root
-  - Create file with TanStack Start configuration
-  - Configure vite plugins with React and Tailwind
-  - Configure route file prefix as 'routes/'
-  - Configure generated route tree as './src/routeTree.gen.ts'
-  - Enable static prerendering with link crawling
-  - Enable sitemap generation with host URL
+- [x] Update vite.config.ts instead (TanStack Start migrated from Vinxi to Vite in v1.121.0)
+  - Configure vite.config.ts with tanstackStart plugin
+  - Add tsConfigPaths for path alias support
+  - Keep tailwindcss plugin
+  - Keep viteReact plugin (must come after tanstackStart)
+  - Set server port to 3000
 
 ### 1.9 Update vite.config.ts
 
-- [ ] Simplify vite.config.ts
-  - Remove old plugin configurations
-  - Import app.config from TanStack Start
-  - Keep minimal configuration needed for TanStack Start
+- [x] Simplify vite.config.ts
+  - Remove old react plugin from before tanstackStart
+  - Import tanstackStart from '@tanstack/react-start/plugin/vite'
+  - Import tsConfigPaths from 'vite-tsconfig-paths'
+  - Configure plugins array with correct order
+  - Keep existing build configuration
 
 ### 1.10 Update tsconfig.json
 

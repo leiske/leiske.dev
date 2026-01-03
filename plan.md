@@ -702,14 +702,15 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Check Open Graph tags
    - Check Twitter card tags
 
-- [ ] Verify blog post meta tags
-  - Navigate to a blog post
-  - Check <title> tag (should be post title)
-  - Check meta description (should be post description)
-  - Check Open Graph tags (should be post-specific)
-  - Check Twitter card tags
-  - Check canonical URL
-  - Check structured data (JSON-LD)
+- [x] Verify blog post meta tags
+   - Navigate to a blog post
+   - Check <title> tag (should be post title)
+   - Check meta description (should be post description)
+   - Check Open Graph tags (should be post-specific)
+   - Check Twitter card tags
+   - Check canonical URL
+   - Check structured data (JSON-LD)
+   - NOTE: Fixed JSON-LD structured data by changing scripts config from `innerHTML` to `children` in src/routes/blog.$slug.tsx
 
 ### 8.8 Test Navigation
 

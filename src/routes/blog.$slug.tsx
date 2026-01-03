@@ -50,7 +50,7 @@ export const Route = createFileRoute('/blog/$slug')({
       scripts: [
         {
           type: 'application/ld+json',
-          innerHTML: JSON.stringify({
+          children: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Article',
             headline: loaderData.post.title,

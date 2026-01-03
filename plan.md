@@ -82,9 +82,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 1.4 Install Rendering & Utility Dependencies
 
-- [ ] Install html-react-parser
-  - Run: `npm install html-react-parser`
-  - Verify package appears in dependencies
+ - [x] Install html-react-parser
+   - Run: `npm install html-react-parser`
+   - Verify package appears in dependencies
 
 - [ ] Install shiki for syntax highlighting
   - Run: `npm install shiki`

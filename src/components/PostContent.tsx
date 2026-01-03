@@ -1,4 +1,6 @@
 import type { Post } from '../types/post.js';
+import { Link } from '@tanstack/react-router';
+import { Markdown } from './Markdown';
 
 interface PostContentProps {
   post: Post;
@@ -31,25 +33,23 @@ export function PostContent({ post, nextPost }: PostContentProps) {
         )}
       </div>
       
-      <div
-        className="prose prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+      <Markdown content={post.content} className="prose prose-lg max-w-none" />
       
       <div className="mt-12 pt-8 border-t flex justify-between items-center">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="text-blue-600 hover:text-blue-800 font-medium"
         >
           ← Back to home
-        </a>
+        </Link>
         {nextPost && (
-          <a
-            href={`/blog/${nextPost.slug}/`}
+          <Link
+            to="/blog/$slug"
+            params={{ slug: nextPost.slug }}
             className="text-blue-600 hover:text-blue-800 font-medium"
           >
             Next post: {nextPost.title} →
-          </a>
+          </Link>
         )}
       </div>
     </article>

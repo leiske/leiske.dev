@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { allPosts } from '.content-collections/generated';
-import type { Post } from '.content-collections/generated';
+import { allPosts } from 'content-collections';
+import type { Post } from 'content-collections';
 import { PostList } from '../components/PostList.js';
 
 export const Route = createFileRoute('/blog/')({

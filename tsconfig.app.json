@@ -11,7 +11,8 @@
     /* Path aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "content-collections": ["./.content-collections/generated"]
     },
 
     /* Bundler mode */

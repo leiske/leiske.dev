@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
-import { allPosts } from '.content-collections/generated'
-import type { Post } from '.content-collections/generated'
+import { allPosts } from 'content-collections'
+import type { Post } from 'content-collections'
 import { PostContent } from '../components/PostContent'
 
 export const Route = createFileRoute('/blog/$slug')({

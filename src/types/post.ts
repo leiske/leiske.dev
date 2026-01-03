@@ -1,4 +1,4 @@
-import type { Post as ContentCollectionPost } from '../../.content-collections/generated/index.js';
+import type { Post as ContentCollectionPost } from 'content-collections';
 
 export type Post = ContentCollectionPost;
 

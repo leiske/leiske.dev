@@ -5,13 +5,12 @@ import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import contentCollections from '@content-collections/vite'
 import { sitemapPlugin } from '@corentints/tanstack-router-sitemap'
-import type { Post } from './.content-collections/generated/index.d.js'
 
 export default defineConfig({
   server: {
     port: 3000,
     watch: {
-      ignored: ['.content-collections/generated/', 'src/routeTree.gen.ts'],
+      ignored: ['**/.content-collections/**', '**/src/routeTree.gen.ts'],
     },
   },
   plugins: [
@@ -34,9 +33,12 @@ export default defineConfig({
         },
       },
       manualRoutes: async () => {
+        // Dynamic import from generated files - this runs at build time after content-collections generates
         const { allPosts } = await import('./.content-collections/generated/index.js')
-        const posts = allPosts.filter((post: Post) => !post.test)
-        return posts.map((post: Post) => ({
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const posts = allPosts.filter((post: any) => !post.test)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return posts.map((post: any) => ({
           location: `/blog/${post.slug}`,
           priority: 0.8,
           changeFrequency: 'weekly' as const,

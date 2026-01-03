@@ -557,9 +557,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Run: `rm scripts/build-static.ts`
    - Verify file is removed
 
-- [ ] Delete dist-scripts directory if exists
-  - Run: `rm -rf dist-scripts`
-  - Verify directory is removed
+ - [x] Delete dist-scripts directory if exists
+   - Run: `rm -rf dist-scripts`
+   - Verify directory is removed
 
 - [ ] Remove build script references from package.json
   - Ensure no references to custom build scripts

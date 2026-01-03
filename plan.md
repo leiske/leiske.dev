@@ -94,42 +94,42 @@
     - Add Tailwind classes for spacing and typography
   - [x] Handle empty array case (show "No posts available" message or empty list)
 
-- [ ] Create PostContent component
-  - [ ] Create `src/components/PostContent.tsx`
-  - [ ] Define props interface: `post: Post`, `nextPost: Post | null`
-  - [ ] Render post title as `<h1>` with Tailwind typography
-  - [ ] Render metadata row containing:
-    - Date formatted to user's locale
-    - Reading time (e.g., "3 min read")
-    - Tags as a list of badges/spans
-  - [ ] Render post content HTML using `dangerouslySetInnerHTML`
-  - [ ] Add `prose` class from Tailwind Typography to content container
-  - [ ] Render "Next post" link at bottom if `nextPost` exists
-  - [ ] Add back to home link at bottom
-  - [ ] Use appropriate Tailwind classes for spacing and layout
+- [x] Create PostContent component
+   - [x] Create `src/components/PostContent.tsx`
+   - [x] Define props interface: `post: Post`, `nextPost: Post | null`
+   - [x] Render post title as `<h1>` with Tailwind typography
+   - [x] Render metadata row containing:
+     - Date formatted to user's locale
+     - Reading time (e.g., "3 min read")
+     - Tags as a list of badges/spans
+   - [x] Render post content HTML using `dangerouslySetInnerHTML`
+   - [x] Add `prose` class from Tailwind Typography to content container
+   - [x] Render "Next post" link at bottom if `nextPost` exists
+   - [x] Add back to home link at bottom
+   - [x] Use appropriate Tailwind classes for spacing and layout
 
 ## Phase 6: Create Page Templates
 
-- [ ] Create Home page component
-  - [ ] Create `src/pages/Home.tsx`
-  - [ ] Import `PostList` component
-  - [ ] Import `getAllPosts` from `src/lib/posts.ts`
-  - [ ] Call `getAllPosts()` to get all posts
-  - [ ] Slice to get first 5 posts: `.slice(0, 5)`
-  - [ ] Render a heading (e.g., "Recent Posts")
-  - [ ] Render `PostList` with the 5 posts
-  - [ ] Add basic page container with Tailwind classes (padding, max-width, etc.)
+- [x] Create Home page component
+   - [x] Create `src/pages/Home.tsx`
+   - [x] Import `PostList` component
+   - [x] Import `getAllPosts` from `src/lib/posts.ts`
+   - [x] Call `getAllPosts()` to get all posts
+   - [x] Slice to get first 5 posts: `.slice(0, 5)`
+   - [x] Render a heading (e.g., "Recent Posts")
+   - [x] Render `PostList` with the 5 posts
+   - [x] Add basic page container with Tailwind classes (padding, max-width, etc.)
 
-- [ ] Create BlogPost page template
-  - [ ] Create `src/pages/BlogPost.tsx`
-  - [ ] Define props: `slug: string` (for build-time generation)
-  - [ ] Import `PostContent` component
-  - [ ] Import `getPostBySlug` and `getAllPosts` from `src/lib/posts.ts`
-  - [ ] Call `getPostBySlug(slug)` to get the post
-  - [ ] Call `getAllPosts()` to find the next post (find post with date before current post's date)
-  - [ ] If post is null, render "Post not found" message
-  - [ ] Otherwise, render `PostContent` with the post and next post
-  - [ ] Add page container with Tailwind classes
+- [x] Create BlogPost page template
+  - [x] Create `src/pages/BlogPost.tsx`
+  - [x] Define props: `slug: string` (for build-time generation)
+  - [x] Import `PostContent` component
+  - [x] Import `getPostBySlug` and `getAllPosts` from `src/lib/posts.ts`
+  - [x] Call `getPostBySlug(slug)` to get the post
+  - [x] Call `getAllPosts()` to find the next post (find post with date before current post's date)
+  - [x] If post is null, render "Post not found" message
+  - [x] Otherwise, render `PostContent` with the post and next post
+  - [x] Add page container with Tailwind classes
 
 ## Phase 7: Update App Entry Point
 

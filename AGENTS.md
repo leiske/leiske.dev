@@ -92,3 +92,11 @@
 - Tailwind v4 imported via Vite plugin, not PostCSS config
 - React 19 - no need for `import React from 'react'`
 - ES2022 target for app, ES2023 for build scripts
+
+### Static Site Generation
+- Build script in `scripts/build-static.ts` generates static HTML pages
+- Compile build script separately: `npx tsc scripts/build-static.ts --outDir dist-scripts --module esnext --target es2023 --moduleResolution bundler --jsx react-jsx --skipLibCheck --strict`
+- Run compiled script: `node dist-scripts/scripts/build-static.js`
+- Build script is excluded from `tsconfig.node.json` to avoid JSX conflicts
+- Vite configured to output CSS with fixed names (no hashing) via `vite.config.ts`
+- `dist-scripts/` directory is gitignored

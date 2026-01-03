@@ -149,50 +149,50 @@
 
 ## Phase 8: Build Script for Static Generation
 
-- [ ] Create build script directory
-  - [ ] Create `scripts/` directory if it doesn't exist
+- [x] Create build script directory
+  - [x] Create `scripts/` directory if it doesn't exist
 
-- [ ] Create build script
-  - [ ] Create `scripts/build-static.ts`
-  - [ ] Import required dependencies: `fs`, `path`, `react-dom/server`, posts utilities, page components
+- [x] Create build script
+  - [x] Create `scripts/build-static.ts`
+  - [x] Import required dependencies: `fs`, `path`, `react-dom/server`, posts utilities, page components
 
-- [ ] Implement ensureDirectoryExists utility
-  - [ ] Create helper function to ensure a directory exists
-  - [ ] Use `fs.existsSync` to check
-  - [ ] Use `fs.mkdirSync` with `recursive: true` if not exists
+- [x] Implement ensureDirectoryExists utility
+  - [x] Create helper function to ensure a directory exists
+  - [x] Use `fs.existsSync` to check
+  - [x] Use `fs.mkdirSync` with `recursive: true` if not exists
 
-- [ ] Implement renderPage utility
-  - [ ] Create `renderPage(jsxComponent: React.ReactElement): string` function
-  - [ ] Use `ReactDOMServer.renderToStaticMarkup()` to convert JSX to HTML string
-  - [ ] Wrap the component in a basic HTML shell with:
+- [x] Implement renderPage utility
+  - [x] Create `renderPage(jsxComponent: React.ReactElement): string` function
+  - [x] Use `ReactDOMServer.renderToStaticMarkup()` to convert JSX to HTML string
+  - [x] Wrap the component in a basic HTML shell with:
     - `<!DOCTYPE html>`
     - `<html>` and `<head>` with title, charset, viewport meta
     - Link to Vite-generated CSS (will need to copy from build output)
     - `<body>` with the rendered component
-  - [ ] Return complete HTML string
+  - [x] Return complete HTML string
 
-- [ ] Implement build script main function
-  - [ ] Get `getAllPosts()` to retrieve all posts
-  - [ ] Render homepage using `Home` component via `renderPage`
-  - [ ] Write homepage HTML to `dist/index.html`
+- [x] Implement build script main function
+  - [x] Get `getAllPosts()` to retrieve all posts
+  - [x] Render homepage using `Home` component via `renderPage`
+  - [x] Write homepage HTML to `dist/index.html`
 
-- [ ] Implement blog post generation in build script
-  - [ ] For each post in `getAllPosts()`:
+- [x] Implement blog post generation in build script
+  - [x] For each post in `getAllPosts()`:
     - Create directory path: `dist/blog/${post.slug}/`
     - Use `ensureDirectoryExists` to create directory
     - Render post using `BlogPost({ slug: post.slug })` via `renderPage`
     - Write HTML to `dist/blog/${post.slug}/index.html`
 
-- [ ] Add error handling to build script
-  - [ ] Wrap main logic in try-catch
-  - [ ] Log errors clearly with file paths
-  - [ ] Exit with non-zero code on failure
+- [x] Add error handling to build script
+  - [x] Wrap main logic in try-catch
+  - [x] Log errors clearly with file paths
+  - [x] Exit with non-zero code on failure
 
-- [ ] Add console logging for build progress
-  - [ ] Log "Building static site..."
-  - [ ] Log "Homepage generated"
-  - [ ] Log "Generated N posts" with count
-  - [ ] Log "Build complete" on success
+- [x] Add console logging for build progress
+  - [x] Log "Building static site..."
+  - [x] Log "Homepage generated"
+  - [x] Log "Generated N posts" with count
+  - [x] Log "Build complete" on success
 
 ## Phase 9: Vite Configuration for Static Build
 

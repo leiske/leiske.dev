@@ -24,8 +24,9 @@
 
 ## Tech Stack
 - React 19.2.0 with functional components
+- TanStack Start 1.145.3 with TanStack Router for SSR/SSG and file-based routing
 - TypeScript 5.9.3 (strict mode enabled)
-- Vite (rolldown-vite 7.2.5) as bundler
+- Vite (rolldown-vite 7.2.5) as bundler (TanStack Start migrated from Vinxi to Vite in v1.121.0)
 - Tailwind CSS v4.1.18 for styling
 - ESLint 9.x with TypeScript, React Hooks, and React Refresh plugins
 
@@ -72,6 +73,30 @@
 1. Run `npm run lint` to check for linting errors
 2. Run `npm run build` to verify TypeScript and build succeeds
 3. Test in development mode with `npm run dev`
+
+## TanStack Start Configuration
+
+### Required Files
+- `vite.config.ts` - Main configuration with tanstackStart plugin
+- `src/router.tsx` - Router configuration with routeTree
+- `src/routes/__root.tsx` - Root layout route
+- `src/routeTree.gen.ts` - Auto-generated route tree (created by dev server)
+
+### Plugin Order in vite.config.ts
+The plugins array must have this specific order:
+1. `tsConfigPaths()` - For path aliases
+2. `tanstackStart()` - TanStack Start main plugin
+3. `tailwindcss()` - Tailwind CSS
+4. `viteReact()` - React plugin (must come after tanstackStart)
+
+### TanStack Router Routes
+- Routes in `src/routes/` directory use file-based routing
+- `__root.tsx` - Root layout
+- `index.tsx` - Home page (/)
+- `blog.$slug.tsx` - Blog posts (/blog/:slug)
+- `blog.index.tsx` - Blog index (/blog)
+- Use `createFileRoute()` from '@tanstack/react-router'
+- Use `Route.useLoaderData()` to access loader data in components
 
 ## Static Site Generation
 - Build script at `scripts/build-static.ts` generates static HTML

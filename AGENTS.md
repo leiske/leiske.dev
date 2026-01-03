@@ -140,6 +140,43 @@ The plugins array must have this specific order:
 - Use `matter(document.content)` to separate frontmatter from markdown body
 - Generated files (`.content-collections/generated/` and `src/routeTree.gen.ts`) should be gitignored
 
+## Sitemap Generation
+
+### Plugin
+- Uses `@corentints/tanstack-router-sitemap` plugin for automatic sitemap generation
+- Imported in `vite.config.ts`: `import { sitemapPlugin } from '@corentints/tanstack-router-sitemap'`
+
+### Configuration
+- Add `sitemapPlugin()` to plugins array in `vite.config.ts`
+- Required option: `baseUrl` (e.g., 'https://leiske.dev')
+- Optional option: `outputPath` (default: 'public/sitemap.xml')
+- Optional option: `routeOptions` for custom priority and changefreq per route
+- Optional option: `manualRoutes` for dynamic routes (blog posts, articles)
+
+### Manual Routes for Dynamic Content
+- Use `manualRoutes` option to include dynamic routes like blog posts
+- Function can be async to fetch data from content-collections or database
+- Example:
+  ```typescript
+  manualRoutes: async () => {
+    const { allPosts } = await import('./.content-collections/generated/index.js')
+    const posts = allPosts.filter((post: any) => !post.test)
+    return posts.map((post: any) => ({
+      location: `/blog/${post.slug}`,
+      priority: 0.8,
+      changeFrequency: 'weekly' as const,
+      lastMod: post.date,
+    }))
+  }
+  ```
+
+### Generated Sitemap
+- Sitemap is automatically generated during build (`npm run build`)
+- Output file: `public/sitemap.xml`
+- Includes static routes from route tree
+- Includes dynamic routes from manualRoutes
+- Excludes test posts and routes in excludeRoutes array
+
 ## Static Site Generation
 - TanStack Start handles SSG automatically
 - Build process generates static HTML via `npm run build`

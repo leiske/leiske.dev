@@ -1,13 +1,5 @@
-export interface PostMeta {
-  slug: string;
-  title: string;
-  date: string;
-  description: string;
-  tags: string[];
-  test?: boolean;
-}
+import type { Post as ContentCollectionPost } from '../../.content-collections/generated/index.js';
 
-export interface Post extends PostMeta {
-  content: string;
-  readingTime: number;
-}
+export type Post = ContentCollectionPost;
+
+export type PostMeta = Pick<Post, 'slug' | 'title' | 'date' | 'description' | 'tags' | 'test'>;

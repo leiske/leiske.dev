@@ -474,29 +474,29 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 5.3 Create Markdown Component
 
-- [ ] Create src/components/Markdown.tsx
-  - Import parse from html-react-parser
-  - Import renderMarkdown from '../utils/markdown'
-  - Import Link from '@tanstack/react-router'
-  - Import useEffect, useState from 'react'
+- [x] Create src/components/Markdown.tsx
+   - Import parse from html-react-parser
+   - Import renderMarkdown from '../utils/markdown'
+   - Import Link from '@tanstack/react-router'
+   - Import useEffect, useState from 'react'
 
-- [ ] Define Markdown component props
-  - content: string
-  - className?: string
+- [x] Define Markdown component props
+   - content: string
+   - className?: string
 
-- [ ] Implement markdown processing
-  - useState for result (MarkdownResult | null)
-  - useEffect to call renderMarkdown on content change
-  - Handle loading state
+- [x] Implement markdown processing
+   - useState for result (MarkdownResult | null)
+   - useEffect to call renderMarkdown on content change
+   - Handle loading state
 
-- [ ] Configure html-react-parser options
-  - Replace function for Element nodes
-  - Handle internal links: convert <a> with href starting with '/' to Link components
-  - Handle images: add loading="lazy" and className for styling
+- [x] Configure html-react-parser options
+   - Replace function for Element nodes
+   - Handle internal links: convert <a> with href starting with '/' to Link components
+   - Handle images: add loading="lazy" and className for styling
 
-- [ ] Render markup
-  - Parse result.markup with options
-  - Wrap in div with className prop
+- [x] Render markup
+   - Parse result.markup with options
+   - Wrap in div with className prop
 
 ---
 

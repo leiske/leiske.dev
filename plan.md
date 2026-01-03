@@ -337,5 +337,5 @@
 - [x] "Next post" navigation works when applicable
 - [x] Build process completes without errors
 - [x] `npm run lint` passes
-- [ ] `npm run build` generates correct static files
+- [x] `npm run build` generates correct static files
 - [ ] `npm run preview` shows working static site

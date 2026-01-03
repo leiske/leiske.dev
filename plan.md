@@ -98,9 +98,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
   - Run: `npm install zod`
   - Verify package appears in dependencies
 
-- [ ] Install unist-util-visit (AST traversal)
-  - Run: `npm install unist-util-visit`
-  - Verify package appears in dependencies
+ - [x] Install unist-util-visit (AST traversal)
+   - Run: `npm install unist-util-visit`
+   - Verify package appears in dependencies
 
 - [ ] Install hast-util-to-string (AST to string)
   - Run: `npm install hast-util-to-string`

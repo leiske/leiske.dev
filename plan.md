@@ -223,12 +223,12 @@
   - [x] Change to: `"build": "tsc -b && vite build && node dist-scripts/build-static.js"`
   - [x] Ensure script executes in order
 
-- [ ] Test full build process
-  - [ ] Run `npm run build`
-  - [ ] Verify it completes without errors
-  - [ ] Check `dist/index.html` exists and contains homepage content
-  - [ ] Check `dist/blog/opencode-cursor-thoughts/index.html` exists
-  - [ ] Verify post page contains full post content
+ - [x] Test full build process
+   - [x] Run `npm run build`
+   - [x] Verify it completes without errors
+   - [x] Check `dist/index.html` exists and contains homepage content
+   - [x] Check `dist/blog/opencode-cursor-thoughts/index.html` exists
+   - [x] Verify post page contains full post content
 
 ## Phase 11: Verify Static Output
 

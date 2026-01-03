@@ -127,4 +127,32 @@ Some content
       }
     }
   });
+
+  it('converts markdown to HTML correctly', () => {
+    const testSlug = 'test-markdown-conversion';
+    const testFilePath = join(process.cwd(), 'posts', `${testSlug}.md`);
+    const frontmatter = `---
+title: Test Post
+date: 2026-01-02
+slug: test-markdown-conversion
+description: Test description
+---
+# Header
+
+Paragraph with **bold** text.
+`;
+
+    writeFileSync(testFilePath, frontmatter, 'utf-8');
+
+    try {
+      const result = getPostBySlug(testSlug);
+      expect(result).not.toBe(null);
+      expect(result?.content).toContain('<h1>Header</h1>');
+      expect(result?.content).toContain('<strong>bold</strong>');
+    } finally {
+      if (existsSync(testFilePath)) {
+        unlinkSync(testFilePath);
+      }
+    }
+  });
 });

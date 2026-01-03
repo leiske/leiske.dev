@@ -124,24 +124,25 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 1.7 Update package.json Scripts
 
-- [ ] Update dev script
+- [x] Update dev script
   - Change from `vite` to use TanStack Start dev command
-  - Run: `npm pkg set scripts.dev="vite"`
-  - Verify scripts.dev is `"vite"`
+  - Run: `npm pkg set scripts.dev="vite dev --port 3000"`
+  - Verify scripts.dev is `"vite dev --port 3000"`
 
-- [ ] Update build script
-  - Change from `tsc -b && vite build` to use vinxi build
-  - Run: `npm pkg set scripts.build="vinxi build"`
-  - Verify scripts.build is `"vinxi build"`
+- [x] Update build script
+  - Change from `tsc -b && vite build` to use vite build (TanStack Start migrated from Vinxi to Vite)
+  - Run: `npm pkg set scripts.build="vite build"`
+  - Verify scripts.build is `"vite build"`
 
-- [ ] Update start script
-  - Change from `vite preview` to use vinxi start
-  - Run: `npm pkg set scripts.start="vinxi start"`
-  - Verify scripts.start is `"vinxi start"`
+- [x] Update start script
+  - Change from `vite preview` to use node .output/server/index.mjs
+  - Run: `npm pkg set scripts.start="node .output/server/index.mjs"`
+  - Verify scripts.start is `"node .output/server/index.mjs"`
 
-- [ ] Remove custom build script references
-  - Remove any references to `node dist-scripts/scripts/build-static.js`
-  - Ensure build process uses only TanStack Start
+- [x] Remove custom build script references
+  - Removed references to `node dist-scripts/scripts/build-static.js`
+  - Removed `tsc -b` and custom build script compilation
+  - Build process now uses only TanStack Start (Vite)
 
 ### 1.8 Create app.config.ts
 

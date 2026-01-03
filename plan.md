@@ -48,9 +48,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 1.3 Install Unified Markdown Processing Dependencies
 
-- [ ] Install unified
-  - Run: `npm install unified`
-  - Verify package appears in dependencies
+ - [x] Install unified
+   - Run: `npm install unified`
+   - Verify package appears in dependencies
 
 - [ ] Install remark-parse
   - Run: `npm install remark-parse`

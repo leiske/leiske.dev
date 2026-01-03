@@ -21,7 +21,8 @@
     "marked": "^17.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@content-collections/core": "^0.13.0",

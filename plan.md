@@ -16,11 +16,11 @@ This plan focuses on **high-value behavioral tests** that verify user-facing out
 
 ### Setup Vitest and Testing Libraries
 
-- [ ] Install test dependencies
+- [x] Install test dependencies
   - Run: `npm install -D vitest @testing-library/react @testing-library/jest-dom happy-dom @vitest/ui`
   - Verify packages appear in `package.json` devDependencies
 
-- [ ] Create Vitest configuration
+- [x] Create Vitest configuration
   - Create `vitest.config.ts` with:
     ```typescript
     import { defineConfig } from 'vitest/config'
@@ -43,7 +43,7 @@ This plan focuses on **high-value behavioral tests** that verify user-facing out
     ```
   - This configures React support, DOM environment, and test globals
 
-- [ ] Create test setup file
+- [x] Create test setup file
   - Create `src/test/setup.ts` with:
     ```typescript
     import '@testing-library/jest-dom'

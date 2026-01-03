@@ -41,17 +41,24 @@ export default defineConfig({
         },
       },
       manualRoutes: async () => {
-        // Dynamic import from generated files - this runs at build time after content-collections generates
-        const { allPosts } = await import('./.content-collections/generated/index.js')
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const posts = allPosts.filter((post: any) => !post.test)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return posts.map((post: any) => ({
-          location: `/blog/${post.slug}`,
-          priority: 0.8,
-          changeFrequency: 'weekly' as const,
-          lastMod: post.date,
-        }))
+        try {
+          // Use absolute path with file:// protocol for proper resolution
+          const modulePath = `file://${process.cwd()}/.content-collections/generated/index.js`
+          const { allPosts } = await import(modulePath)
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const posts = allPosts.filter((post: any) => !post.test)
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          return posts.map((post: any) => ({
+            location: `/blog/${post.slug}`,
+            priority: 0.8,
+            changeFrequency: 'weekly' as const,
+            lastMod: post.date,
+          }))
+        } catch (error) {
+          // If content-collections hasn't generated files yet, return empty array
+          console.warn('Could not load content-collections for sitemap:', error)
+          return []
+        }
       },
     }),
   ],

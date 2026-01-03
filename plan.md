@@ -221,26 +221,26 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 2.2 Create Markdown Processor Utility
 
-- [ ] Create src/utils/markdown.ts file
+- [x] Create src/utils/markdown.ts file
   - Import unified from 'unified'
   - Import remarkParse, remarkGfm, remarkRehype
   - Import rehypeRaw, rehypeSlug, rehypeAutolinkHeadings, rehypeStringify
 
-- [ ] Define MarkdownHeading type
+- [x] Define MarkdownHeading type
   - id: string
   - text: string
   - level: number (1-6 for h1-h6)
 
-- [ ] Define MarkdownResult type
+- [x] Define MarkdownResult type
   - markup: string (HTML string)
   - headings: Array<MarkdownHeading>
 
-- [ ] Create renderMarkdown function
+- [x] Create renderMarkdown function
   - Accept content string parameter
   - Return Promise<MarkdownResult>
   - Initialize empty headings array
 
-- [ ] Configure unified pipeline
+- [x] Configure unified pipeline
   - Add remarkParse for markdown parsing
   - Add remarkGfm for GitHub Flavored Markdown support
   - Add remarkRehype with allowDangerousHtml: true
@@ -250,7 +250,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
   - Add custom plugin to extract headings from AST
   - Add rehypeStringify to serialize to HTML
 
-- [ ] Implement heading extraction plugin
+- [x] Implement heading extraction plugin
   - Import visit from unist-util-visit
   - Import toString from hast-util-to-string
   - Visit element nodes
@@ -260,7 +260,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
   - Extract level from tag name
   - Push to headings array
 
-- [ ] Process and return result
+- [x] Process and return result
   - Process content through pipeline
   - Convert result to string
   - Return markup and headings

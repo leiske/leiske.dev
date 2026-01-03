@@ -532,20 +532,20 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 6.2 Update or Remove App.tsx
 
-- [ ] Read src/App.tsx
-  - Review current implementation
+- [x] Read src/App.tsx
+   - Review current implementation
 
-- [ ] Determine if App.tsx is needed
-  - If App.tsx only contains routing logic, remove it
-  - If App.tsx contains shared UI, move to root route
+ - [x] Determine if App.tsx is needed
+   - If App.tsx only contains routing logic, remove it
+   - If App.tsx contains shared UI, move to root route
 
-- [ ] Update main.tsx if App.tsx removed
-  - Remove App import
-  - Ensure RouterProvider is rendered directly
+ - [x] Update main.tsx if App.tsx removed
+   - Remove App import
+   - Ensure RouterProvider is rendered directly
 
-- [ ] Or update App.tsx for TanStack Start
-  - Move shared UI to __root.tsx
-  - Remove App.tsx if no longer needed
+ - [x] Or update App.tsx for TanStack Start
+   - Move shared UI to __root.tsx
+   - Remove App.tsx if no longer needed
 
 ---
 

@@ -275,10 +275,10 @@
    - [x] Remove console.log statements
    - [x] Remove temporary test imports
 
-- [ ] Create a README for the blog feature (optional)
-  - [ ] Document how to create a new post
-  - [ ] Document required frontmatter fields
-  - [ ] Document build and preview process
+ - [x] Create a README for the blog feature (optional)
+   - [x] Document how to create a new post
+   - [x] Document required frontmatter fields
+   - [x] Document build and preview process
 
 ## Phase 14: Edge Cases and Polish
 
@@ -322,9 +322,9 @@
    - [x] Create a long post and verify reading time
    - [x] Check that reading time is reasonable
 
-- [ ] Clean up test posts
-  - [ ] Delete test posts after verification
-  - [ ] Or keep them as examples if desired
+- [x] Clean up test posts
+  - [x] Delete test posts after verification
+  - [x] Or keep them as examples if desired
 
 ## Completion Criteria
 

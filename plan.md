@@ -675,11 +675,11 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 8.5 Test 404 Page
 
-- [ ] Navigate to non-existent route
-  - Go to /non-existent-page
-  - Verify 404 page is displayed
-  - Verify "Page not found" or similar message
-  - Verify link back to home works
+- [x] Navigate to non-existent route
+   - Go to /non-existent-page
+   - Verify 404 page is displayed
+   - Verify "Page not found" or similar message
+   - Verify link back to home works
 
 ### 8.6 Test Tailwind CSS Styles
 

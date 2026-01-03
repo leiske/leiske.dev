@@ -4,6 +4,7 @@ import type { Post } from 'content-collections'
 import { PostContent } from '../components/PostContent'
 
 export const Route = createFileRoute('/blog/$slug')({
+  ssr: true,
   loader: async ({ params }) => {
     const { slug } = params
     

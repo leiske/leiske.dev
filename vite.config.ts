@@ -5,6 +5,7 @@ import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import contentCollections from '@content-collections/vite'
 import { sitemapPlugin } from '@corentints/tanstack-router-sitemap'
+import { cloudflare } from "@cloudflare/vite-plugin";
 
 export default defineConfig({
   server: {
@@ -16,7 +17,14 @@ export default defineConfig({
   plugins: [
     contentCollections(),
     tsConfigPaths(),
-    tanstackStart(),
+    cloudflare({ viteEnvironment: { name: 'ssr' } }),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        autoSubfolderIndex: true,
+        crawlLinks: true,
+      },
+    }),
     tailwindcss(),
     viteReact(),
     sitemapPlugin({

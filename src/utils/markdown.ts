@@ -56,3 +56,38 @@ export async function renderMarkdown(content: string): Promise<MarkdownResult> {
 
   return { markup, headings }
 }
+
+export function renderMarkdownSync(content: string): MarkdownResult {
+  const headings: MarkdownHeading[] = []
+
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, {
+      behavior: 'wrap',
+      properties: { className: ['anchor'] }
+    })
+    .use(() => (tree: Node) => {
+      visit(tree, 'element', (node: unknown) => {
+        const element = node as Element
+        if (element.tagName && /^h[1-6]$/.test(element.tagName)) {
+          const id = String(element.properties?.id || '')
+          const text = toString(element)
+          const level = parseInt(element.tagName.charAt(1), 10)
+
+          if (id) {
+            headings.push({ id, text, level })
+          }
+        }
+      })
+    })
+    .use(rehypeStringify)
+
+  const result = processor.processSync(content)
+  const markup = String(result)
+
+  return { markup, headings }
+}

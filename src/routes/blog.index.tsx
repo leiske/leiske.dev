@@ -5,6 +5,7 @@ import { PostList } from '../components/PostList.js';
 
 export const Route = createFileRoute('/blog/')({
   component: BlogIndex,
+  ssr: true,
   head: () => ({
     meta: [
       { title: 'Leiske.dev - All Posts' },

@@ -15,4 +15,16 @@ describe('calculateReadingTime', () => {
     const content = 'word '.repeat(200) + 'word';
     expect(calculateReadingTime(content)).toBe(2);
   });
+
+  it('returns 1 for empty string', () => {
+    expect(calculateReadingTime('')).toBe(1);
+  });
+
+  it('returns 1 for single word', () => {
+    expect(calculateReadingTime('one')).toBe(1);
+  });
+
+  it('handles various whitespace characters', () => {
+    expect(calculateReadingTime('word\nword\tword')).toBe(1);
+  });
 });

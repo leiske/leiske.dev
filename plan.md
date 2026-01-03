@@ -87,17 +87,17 @@ Blog utilities (`src/lib/posts.ts`) are the core of data processing. Bugs here a
 
 **File to Create:** `src/lib/__tests__/posts.test.ts`
 
-- [ ] Test standard reading time calculations
-  - Create test: `calculateReadingTime('word '.repeat(200))` returns `1`
-  - Create test: `calculateReadingTime('word '.repeat(400))` returns `2`
-  - Create test: `calculateReadingTime('word '.repeat(201))` returns `2` (rounds up)
-  - Explanation: Verifies the 200 words/minute standard and ceiling behavior
+ - [x] Test standard reading time calculations
+   - Create test: `calculateReadingTime('word '.repeat(200))` returns `1`
+   - Create test: `calculateReadingTime('word '.repeat(400))` returns `2`
+   - Create test: `calculateReadingTime('word '.repeat(201))` returns `2` (rounds up)
+   - Explanation: Verifies the 200 words/minute standard and ceiling behavior
 
-- [ ] Test edge cases for reading time
-  - Create test: `calculateReadingTime('')` returns `0` or `1` (minimum)
-  - Create test: `calculateReadingTime('one')` returns `1`
-  - Create test: `calculateReadingTime('word\nword\tword')` returns `1` (handles whitespace)
-  - Explanation: Ensures function handles empty/short content and various whitespace
+ - [x] Test edge cases for reading time
+   - Create test: `calculateReadingTime('')` returns `0` or `1` (minimum)
+   - Create test: `calculateReadingTime('one')` returns `1`
+   - Create test: `calculateReadingTime('word\nword\tword')` returns `1` (handles whitespace)
+   - Explanation: Ensures function handles empty/short content and various whitespace
 
 ---
 

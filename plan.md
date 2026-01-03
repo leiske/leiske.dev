@@ -86,9 +86,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Run: `npm install html-react-parser`
    - Verify package appears in dependencies
 
-- [ ] Install shiki for syntax highlighting
-  - Run: `npm install shiki`
-  - Verify package appears in dependencies
+- [x] Install shiki for syntax highlighting
+   - Run: `npm install shiki`
+   - Verify package appears in dependencies
 
 - [ ] Install gray-matter (for frontmatter parsing)
   - Run: `npm install gray-matter`

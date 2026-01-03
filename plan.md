@@ -164,7 +164,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 1.10 Update tsconfig.json
 
-- [ ] Add TanStack Router types to tsconfig.json
+- [x] Add TanStack Router types to tsconfig.json
   - Add `@tanstack/react-router` to types array
   - Ensure configuration supports new file structure
 
@@ -184,40 +184,40 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 2.1 Create content-collections.ts Configuration
 
-- [ ] Create content-collections.ts in project root
-  - Import defineCollection, defineConfig from @content-collections/core
-  - Import matter from gray-matter
-  - Import z from zod
+- [x] Create content-collections.ts in project root
+   - Import defineCollection, defineConfig from @content-collections/core
+   - Import matter from gray-matter
+   - Import z from zod
 
-- [ ] Create extractFrontMatter helper function
-  - Accept content string parameter
-  - Use matter() to parse frontmatter and body
-  - Extract excerpt using gray-matter's excerpt option
-  - Return data, body, and excerpt
+- [x] Create extractFrontMatter helper function
+   - Accept content string parameter
+   - Use matter() to parse frontmatter and body
+   - Extract excerpt using gray-matter's excerpt option
+   - Return data, body, and excerpt
 
-- [ ] Define posts collection
-  - Set collection name as 'posts'
-  - Set directory as './posts'
-  - Set include pattern as '*.md'
+- [x] Define posts collection
+   - Set collection name as 'posts'
+   - Set directory as './posts'
+   - Set include pattern as '*.md'
 
-- [ ] Define posts schema with zod
-  - title: string (required)
-  - date: string (date format, required)
-  - description: string (required)
-  - slug: string (required)
-  - tags: array of strings (required)
-  - test: boolean (optional)
+- [x] Define posts schema with zod
+   - title: string (required)
+   - date: string (date format, required)
+   - description: string (required)
+   - slug: string (required)
+   - tags: array of strings (required)
+   - test: boolean (optional)
 
-- [ ] Add transform function for posts collection
-  - Accept content and post metadata
-  - Call extractFrontMatter to parse markdown
-  - Override slug to use _meta.path (directory path)
-  - Calculate reading time: split body by whitespace, count words, divide by 200, use Math.ceil
-  - Return transformed post object with content (body) and readingTime
+- [x] Add transform function for posts collection
+   - Accept content and post metadata
+   - Call extractFrontMatter to parse markdown
+   - Override slug to use _meta.path (directory path)
+   - Calculate reading time: split body by whitespace, count words, divide by 200, use Math.ceil
+   - Return transformed post object with content (body) and readingTime
 
-- [ ] Export default configuration
-  - Use defineConfig with posts array
-  - Ensure proper TypeScript typing
+- [x] Export default configuration
+   - Use defineConfig with posts array
+   - Ensure proper TypeScript typing
 
 ### 2.2 Create Markdown Processor Utility
 

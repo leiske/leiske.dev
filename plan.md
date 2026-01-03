@@ -343,28 +343,28 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 4.3 Create Blog Index Route
 
-- [ ] Create src/routes/blog.index.tsx
-  - Import createFileRoute from @tanstack/react-router
-  - Import allPosts from 'content-collections'
-  - Import PostList from '../components/PostList'
+- [x] Create src/routes/blog.index.tsx
+   - Import createFileRoute from @tanstack/react-router
+   - Import allPosts from 'content-collections'
+   - Import PostList from '../components/PostList'
 
-- [ ] Configure route
-  - Use createFileRoute('/blog/')
-  - Set component to BlogIndex function
+- [x] Configure route
+   - Use createFileRoute('/blog/')
+   - Set component to BlogIndex function
 
-- [ ] Add SEO meta tags
-  - Add head function with meta array
-  - Set title: "Leiske.dev - All Posts"
-  - Set description: "Browse all blog posts"
-  - Add Open Graph tags
-  - Add Twitter card tags
-  - Add canonical URL: https://leiske.dev/blog
+- [x] Add SEO meta tags
+   - Add head function with meta array
+   - Set title: "Leiske.dev - All Posts"
+   - Set description: "Browse all blog posts"
+   - Add Open Graph tags
+   - Add Twitter card tags
+   - Add canonical URL: https://leiske.dev/blog
 
-- [ ] Implement BlogIndex component
-  - Filter allPosts to exclude test posts
-  - Sort posts by date descending
-  - Render heading: "All Posts"
-  - Render PostList component with all sorted posts
+- [x] Implement BlogIndex component
+   - Filter allPosts to exclude test posts
+   - Sort posts by date descending
+   - Render heading: "All Posts"
+   - Render PostList component with all sorted posts
 
 ### 4.4 Create Blog Post Route
 

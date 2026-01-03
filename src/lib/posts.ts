@@ -1,6 +1,6 @@
 import matter from 'gray-matter';
 import { marked } from 'marked';
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import type { Post } from '../types/post.js';
 
@@ -35,4 +35,17 @@ export function getPostBySlug(slug: string): Post | null {
     }
     throw error;
   }
+}
+
+export function getAllPosts(): Post[] {
+  const postsDir = join(process.cwd(), 'posts');
+  const fileNames = readdirSync(postsDir);
+  const allPosts = fileNames
+    .filter((fileName) => fileName.endsWith('.md'))
+    .map((fileName) => fileName.replace(/\.md$/, ''))
+    .map((slug) => getPostBySlug(slug))
+    .filter((post): post is Post => post !== null)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  return allPosts;
 }

@@ -303,15 +303,15 @@
 
 ## Phase 15: Testing with Multiple Posts
 
-- [ ] Create additional test posts
-  - [ ] Create `posts/test-post-2.md` with different content
-  - [ ] Create `posts/test-post-3.md` with different content
-  - [ ] Ensure proper frontmatter format
+ - [ ] Create additional test posts
+   - [x] Create `posts/test-post-2.md` with different content
+   - [ ] Create `posts/test-post-3.md` with different content
+   - [x] Ensure proper frontmatter format
 
-- [ ] Test post ordering
-  - [ ] Verify posts are sorted by date correctly
-  - [ ] Check homepage shows newest 5 posts
-  - [ ] Verify "Next post" links work in chronological order
+ - [x] Test post ordering
+   - [x] Verify posts are sorted by date correctly
+   - [x] Check homepage shows newest 5 posts
+   - [x] Verify "Next post" links work in chronological order
 
 - [ ] Test tag rendering
   - [ ] Ensure tags are rendered as badges or list items

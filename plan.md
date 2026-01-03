@@ -575,9 +575,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Run: `rm src/pages/BlogPost.tsx`
    - Verify file is removed
 
-- [ ] Delete src/pages/NotFound.tsx
-  - Run: `rm src/pages/NotFound.tsx`
-  - Verify file is removed
+ - [x] Delete src/pages/NotFound.tsx
+   - Run: `rm src/pages/NotFound.tsx`
+   - Verify file is removed
 
 - [ ] Delete src/pages directory if empty
   - Run: `rmdir src/pages`

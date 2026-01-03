@@ -196,14 +196,14 @@
 
 ## Phase 9: Vite Configuration for Static Build
 
-- [ ] Configure Vite base path
-  - [ ] Update `vite.config.ts`
-  - [ ] Set `base: '/'` (or appropriate base path for production)
-  - [ ] This ensures assets are referenced correctly from nested routes
+- [x] Configure Vite base path
+  - [x] Update `vite.config.ts`
+  - [x] Set `base: '/'` (or appropriate base path for production)
+  - [x] This ensures assets are referenced correctly from nested routes
 
-- [ ] Configure build output
-  - [ ] Ensure `build.outDir` is set to `'dist'` (default)
-  - [ ] Add `build.emptyOutDir: true` to clean dist before build
+- [x] Configure build output
+  - [x] Ensure `build.outDir` is set to `'dist'` (default)
+  - [x] Add `build.emptyOutDir: true` to clean dist before build
 
 - [ ] Test Vite build works
   - [ ] Run `npm run build` (should just run `tsc -b && vite build`)

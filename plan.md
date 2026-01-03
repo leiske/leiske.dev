@@ -291,10 +291,10 @@
   - [ ] Ensure the build doesn't crash
   - [ ] Log errors for problematic files
 
-- [ ] Add 404 page for static build
-  - [ ] Create a simple 404 page component
-  - [ ] Generate `dist/404.html` in build script
-  - [ ] Update Vite config to use custom 404 if supported
+- [x] Add 404 page for static build
+   - [x] Create a simple 404 page component
+   - [x] Generate `dist/404.html` in build script
+   - [x] Update Vite config to use custom 404 if supported
 
 - [ ] Verify date formatting edge cases
   - [ ] Test with different date formats in frontmatter

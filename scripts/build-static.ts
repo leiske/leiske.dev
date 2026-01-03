@@ -5,6 +5,7 @@ import { createElement } from 'react';
 import { getAllPosts } from '../src/lib/posts.js';
 import { Home } from '../src/pages/Home.js';
 import { BlogPost } from '../src/pages/BlogPost.js';
+import { NotFound } from '../src/pages/NotFound.js';
 
 function ensureDirectoryExists(dirPath: string): void {
   if (!existsSync(dirPath)) {
@@ -50,6 +51,11 @@ function main(): void {
     });
 
     console.log(`Generated ${allPosts.length} post pages`);
+
+    const notFoundPageHtml = renderPage(createElement(NotFound));
+    writeFileSync(join(distDir, '404.html'), notFoundPageHtml);
+    console.log('404 page generated');
+
     console.log('Build complete');
   } catch (error) {
     console.error('Build failed:', error);

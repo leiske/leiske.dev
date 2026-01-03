@@ -1,7 +1,14 @@
-```
+---
 date: 2026-01-02
 title: Checking out opencode
-```
+slug: opencode-cursor-thoughts
+description: My experience transitioning from early Cursor to opencode as an AI-powered development tool
+tags:
+  - AI
+  - development-tools
+  - opencode
+  - cursor
+---
 
 # AI aided development
 

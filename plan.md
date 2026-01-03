@@ -334,7 +334,7 @@
 - [x] All pages are pre-rendered as static HTML
 - [x] Date formatting uses user's locale
 - [x] Reading time is displayed on post pages
-- [ ] "Next post" navigation works when applicable
+- [x] "Next post" navigation works when applicable
 - [ ] Build process completes without errors
 - [ ] `npm run lint` passes
 - [ ] `npm run build` generates correct static files

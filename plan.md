@@ -646,11 +646,11 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 8.2 Test Home Page
 
-- [ ] Open browser to localhost (port shown in dev output)
-  - Verify home page loads
-  - Check for "Recent Posts" heading
-  - Verify 5 most recent posts are listed
-  - Click on a post link, verify navigation works
+- [x] Open browser to localhost (port shown in dev output)
+   - Verify home page loads
+   - Check for "Recent Posts" heading
+   - Verify 5 most recent posts are listed
+   - Click on a post link, verify navigation works
 
 ### 8.3 Test Blog Index Page
 

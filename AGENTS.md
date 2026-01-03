@@ -99,6 +99,7 @@ The plugins array must have this specific order:
 - `blog.index.tsx` - Blog index (/blog)
 - Use `createFileRoute()` from '@tanstack/react-router'
 - Use `Route.useLoaderData()` to access loader data in components
+- 404 pages: Add `notFoundComponent` to root route configuration (do NOT create separate 404.tsx file)
 
 ## Content Collections Configuration
 

@@ -1,4 +1,4 @@
-import { calculateReadingTime, getPostBySlug } from '../posts.js';
+import { calculateReadingTime, getPostBySlug, getAllPosts } from '../posts.js';
 import { writeFileSync, existsSync, unlinkSync } from 'fs';
 import { join } from 'path';
 
@@ -248,6 +248,50 @@ Some content
     } finally {
       if (existsSync(testFilePath)) {
         unlinkSync(testFilePath);
+      }
+    }
+  });
+});
+
+describe('getAllPosts', () => {
+  it('returns posts sorted by date (newest first)', () => {
+    const oldPostSlug = 'test-old-post';
+    const newPostSlug = 'test-new-post';
+
+    const oldPostPath = join(process.cwd(), 'posts', `${oldPostSlug}.md`);
+    const newPostPath = join(process.cwd(), 'posts', `${newPostSlug}.md`);
+
+    const oldPostContent = `---
+title: Old Post
+date: 2025-01-01
+slug: ${oldPostSlug}
+description: Old post description
+---
+Old post content
+`;
+
+    const newPostContent = `---
+title: New Post
+date: 2027-01-01
+slug: ${newPostSlug}
+description: New post description
+---
+New post content
+`;
+
+    writeFileSync(oldPostPath, oldPostContent, 'utf-8');
+    writeFileSync(newPostPath, newPostContent, 'utf-8');
+
+    try {
+      const result = getAllPosts();
+      const firstPost = result[0];
+      expect(firstPost.slug).toBe(newPostSlug);
+    } finally {
+      if (existsSync(oldPostPath)) {
+        unlinkSync(oldPostPath);
+      }
+      if (existsSync(newPostPath)) {
+        unlinkSync(newPostPath);
       }
     }
   });

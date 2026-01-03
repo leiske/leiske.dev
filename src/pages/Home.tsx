@@ -1,5 +1,5 @@
-import { PostList } from '../components/PostList.tsx';
-import { getAllPosts } from '../lib/posts.ts';
+import { PostList } from '../components/PostList.js';
+import { getAllPosts } from '../lib/posts.js';
 
 export function Home() {
   const allPosts = getAllPosts();

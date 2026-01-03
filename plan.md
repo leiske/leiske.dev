@@ -639,7 +639,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 8.1 Start Development Server
 
-- [ ] Run dev server
+- [x] Run dev server
   - Run: `npm run dev`
   - Wait for server to start
   - Verify no errors in console

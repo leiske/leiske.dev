@@ -333,7 +333,7 @@
 - [x] Post pages (`/blog/{slug}/`) display full content with metadata
 - [x] All pages are pre-rendered as static HTML
 - [x] Date formatting uses user's locale
-- [ ] Reading time is displayed on post pages
+- [x] Reading time is displayed on post pages
 - [ ] "Next post" navigation works when applicable
 - [ ] Build process completes without errors
 - [ ] `npm run lint` passes

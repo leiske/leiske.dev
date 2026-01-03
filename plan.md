@@ -10,9 +10,9 @@
   - [x] Update `vite.config.ts` to add typography plugin imports
   - [x] Test that `prose` classes are available (e.g., use in a test component)
 
-- [ ] Update TypeScript config to include scripts
-  - [ ] Modify `tsconfig.node.json` to include `"scripts/**/*.ts"` in `include` array
-  - [ ] Run `tsc --noEmit` to verify no errors
+- [x] Update TypeScript config to include scripts
+  - [x] Modify `tsconfig.node.json` to include `"scripts/**/*.ts"` in `include` array
+  - [x] Run `tsc --noEmit` to verify no errors
 
 ## Phase 2: Type Definitions
 

@@ -32,22 +32,22 @@
   - [x] Import `gray-matter` for frontmatter parsing
   - [x] Import `marked` for markdown-to-HTML conversion
 
-- [ ] Implement calculateReadingTime function
-  - [ ] Create `calculateReadingTime(content: string): number` function
-  - [ ] Count words (split by whitespace)
-  - [ ] Divide by 200 words per minute, round up to nearest integer
-  - [ ] Return reading time in minutes
-  - [ ] Add inline comment explaining the 200 wpm assumption
+- [x] Implement calculateReadingTime function
+  - [x] Create `calculateReadingTime(content: string): number` function
+  - [x] Count words (split by whitespace)
+  - [x] Divide by 200 words per minute, round up to nearest integer
+  - [x] Return reading time in minutes
+  - [x] Add inline comment explaining the 200 wpm assumption
 
-- [ ] Implement getPostBySlug function
-  - [ ] Create `getPostBySlug(slug: string): Post | null` function
-  - [ ] Construct file path: `posts/${slug}.md`
-  - [ ] Use `fs` to read the file (handle file not found gracefully)
-  - [ ] Parse frontmatter with `gray-matter`
-  - [ ] Extract: date, title, slug, description, tags from frontmatter data
-  - [ ] Convert markdown body to HTML using `marked`
-  - [ ] Calculate reading time from markdown content
-  - [ ] Return `Post` object or `null` if file not found
+- [x] Implement getPostBySlug function
+  - [x] Create `getPostBySlug(slug: string): Post | null` function
+  - [x] Construct file path: `posts/${slug}.md`
+  - [x] Use `fs` to read the file (handle file not found gracefully)
+  - [x] Parse frontmatter with `gray-matter`
+  - [x] Extract: date, title, slug, description, tags from frontmatter data
+  - [x] Convert markdown body to HTML using `marked`
+  - [x] Calculate reading time from markdown content
+  - [x] Return `Post` object or `null` if file not found
 
 - [ ] Implement getAllPosts function
   - [ ] Create `getAllPosts(): Post[]` function

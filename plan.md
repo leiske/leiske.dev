@@ -800,10 +800,16 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 9.3 Test SEO Files
 
-- [ ] Validate sitemap.xml
+- [x] Validate sitemap.xml
   - Open sitemap.xml in browser
   - Verify XML is well-formed
   - Check all URLs are accessible
+  - VERIFIED: XML is well-formed via xmllint validation
+  - VERIFIED: All URLs return HTTP 200
+    - Homepage (/): 200
+    - Blog index (/blog): 200
+    - Blog post (/blog/opencode-cursor-thoughts): 200
+    - Sitemap.xml itself: 200
 
 - [ ] Validate robots.txt
   - Open robots.txt in browser

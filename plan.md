@@ -68,31 +68,31 @@
 
 ## Phase 4: Update Sample Post Frontmatter
 
-- [ ] Read existing post
-  - [ ] Read `posts/opencode-cursor-thoughts.md`
-  - [ ] Identify current frontmatter format
+- [x] Read existing post
+  - [x] Read `posts/opencode-cursor-thoughts.md`
+  - [x] Identify current frontmatter format
 
-- [ ] Update frontmatter to YAML format
-  - [ ] Replace triple backticks with triple dashes (`---`)
-  - [ ] Ensure all required fields are present: `date`, `title`, `slug`, `description`, `tags`
-  - [ ] Format `tags` as YAML array or comma-separated string (update parser accordingly)
-  - [ ] Save the updated file
+- [x] Update frontmatter to YAML format
+  - [x] Replace triple backticks with triple dashes (`---`)
+  - [x] Ensure all required fields are present: `date`, `title`, `slug`, `description`, `tags`
+  - [x] Format `tags` as YAML array or comma-separated string (update parser accordingly)
+  - [x] Save the updated file
 
-- [ ] Verify updated post loads correctly
-  - [ ] Test `getPostBySlug('opencode-cursor-thoughts')` returns valid data
-  - [ ] Check all frontmatter fields are accessible
+- [x] Verify updated post loads correctly
+  - [x] Test `getPostBySlug('opencode-cursor-thoughts')` returns valid data
+  - [x] Check all frontmatter fields are accessible
 
 ## Phase 5: Create Components
 
-- [ ] Create PostList component
-  - [ ] Create `src/components/PostList.tsx`
-  - [ ] Define props interface: `posts: PostMeta[]`
-  - [ ] Return an unordered list (`<ul>`) with Tailwind classes for styling
-  - [ ] Render each post as a list item (`<li>`) containing:
+- [x] Create PostList component
+  - [x] Create `src/components/PostList.tsx`
+  - [x] Define props interface: `posts: PostMeta[]`
+  - [x] Return an unordered list (`<ul>`) with Tailwind classes for styling
+  - [x] Render each post as a list item (`<li>`) containing:
     - Title as a link (`<a>`) to `/blog/${slug}/`
     - Date formatted to user's locale using `new Date(post.date).toLocaleDateString()`
     - Add Tailwind classes for spacing and typography
-  - [ ] Handle empty array case (show "No posts available" message or empty list)
+  - [x] Handle empty array case (show "No posts available" message or empty list)
 
 - [ ] Create PostContent component
   - [ ] Create `src/components/PostContent.tsx`

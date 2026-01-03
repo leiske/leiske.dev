@@ -599,38 +599,39 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 7.4 Remove Old Types
 
-- [ ] Review src/types/post.ts
+- [x] Review src/types/post.ts
   - Check if Post and PostMeta types are still needed
 
-- [ ] Keep types if used by components
+- [x] Keep types if used by components
   - PostList uses PostMeta
   - PostContent uses Post
 
-- [ ] Or remove types if no longer used
-  - Run: `rm src/types/post.ts` if obsolete
-  - Update component imports to use content-collections types
+- [x] Or remove types if no longer used
+  - Updated src/types/post.ts to import Post from content-collections
+  - Defined PostMeta as Pick<Post, ...> for list views
+  - Components continue to work without changes
 
 ### 7.5 Clean Up index.html
 
-- [ ] Read index.html
-  - Review current contents
+- [x] Read index.html
+   - Review current contents
 
-- [ ] Update index.html
-  - Ensure it has <div id="root"></div>
-  - Ensure it has proper doctype and meta tags
-  - Remove any custom script tags
-  - Remove any custom CSS links (handled by TanStack Start)
-  - Keep minimal structure
+- [x] Update index.html
+   - Ensure it has <div id="root"></div>
+   - Ensure it has proper doctype and meta tags
+   - Remove any custom script tags
+   - Remove any custom CSS links (handled by TanStack Start)
+   - Keep minimal structure
 
 ### 7.6 Remove Old Build Artifacts
 
-- [ ] Remove dist directory if exists
-  - Run: `rm -rf dist`
-  - Verify directory is removed
+- [x] Remove dist directory if exists
+   - Run: `rm -rf dist`
+   - Verify directory is removed
 
-- [ ] Remove node_modules/.vite cache
-  - Run: `rm -rf node_modules/.vite`
-  - Verify cache is cleared
+- [x] Remove node_modules/.vite cache
+   - Run: `rm -rf node_modules/.vite`
+   - Verify cache is cleared
 
 ---
 

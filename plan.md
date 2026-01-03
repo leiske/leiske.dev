@@ -134,12 +134,12 @@ Blog utilities (`src/lib/posts.ts`) are the core of data processing. Bugs here a
   - Verify returned `content` contains `<h1>Header</h1>` and `<strong>bold</strong>`
   - Explanation: Ensures markdown is properly converted to HTML for rendering
 
-- [ ] Test missing optional frontmatter fields
-  - Create test post with no `tags` field
-  - Verify `tags` defaults to empty array `[]`
-  - Create test post with no `test` field
-  - Verify `test` defaults to `false`
-  - Explanation: Tests default value behavior for optional fields
+ - [x] Test missing optional frontmatter fields
+   - Create test post with no `tags` field
+   - Verify `tags` defaults to empty array `[]`
+   - Create test post with no `test` field
+   - Verify `test` defaults to `false`
+   - Explanation: Tests default value behavior for optional fields
 
 - [ ] Test required field warnings
   - Create test post missing `title` field

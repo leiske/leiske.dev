@@ -875,9 +875,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 10.3 Remove GitHub Pages Deployment Workflow
 
-- [ ] Delete .github/workflows/deploy.yml
-  - Run: `rm .github/workflows/deploy.yml`
-  - Verify file is removed
+- [x] Delete .github/workflows/deploy.yml
+   - Run: `rm .github/workflows/deploy.yml`
+   - Verify file is removed
 
 ### 10.4 Run Linting
 

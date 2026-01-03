@@ -1,6 +1,7 @@
 import { calculateReadingTime, getPostBySlug, getAllPosts } from '../posts.js';
 import { writeFileSync, existsSync, unlinkSync } from 'fs';
 import { join } from 'path';
+import { vi } from 'vitest';
 
 describe('calculateReadingTime', () => {
   it('calculates 1 minute for 100 words', () => {

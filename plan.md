@@ -151,7 +151,7 @@ Blog utilities (`src/lib/posts.ts`) are the core of data processing. Bugs here a
    - Use `vi.spyOn(console, 'warn')` to verify warnings are logged
    - Explanation: Ensures missing required fields are handled and warnings are logged
 
-- [ ] Test markdown parse error handling
+- [x] Test markdown parse error handling
   - Create test post that causes marked() to throw an error (malformed markdown)
   - Verify function returns `null` and console.error was called
   - Explanation: Tests that markdown parse errors don't crash the build
@@ -168,21 +168,21 @@ Blog utilities (`src/lib/posts.ts`) are the core of data processing. Bugs here a
 
 **File:** Continue in `src/lib/__tests__/posts.test.ts`
 
-- [ ] Test posts sorted by date (newest first)
-  - Create temporary test posts:
-    - `posts/__tests__/old-post.md` with `date: 2025-01-01`
-    - `posts/__tests__/new-post.md` with `date: 2026-01-01`
-  - Verify `getAllPosts()[0].slug` is `new-post` (newest first)
-  - Clean up test files after test
-  - Explanation: Ensures chronological ordering for post listings
+- [x] Test posts sorted by date (newest first)
+   - Create temporary test posts:
+     - `posts/__tests__/old-post.md` with `date: 2025-01-01`
+     - `posts/__tests__/new-post.md` with `date: 2027-01-01`
+   - Verify `getAllPosts()[0].slug` is `new-post` (newest first)
+   - Clean up test files after test
+   - Explanation: Ensures chronological ordering for post listings
 
-- [ ] Test posts with test flag are excluded
-  - Create temporary test posts:
-    - `posts/__tests__/production-post.md` with `test: false` or no test field
-    - `posts/__tests__/test-post.md` with `test: true`
-  - Verify `getAllPosts()` includes only `production-post`
-  - Clean up test files after test
-  - Explanation: Verifies test posts don't appear in production builds
+ - [x] Test posts with test flag are excluded
+   - Create temporary test posts:
+     - `posts/__tests__/production-post.md` with `test: false` or no test field
+     - `posts/__tests__/test-post.md` with `test: true`
+   - Verify `getAllPosts()` includes only `production-post`
+   - Clean up test files after test
+   - Explanation: Verifies test posts don't appear in production builds
 
 - [ ] Test empty posts directory
   - Create test that temporarily removes all posts from `posts/` directory

@@ -312,34 +312,34 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 4.1 Create Routes Directory Structure
 
-- [ ] Create src/routes directory
-  - Run: `mkdir -p src/routes`
-  - Verify directory created
+- [x] Create src/routes directory
+   - Run: `mkdir -p src/routes`
+   - Verify directory created
 
 ### 4.2 Create Index Route (Home Page)
 
-- [ ] Create src/routes/index.tsx
-  - Import createFileRoute from @tanstack/react-router
-  - Import allPosts from 'content-collections'
-  - Import PostList from '../components/PostList'
+- [x] Create src/routes/index.tsx
+   - Import createFileRoute from @tanstack/react-router
+   - Import allPosts from 'content-collections'
+   - Import PostList from '../components/PostList'
 
-- [ ] Configure route
-  - Use createFileRoute('/')
-  - Set component to Home function
+- [x] Configure route
+   - Use createFileRoute('/')
+   - Set component to Home function
 
-- [ ] Add SEO meta tags
-  - Add head function with meta array
-  - Set title: "Leiske.dev - Blog"
-  - Set description: "Thoughts on software development, programming, and technology"
-  - Add Open Graph tags: og:title, og:description, og:type (website)
-  - Add Twitter card tags: twitter:card (summary), twitter:title, twitter:description
+- [x] Add SEO meta tags
+   - Add head function with meta array
+   - Set title: "Leiske.dev - Blog"
+   - Set description: "Thoughts on software development, programming, and technology"
+   - Add Open Graph tags: og:title, og:description, og:type (website)
+   - Add Twitter card tags: twitter:card (summary), twitter:title, twitter:description
 
-- [ ] Implement Home component
-  - Filter allPosts to exclude test posts (post.test !== true)
-  - Sort posts by date descending (newest first)
-  - Slice to get first 5 posts
-  - Render heading: "Recent Posts"
-  - Render PostList component with recent posts
+- [x] Implement Home component
+   - Filter allPosts to exclude test posts (post.test !== true)
+   - Sort posts by date descending (newest first)
+   - Slice to get first 5 posts
+   - Render heading: "Recent Posts"
+   - Render PostList component with recent posts
 
 ### 4.3 Create Blog Index Route
 

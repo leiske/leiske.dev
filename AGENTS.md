@@ -4,8 +4,8 @@
 
 ### Development
 - `npm run dev` - Start development server with HMR
-- `npm run build` - Full build: TypeScript + Vite + static HTML generation
-- `npm run preview` - Preview production build locally
+- `npm run build` - Full build: TypeScript + Vite (builds to dist/client and dist/server)
+- `npm run start` - Start production server (runs dist/server/server.js)
 - `npm run lint` - Run ESLint on all files
 
 ### Testing

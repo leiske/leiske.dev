@@ -585,7 +585,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 7.3 Remove Old Utilities
 
-- [ ] Delete src/lib/posts.ts
+- [x] Delete src/lib/posts.ts
   - Run: `rm src/lib/posts.ts`
   - Verify file is removed
 

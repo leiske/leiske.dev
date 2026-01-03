@@ -90,9 +90,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Run: `npm install shiki`
    - Verify package appears in dependencies
 
-- [ ] Install gray-matter (for frontmatter parsing)
-  - Run: `npm install gray-matter`
-  - Verify package appears in dependencies
+ - [x] Install gray-matter (for frontmatter parsing)
+   - Run: `npm install gray-matter`
+   - Verify package appears in dependencies
 
 - [x] Install zod (for schema validation)
   - Run: `npm install zod`

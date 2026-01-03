@@ -23,25 +23,26 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 1.1 Install TanStack Start Dependencies
 
-- [ ] Install @tanstack/react-start
+- [x] Install @tanstack/react-start
   - Run: `npm install @tanstack/react-start`
   - Verify package appears in dependencies
 
-- [ ] Install @tanstack/react-router
+- [x] Install @tanstack/react-router
   - Run: `npm install @tanstack/react-router`
   - Verify package appears in dependencies
 
-- [ ] Install vinxi (TanStack Start's build tool)
+- [x] Install vinxi (TanStack Start's build tool)
   - Run: `npm install vinxi`
   - Verify package appears in dependencies
+  - NOTE: Vinxi is no longer needed - TanStack Start now uses Vite directly (verified via research)
 
 ### 1.2 Install Content Collections Dependencies
 
-- [ ] Install @content-collections/core
+- [x] Install @content-collections/core
   - Run: `npm install @content-collections/core`
   - Verify package appears in dependencies
 
-- [ ] Install @content-collections/vite
+- [x] Install @content-collections/vite
   - Run: `npm install @content-collections/vite`
   - Verify package appears in dependencies
 
@@ -93,7 +94,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
   - Run: `npm install gray-matter`
   - Verify package appears in dependencies
 
-- [ ] Install zod (for schema validation)
+- [x] Install zod (for schema validation)
   - Run: `npm install zod`
   - Verify package appears in dependencies
 

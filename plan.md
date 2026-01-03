@@ -52,9 +52,9 @@ Migrate the custom static site generator to TanStack Start with content-collecti
    - Run: `npm install unified`
    - Verify package appears in dependencies
 
-- [ ] Install remark-parse
-  - Run: `npm install remark-parse`
-  - Verify package appears in dependencies
+ - [x] Install remark-parse
+   - Run: `npm install remark-parse`
+   - Verify package appears in dependencies
 
 - [ ] Install remark-gfm
   - Run: `npm install remark-gfm`

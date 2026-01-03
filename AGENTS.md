@@ -141,12 +141,9 @@ The plugins array must have this specific order:
 - Generated files (`.content-collections/generated/` and `src/routeTree.gen.ts`) should be gitignored
 
 ## Static Site Generation
-- Build script at `scripts/build-static.ts` generates static HTML
-- Compile separately: `npx tsc scripts/build-static.ts --outDir dist-scripts --module esnext --target es2023 --moduleResolution bundler --jsx react-jsx --skipLibCheck --strict`
-- Run compiled: `node dist-scripts/scripts/build-static.js`
-- If modifying `src/` components, recompile build script to update static generation
+- TanStack Start handles SSG automatically
+- Build process generates static HTML via `npm run build`
 - Vite outputs CSS with fixed names (no hashing)
-- `dist-scripts/` is gitignored
 
 ## Blog Feature
 

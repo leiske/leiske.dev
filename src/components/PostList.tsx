@@ -20,7 +20,7 @@ export function PostList({ posts }: PostListProps) {
             {post.title}
           </a>
           <time className="text-sm text-gray-600">
-            {new Date(post.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}
+            {new Date(post.date).toLocaleDateString()}
           </time>
         </li>
       ))}

@@ -11,7 +11,7 @@ export function PostContent({ post, nextPost }: PostContentProps) {
       <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
       
       <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-8">
-        <time>{new Date(post.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</time>
+        <time>{new Date(post.date).toLocaleDateString()}</time>
         <span>•</span>
         <span>{post.readingTime} min read</span>
         {post.tags.length > 0 && (

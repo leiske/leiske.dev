@@ -50,13 +50,13 @@ This plan focuses on **high-value behavioral tests** that verify user-facing out
     ```
   - This extends DOM elements with jest-dom matchers
 
-- [ ] Add test script to package.json
-  - Add to `scripts` in `package.json`:
-    ```json
-    "test": "vitest",
-    "test:ui": "vitest --ui",
-    "test:run": "vitest run"
-    ```
+ - [x] Add test script to package.json
+   - Add to `scripts` in `package.json`:
+     ```json
+     "test": "vitest",
+     "test:ui": "vitest --ui",
+     "test:run": "vitest run"
+     ```
 
 - [ ] Verify setup works
   - Create `src/test/smoke.test.ts` with:

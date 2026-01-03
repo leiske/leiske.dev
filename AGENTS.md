@@ -9,7 +9,13 @@
 - `npm run lint` - Run ESLint on all files
 
 ### Testing
-- No test suite currently configured in this project
+- `npm run test` - Run tests in watch mode
+- `npm run test:run` - Run tests once
+- `npm run test:ui` - Run tests with UI interface
+- Test framework: Vitest with happy-dom environment
+- Testing library: @testing-library/react with jest-dom matchers
+- Test config: `vitest.config.ts`
+- Test setup: `src/test/setup.ts`
 
 ### Type Checking
 - Integrated into build via `tsc -b`

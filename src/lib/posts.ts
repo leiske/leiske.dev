@@ -20,6 +20,10 @@ export function getPostBySlug(slug: string): Post | null {
     const htmlContent = marked(content) as string;
     const readingTime = calculateReadingTime(content);
 
+    if (!data.title) console.warn(`Missing 'title' in frontmatter for post: ${slug}`);
+    if (!data.date) console.warn(`Missing 'date' in frontmatter for post: ${slug}`);
+    if (!data.description) console.warn(`Missing 'description' in frontmatter for post: ${slug}`);
+
     return {
       slug,
       title: data.title || '',

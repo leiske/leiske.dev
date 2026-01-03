@@ -108,7 +108,7 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 1.5 Install Tailwind CSS
 
-- [ ] Install @tailwindcss/vite
+- [x] Install @tailwindcss/vite
   - Run: `npm install -D @tailwindcss/vite`
   - Verify package appears in devDependencies
 

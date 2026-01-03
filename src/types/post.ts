@@ -4,6 +4,7 @@ export interface PostMeta {
   date: string;
   description: string;
   tags: string[];
+  test?: boolean;
 }
 
 export interface Post extends PostMeta {

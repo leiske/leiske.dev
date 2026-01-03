@@ -36,6 +36,7 @@ export function getPostBySlug(slug: string): Post | null {
       date: data.date || '',
       description: data.description || '',
       tags: data.tags || [],
+      test: data.test || false,
       content: htmlContent,
       readingTime,
     };
@@ -55,6 +56,7 @@ export function getAllPosts(): Post[] {
     .map((fileName) => fileName.replace(/\.md$/, ''))
     .map((slug) => getPostBySlug(slug))
     .filter((post): post is Post => post !== null)
+    .filter((post) => !post.test)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return allPosts;

@@ -16,7 +16,6 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 - TanStack Router for file-based routing
 - Tailwind CSS integration via `@import 'tailwindcss'`
 - Comprehensive SEO (meta tags, Open Graph, structured data, sitemap)
-- Cloudflare deployment readiness (deployment handled separately)
 
 ---
 
@@ -845,8 +844,6 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 - [ ] Remove old deployment instructions
   - Remove GitHub Pages deployment instructions
-  - Add placeholder for Cloudflare deployment (to be added later)
-  - Note: "Deployment to Cloudflare will be configured separately"
 
 ### 10.2 Update AGENTS.md
 
@@ -876,10 +873,6 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 - [ ] Delete .github/workflows/deploy.yml
   - Run: `rm .github/workflows/deploy.yml`
   - Verify file is removed
-
-- [ ] Remove CNAME file if not needed for Cloudflare
-  - Run: `rm CNAME` (or keep it for domain configuration)
-  - Decide based on Cloudflare setup requirements
 
 ### 10.4 Run Linting
 

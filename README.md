@@ -1,73 +1,159 @@
-# React + TypeScript + Vite
+# Leiske.dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A blog built with TanStack Start, featuring server-side rendering, static site generation, and comprehensive SEO support.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework**: TanStack Start 1.145.3 with TanStack Router for file-based routing
+- **React**: 19.2.0
+- **TypeScript**: 5.9.3 with strict mode enabled
+- **Styling**: Tailwind CSS v4.1.18 with @tailwindcss/typography
+- **Markdown**: Unified ecosystem (remark/rehype) for markdown processing
+- **Content**: @content-collections for build-time markdown processing
+- **Build Tool**: Vite (rolldown-vite 7.2.5)
+- **Testing**: Vitest with @testing-library/react and happy-dom
 
-## React Compiler
+## Development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Start Development Server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+The development server will start on `http://localhost:3000`.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+This builds the application to `dist/` directory with both client and server bundles.
+
+### Start Production Server
+
+```bash
+npm run start
+```
+
+This starts the production server using the built files in `dist/server/server.js`.
+
+### Testing
+
+```bash
+npm run test          # Run tests in watch mode
+npm run test:run      # Run tests once
+npm run test:ui       # Run tests with UI interface
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+leiske.dev/
+├── posts/                          # Blog post markdown files
+│   └── *.md                        # Post files with frontmatter
+├── public/                         # Static assets
+│   ├── robots.txt                  # Robots configuration
+│   └── sitemap.xml                 # Auto-generated sitemap
+├── src/
+│   ├── components/                 # React components
+│   │   ├── Markdown.tsx            # Markdown renderer
+│   │   ├── PostContent.tsx         # Full post content
+│   │   └── PostList.tsx            # Post list component
+│   ├── routes/                     # TanStack Router file-based routes
+│   │   ├── __root.tsx              # Root layout
+│   │   ├── index.tsx               # Home page (/)
+│   │   ├── blog.index.tsx          # Blog index (/blog)
+│   │   └── blog.$slug.tsx          # Blog post (/blog/:slug)
+│   ├── styles/
+│   │   └── app.css                 # Main stylesheet with Tailwind import
+│   ├── types/
+│   │   └── post.ts                 # Post type definitions
+│   ├── utils/
+│   │   └── markdown.ts             # Markdown processing utilities
+│   ├── main.tsx                    # Application entry point
+│   ├── router.tsx                  # Router configuration
+│   └── routeTree.gen.ts            # Auto-generated route tree (gitignored)
+├── content-collections.ts           # Content collections configuration
+├── vite.config.ts                  # Vite configuration with TanStack Start
+└── tsconfig.json                   # TypeScript configuration
+```
+
+## Content Collections
+
+Posts are defined using `@content-collections` with the schema defined in `content-collections.ts`:
+
+### Required Frontmatter Fields
+
+```yaml
+---
+date: YYYY-MM-DD
+title: Post Title
+slug: post-slug
+description: Brief description
+tags:
+  - tag1
+  - tag2
+---
+```
+
+### Optional Fields
+
+- `test: true` - Excludes post from production build
+
+## Routing
+
+TanStack Router uses file-based routing:
+
+- `/` - Home page with 5 recent posts
+- `/blog` - Blog index with all posts
+- `/blog/:slug` - Individual blog post
+- `*` - 404 page (handled by root route notFoundComponent)
+
+## SEO Features
+
+- **Meta Tags**: Dynamic title, description, and social media tags
+- **Open Graph**: og:title, og:description, og:type, og:url
+- **Twitter Cards**: twitter:card, twitter:title, twitter:description
+- **Structured Data**: JSON-LD Article schema for blog posts
+- **Canonical URLs**: Proper canonical links for all pages
+- **Sitemap**: Auto-generated sitemap.xml with all routes
+- **Robots.txt**: Configured to allow crawling
+
+## Migration History
+
+This project migrated from a custom static site generator to TanStack Start in January 2026.
+
+### Changes Made
+
+- Replaced custom build script with TanStack Start SSR/SSG
+- Migrated from `marked` to unified ecosystem for markdown processing
+- Added content-collections for build-time markdown generation
+- Implemented TanStack Router file-based routing
+- Added comprehensive SEO support (meta tags, Open Graph, Twitter cards, structured data)
+- Upgraded to Tailwind CSS v4 with @import-based configuration
+- Added automated sitemap generation
+
+### Breaking Changes
+
+- Build command changed from custom script to `vite build`
+- Server entry point is now `dist/server/server.js`
+- Route files are now in `src/routes/` instead of custom routing
+- Content types now imported from `content-collections` path alias
+
+## License
+
+Private

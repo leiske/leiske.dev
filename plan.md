@@ -801,31 +801,31 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 10.1 Update README.md
 
-- [ ] Read current README.md
-  - Review existing documentation
+ - [x] Read current README.md
+   - Review existing documentation
 
-- [ ] Update project description
-  - Mention TanStack Start framework
-  - Mention content-collections for markdown
-  - Mention SEO capabilities
+ - [x] Update project description
+   - Mention TanStack Start framework
+   - Mention content-collections for markdown
+   - Mention SEO capabilities
 
-- [ ] Update development instructions
-  - Update "How to run" section to use `npm run dev`
-  - Update "How to build" section to use `npm run build`
-  - Update "How to test" section if needed
+ - [x] Update development instructions
+   - Update "How to run" section to use `npm run dev`
+   - Update "How to build" section to use `npm run build`
+   - Update "How to test" section if needed
 
-- [ ] Update project structure documentation
-  - Document new directory structure (src/routes/)
-  - Document content-collections configuration
-  - Document TanStack Router usage
+ - [x] Update project structure documentation
+   - Document new directory structure (src/routes/)
+   - Document content-collections configuration
+   - Document TanStack Router usage
 
-- [ ] Add migration notes
-  - Document that this project migrated from custom build script
-  - Document date of migration
-  - Note any breaking changes
+ - [x] Add migration notes
+   - Document that this project migrated from custom build script
+   - Document date of migration
+   - Note any breaking changes
 
-- [ ] Remove old deployment instructions
-  - Remove GitHub Pages deployment instructions
+ - [x] Remove old deployment instructions
+   - Remove GitHub Pages deployment instructions
 
 ### 10.2 Update AGENTS.md
 

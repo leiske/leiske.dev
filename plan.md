@@ -1,341 +1,512 @@
-# Blog Implementation Backlog
-
-## Phase 1: Dependencies and Configuration
-
-- [x] Install required dependencies
-  - [x] Run: `npm install gray-matter marked @tailwindcss/typography`
-  - [x] Verify installation by checking `package.json`
-
-- [x] Configure Tailwind Typography plugin
-  - [x] Update `vite.config.ts` to add typography plugin imports
-  - [x] Test that `prose` classes are available (e.g., use in a test component)
-
-- [x] Update TypeScript config to include scripts
-  - [x] Modify `tsconfig.node.json` to include `"scripts/**/*.ts"` in `include` array
-  - [x] Run `tsc --noEmit` to verify no errors
-
-## Phase 2: Type Definitions
-
-- [x] Create post type definitions
-  - [x] Create `src/types/post.ts`
-  - [x] Define `PostMeta` interface with fields: `slug`, `title`, `date`, `description`, `tags` (string[])
-  - [x] Define `Post` interface extending `PostMeta` with: `content` (string HTML), `readingTime` (number)
-
-- [x] Verify types are importable
-  - [x] Create a test import in `src/App.tsx` to ensure types load correctly
-  - [x] Remove test import after verification
-
-## Phase 3: Post Loading Utilities
-
-- [x] Create post parsing utilities
-  - [x] Create `src/lib/posts.ts`
-  - [x] Import `gray-matter` for frontmatter parsing
-  - [x] Import `marked` for markdown-to-HTML conversion
-
-- [x] Implement calculateReadingTime function
-  - [x] Create `calculateReadingTime(content: string): number` function
-  - [x] Count words (split by whitespace)
-  - [x] Divide by 200 words per minute, round up to nearest integer
-  - [x] Return reading time in minutes
-  - [x] Add inline comment explaining the 200 wpm assumption
-
-- [x] Implement getPostBySlug function
-  - [x] Create `getPostBySlug(slug: string): Post | null` function
-  - [x] Construct file path: `posts/${slug}.md`
-  - [x] Use `fs` to read the file (handle file not found gracefully)
-  - [x] Parse frontmatter with `gray-matter`
-  - [x] Extract: date, title, slug, description, tags from frontmatter data
-  - [x] Convert markdown body to HTML using `marked`
-  - [x] Calculate reading time from markdown content
-  - [x] Return `Post` object or `null` if file not found
-
-- [x] Implement getAllPosts function
-  - [x] Create `getAllPosts(): Post[]` function
-  - [x] Use `fs.readdirSync` to list all `.md` files in `posts/` directory
-  - [x] Filter for files ending with `.md`
-  - [x] Map each filename to `getPostBySlug(filename without .md)`
-  - [x] Filter out any null results (posts that failed to parse)
-  - [x] Sort posts by `date` in descending order (newest first)
-  - [x] Return sorted array
-
-- [x] Test post loading functions
-  - [x] Create a temporary test script or log output in `src/App.tsx`
-  - [x] Test `getAllPosts()` returns the existing post
-  - [x] Verify frontmatter fields are parsed correctly
-  - [x] Verify markdown content is converted to HTML
-  - [x] Verify reading time is calculated
-  - [x] Clean up test code
-
-## Phase 4: Update Sample Post Frontmatter
-
-- [x] Read existing post
-  - [x] Read `posts/opencode-cursor-thoughts.md`
-  - [x] Identify current frontmatter format
-
-- [x] Update frontmatter to YAML format
-  - [x] Replace triple backticks with triple dashes (`---`)
-  - [x] Ensure all required fields are present: `date`, `title`, `slug`, `description`, `tags`
-  - [x] Format `tags` as YAML array or comma-separated string (update parser accordingly)
-  - [x] Save the updated file
-
-- [x] Verify updated post loads correctly
-  - [x] Test `getPostBySlug('opencode-cursor-thoughts')` returns valid data
-  - [x] Check all frontmatter fields are accessible
-
-## Phase 5: Create Components
-
-- [x] Create PostList component
-  - [x] Create `src/components/PostList.tsx`
-  - [x] Define props interface: `posts: PostMeta[]`
-  - [x] Return an unordered list (`<ul>`) with Tailwind classes for styling
-  - [x] Render each post as a list item (`<li>`) containing:
-    - Title as a link (`<a>`) to `/blog/${slug}/`
-    - Date formatted to user's locale using `new Date(post.date).toLocaleDateString()`
-    - Add Tailwind classes for spacing and typography
-  - [x] Handle empty array case (show "No posts available" message or empty list)
-
-- [x] Create PostContent component
-   - [x] Create `src/components/PostContent.tsx`
-   - [x] Define props interface: `post: Post`, `nextPost: Post | null`
-   - [x] Render post title as `<h1>` with Tailwind typography
-   - [x] Render metadata row containing:
-     - Date formatted to user's locale
-     - Reading time (e.g., "3 min read")
-     - Tags as a list of badges/spans
-   - [x] Render post content HTML using `dangerouslySetInnerHTML`
-   - [x] Add `prose` class from Tailwind Typography to content container
-   - [x] Render "Next post" link at bottom if `nextPost` exists
-   - [x] Add back to home link at bottom
-   - [x] Use appropriate Tailwind classes for spacing and layout
-
-## Phase 6: Create Page Templates
-
-- [x] Create Home page component
-   - [x] Create `src/pages/Home.tsx`
-   - [x] Import `PostList` component
-   - [x] Import `getAllPosts` from `src/lib/posts.ts`
-   - [x] Call `getAllPosts()` to get all posts
-   - [x] Slice to get first 5 posts: `.slice(0, 5)`
-   - [x] Render a heading (e.g., "Recent Posts")
-   - [x] Render `PostList` with the 5 posts
-   - [x] Add basic page container with Tailwind classes (padding, max-width, etc.)
-
-- [x] Create BlogPost page template
-  - [x] Create `src/pages/BlogPost.tsx`
-  - [x] Define props: `slug: string` (for build-time generation)
-  - [x] Import `PostContent` component
-  - [x] Import `getPostBySlug` and `getAllPosts` from `src/lib/posts.ts`
-  - [x] Call `getPostBySlug(slug)` to get the post
-  - [x] Call `getAllPosts()` to find the next post (find post with date before current post's date)
-  - [x] If post is null, render "Post not found" message
-  - [x] Otherwise, render `PostContent` with the post and next post
-  - [x] Add page container with Tailwind classes
-
-## Phase 7: Update App Entry Point
-
-- [x] Update App.tsx for development
-  - [x] Modify `src/App.tsx` to conditionally render based on URL
-  - [x] For development mode: use simple client-side routing (check `window.location.pathname`)
-    - [x] If path is `/`, render `Home`
-    - [x] If path matches `/blog/{slug}/`, extract slug and render `BlogPost` with that slug
-    - [x] Otherwise, render 404 or redirect to home
-  - [x] Keep it simple for dev - full static generation happens in build
-
-- [x] Test development routing
-  - [x] Run `npm run dev`
-  - [x] Navigate to `/` and verify posts list displays
-  - [x] Navigate to `/blog/opencode-cursor-thoughts/` and verify post displays
-  - [x] Check that metadata (date, reading time, tags) renders correctly
-
-## Phase 8: Build Script for Static Generation
-
-- [x] Create build script directory
-  - [x] Create `scripts/` directory if it doesn't exist
-
-- [x] Create build script
-  - [x] Create `scripts/build-static.ts`
-  - [x] Import required dependencies: `fs`, `path`, `react-dom/server`, posts utilities, page components
-
-- [x] Implement ensureDirectoryExists utility
-  - [x] Create helper function to ensure a directory exists
-  - [x] Use `fs.existsSync` to check
-  - [x] Use `fs.mkdirSync` with `recursive: true` if not exists
-
-- [x] Implement renderPage utility
-  - [x] Create `renderPage(jsxComponent: React.ReactElement): string` function
-  - [x] Use `ReactDOMServer.renderToStaticMarkup()` to convert JSX to HTML string
-  - [x] Wrap the component in a basic HTML shell with:
-    - `<!DOCTYPE html>`
-    - `<html>` and `<head>` with title, charset, viewport meta
-    - Link to Vite-generated CSS (will need to copy from build output)
-    - `<body>` with the rendered component
-  - [x] Return complete HTML string
-
-- [x] Implement build script main function
-  - [x] Get `getAllPosts()` to retrieve all posts
-  - [x] Render homepage using `Home` component via `renderPage`
-  - [x] Write homepage HTML to `dist/index.html`
-
-- [x] Implement blog post generation in build script
-  - [x] For each post in `getAllPosts()`:
-    - Create directory path: `dist/blog/${post.slug}/`
-    - Use `ensureDirectoryExists` to create directory
-    - Render post using `BlogPost({ slug: post.slug })` via `renderPage`
-    - Write HTML to `dist/blog/${post.slug}/index.html`
-
-- [x] Add error handling to build script
-  - [x] Wrap main logic in try-catch
-  - [x] Log errors clearly with file paths
-  - [x] Exit with non-zero code on failure
-
-- [x] Add console logging for build progress
-  - [x] Log "Building static site..."
-  - [x] Log "Homepage generated"
-  - [x] Log "Generated N posts" with count
-  - [x] Log "Build complete" on success
-
-## Phase 9: Vite Configuration for Static Build
-
-- [x] Configure Vite base path
-  - [x] Update `vite.config.ts`
-  - [x] Set `base: '/'` (or appropriate base path for production)
-  - [x] This ensures assets are referenced correctly from nested routes
-
-- [x] Configure build output
-  - [x] Ensure `build.outDir` is set to `'dist'` (default)
-  - [x] Add `build.emptyOutDir: true` to clean dist before build
-
-- [x] Test Vite build works
-  - [x] Run `npm run build` (should just run `tsc -b && vite build`)
-  - [x] Verify `dist/` is created with assets
-  - [x] Check that CSS and JS are generated
-
-## Phase 10: Integrate Build Script into npm Scripts
-
-- [x] Compile build script
-  - [x] Run `tsc scripts/build-static.ts --outDir dist-scripts` or similar
-  - [x] Verify compiled JS is created
-  - [x] Update `tsconfig.node.json` to include `scripts` if not already done
-
-- [x] Update package.json build script
-  - [x] Modify `"build"` script in `package.json`
-  - [x] Change from: `"build": "tsc -b && vite build"`
-  - [x] Change to: `"build": "tsc -b && vite build && node dist-scripts/build-static.js"`
-  - [x] Ensure script executes in order
-
- - [x] Test full build process
-   - [x] Run `npm run build`
-   - [x] Verify it completes without errors
-   - [x] Check `dist/index.html` exists and contains homepage content
-   - [x] Check `dist/blog/opencode-cursor-thoughts/index.html` exists
-   - [x] Verify post page contains full post content
-
-## Phase 11: Verify Static Output
-
-- [x] Inspect generated HTML files
-   - [x] Read `dist/index.html` - verify homepage structure
-   - [x] Read `dist/blog/opencode-cursor-thoughts/index.html` - verify post structure
-   - [x] Check that HTML includes proper DOCTYPE, head, and body
-
- - [x] Test preview mode
-   - [x] Run `npm run preview`
-   - [x] Navigate to `http://localhost:4173/` (or whatever port)
-   - [x] Verify homepage displays correctly
-   - [x] Click on post link or navigate to `/blog/opencode-cursor-thoughts/`
-   - [x] Verify post displays correctly
-   - [x] Check that "Next post" link works if there are multiple posts
-
-## Phase 12: Linting and Type Checking
-
- - [x] Run linter
-   - [x] Execute `npm run lint`
-   - [x] Fix any linting errors
-   - [x] Ensure no unused imports or variables
-
-- [x] Run TypeScript compiler
-   - [x] Execute `tsc -b`
-   - [x] Fix any type errors
-   - [x] Ensure strict mode compliance
-
- - [x] Final build verification
-   - [x] Run `npm run build` one final time
-   - [x] Ensure no errors or warnings
-   - [x] Verify generated files are correct
-
-## Phase 13: Documentation and Cleanup
-
- - [x] Update AGENTS.md with new information
-   - [x] Document the blog structure in `AGENTS.md`
-   - [x] Add notes about post format (frontmatter schema)
-   - [x] Document how to add new posts
-   - [x] Document build process
-
- - [x] Remove any test or debug code
-   - [x] Review all created files
-   - [x] Remove console.log statements
-   - [x] Remove temporary test imports
-
- - [x] Create a README for the blog feature (optional)
-   - [x] Document how to create a new post
-   - [x] Document required frontmatter fields
-   - [x] Document build and preview process
-
-## Phase 14: Edge Cases and Polish
-
-- [x] Handle missing frontmatter fields gracefully
-   - [x] Update `getPostBySlug` to provide default values for missing fields
-   - [x] Log warnings when required fields are missing
-
- - [x] Handle malformed markdown
-   - [x] Test with markdown that has syntax errors
-   - [x] Ensure the build doesn't crash
-   - [x] Log errors for problematic files
-
-- [x] Add 404 page for static build
-   - [x] Create a simple 404 page component
-   - [x] Generate `dist/404.html` in build script
-   - [x] Update Vite config to use custom 404 if supported
-
-- [x] Verify date formatting edge cases
-   - [x] Test with different date formats in frontmatter
-   - [x] Ensure locale formatting works correctly
-   - [x] Test with posts on different dates
-
-## Phase 15: Testing with Multiple Posts
-
-  - [x] Create additional test posts
-    - [x] Create `posts/test-post-1.md` with different content
-    - [x] Create `posts/test-post-2.md` with different content
-    - [x] Create `posts/test-post-3.md` with different content
-    - [x] Ensure proper frontmatter format
-
- - [x] Test post ordering
-   - [x] Verify posts are sorted by date correctly
-   - [x] Check homepage shows newest 5 posts
-   - [x] Verify "Next post" links work in chronological order
-
-  - [x] Test tag rendering
-    - [x] Ensure tags are rendered as badges or list items
-    - [x] Test with varying numbers of tags (0, 1, many)
-
- - [x] Test reading time calculation
-   - [x] Create a very short post and verify reading time
-   - [x] Create a long post and verify reading time
-   - [x] Check that reading time is reasonable
-
-- [x] Clean up test posts
-  - [x] Delete test posts after verification
-  - [x] Or keep them as examples if desired
+# Test Implementation Plan
+
+## Overview
+This plan focuses on **high-value behavioral tests** that verify user-facing outcomes and critical functionality. Tests are designed to catch real bugs without becoming fragile "change detectors" that break on implementation changes.
+
+**Testing Philosophy:**
+- Test BEHAVIOR and OUTPUT, not implementation details
+- Test edge cases and error handling
+- Test data transformations and user outcomes
+- Avoid testing internal implementation (function calls, state, etc.)
+- Focus on: given inputs → expected outputs
+
+---
+
+## Phase 1: Test Infrastructure Setup
+
+### Setup Vitest and Testing Libraries
+
+- [ ] Install test dependencies
+  - Run: `npm install -D vitest @testing-library/react @testing-library/jest-dom happy-dom @vitest/ui`
+  - Verify packages appear in `package.json` devDependencies
+
+- [ ] Create Vitest configuration
+  - Create `vitest.config.ts` with:
+    ```typescript
+    import { defineConfig } from 'vitest/config'
+    import react from '@vitejs/plugin-react'
+    import path from 'path'
+
+    export default defineConfig({
+      plugins: [react()],
+      test: {
+        environment: 'happy-dom',
+        globals: true,
+        setupFiles: './src/test/setup.ts',
+      },
+      resolve: {
+        alias: {
+          '@': path.resolve(__dirname, './src'),
+        },
+      },
+    })
+    ```
+  - This configures React support, DOM environment, and test globals
+
+- [ ] Create test setup file
+  - Create `src/test/setup.ts` with:
+    ```typescript
+    import '@testing-library/jest-dom'
+    ```
+  - This extends DOM elements with jest-dom matchers
+
+- [ ] Add test script to package.json
+  - Add to `scripts` in `package.json`:
+    ```json
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
+    ```
+
+- [ ] Verify setup works
+  - Create `src/test/smoke.test.ts` with:
+    ```typescript
+    describe('Vitest is working', () => {
+      it('can run a simple test', () => {
+        expect(1 + 1).toBe(2)
+      })
+    })
+    ```
+  - Run `npm run test` and verify it passes
+
+---
+
+## Phase 2: Blog Utilities Unit Tests (High ROI)
+
+### Why These Tests Matter
+Blog utilities (`src/lib/posts.ts`) are the core of data processing. Bugs here affect the entire site and are hard to catch visually. Tests here prevent broken deployments.
+
+---
+
+### Test: calculateReadingTime()
+
+**What to Test:**
+- Various word counts produce correct reading times (200 words/minute standard)
+- Empty content returns 0 or minimum value
+- Content with irregular spacing still counts correctly
+
+**File to Create:** `src/lib/__tests__/posts.test.ts`
+
+- [ ] Test standard reading time calculations
+  - Create test: `calculateReadingTime('word '.repeat(200))` returns `1`
+  - Create test: `calculateReadingTime('word '.repeat(400))` returns `2`
+  - Create test: `calculateReadingTime('word '.repeat(201))` returns `2` (rounds up)
+  - Explanation: Verifies the 200 words/minute standard and ceiling behavior
+
+- [ ] Test edge cases for reading time
+  - Create test: `calculateReadingTime('')` returns `0` or `1` (minimum)
+  - Create test: `calculateReadingTime('one')` returns `1`
+  - Create test: `calculateReadingTime('word\nword\tword')` returns `1` (handles whitespace)
+  - Explanation: Ensures function handles empty/short content and various whitespace
+
+---
+
+### Test: getPostBySlug()
+
+**What to Test:**
+- Returns null for non-existent files (ENOENT handling)
+- Returns null for markdown parse errors
+- Returns correct Post object with all fields populated
+- Handles missing frontmatter fields with defaults and logs warnings
+
+**File:** Continue in `src/lib/__tests__/posts.test.ts`
+
+- [ ] Test missing post returns null
+  - Create test: `getPostBySlug('non-existent-post')` returns `null`
+  - Use `vi.spyOn(console, 'warn').mockImplementation(() => {})` to suppress expected errors
+  - Explanation: Verifies graceful handling when post file doesn't exist
+
+- [ ] Test valid post parsing
+  - Create a temporary test post in `posts/__tests__/valid-post.md` with complete frontmatter
+  - Test that `getPostBySlug('valid-post')` returns object with:
+    - `slug` matches the input slug
+    - `title` from frontmatter
+    - `date` from frontmatter
+    - `description` from frontmatter
+    - `tags` array from frontmatter
+    - `content` is HTML (not markdown)
+    - `readingTime` is a number > 0
+  - Clean up test file after test
+  - Explanation: Verifies end-to-end parsing from markdown to Post object
+
+- [ ] Test markdown to HTML conversion
+  - Create test post with markdown: `# Header\n\nParagraph with **bold** text`
+  - Verify returned `content` contains `<h1>Header</h1>` and `<strong>bold</strong>`
+  - Explanation: Ensures markdown is properly converted to HTML for rendering
+
+- [ ] Test missing optional frontmatter fields
+  - Create test post with no `tags` field
+  - Verify `tags` defaults to empty array `[]`
+  - Create test post with no `test` field
+  - Verify `test` defaults to `false`
+  - Explanation: Tests default value behavior for optional fields
+
+- [ ] Test required field warnings
+  - Create test post missing `title` field
+  - Verify `title` defaults to `''` and console.warn was called
+  - Create test post missing `date` field
+  - Verify `date` defaults to `''` and console.warn was called
+  - Create test post missing `description` field
+  - Verify `description` defaults to `''` and console.warn was called
+  - Use `vi.spyOn(console, 'warn')` to verify warnings are logged
+  - Explanation: Ensures missing required fields are handled and warnings are logged
+
+- [ ] Test markdown parse error handling
+  - Create test post that causes marked() to throw an error (malformed markdown)
+  - Verify function returns `null` and console.error was called
+  - Explanation: Tests that markdown parse errors don't crash the build
+
+---
+
+### Test: getAllPosts()
+
+**What to Test:**
+- Returns posts sorted by date (newest first)
+- Excludes posts with `test: true` frontmatter
+- Returns empty array when no posts exist
+- Filters out null results from failed parses
+
+**File:** Continue in `src/lib/__tests__/posts.test.ts`
+
+- [ ] Test posts sorted by date (newest first)
+  - Create temporary test posts:
+    - `posts/__tests__/old-post.md` with `date: 2025-01-01`
+    - `posts/__tests__/new-post.md` with `date: 2026-01-01`
+  - Verify `getAllPosts()[0].slug` is `new-post` (newest first)
+  - Clean up test files after test
+  - Explanation: Ensures chronological ordering for post listings
+
+- [ ] Test posts with test flag are excluded
+  - Create temporary test posts:
+    - `posts/__tests__/production-post.md` with `test: false` or no test field
+    - `posts/__tests__/test-post.md` with `test: true`
+  - Verify `getAllPosts()` includes only `production-post`
+  - Clean up test files after test
+  - Explanation: Verifies test posts don't appear in production builds
+
+- [ ] Test empty posts directory
+  - Create test that temporarily removes all posts from `posts/` directory
+  - Verify `getAllPosts()` returns empty array `[]`
+  - Restore posts after test
+  - Explanation: Ensures function handles empty directory gracefully
+
+- [ ] Test filtering null results
+  - Create test that mocks `getPostBySlug` to return `null` for some slugs
+  - Verify `getAllPosts()` excludes null results
+  - Explanation: Tests robustness against failed post parses
+
+---
+
+## Phase 3: Build Integration Tests (Critical)
+
+### Why These Tests Matter
+The build script (`scripts/build-static.ts`) generates all production HTML. If this fails, the entire deployment is broken. Integration tests catch these issues before deployment.
+
+---
+
+### Test: Build Generates All Expected Files
+
+**What to Test:**
+- Build creates `dist/index.html` (homepage)
+- Build creates `dist/blog/{slug}/index.html` for each non-test post
+- Build creates `dist/404.html`
+- Build excludes test posts from output
+
+**File to Create:** `scripts/__tests__/build-static.test.ts`
+
+- [ ] Test build creates homepage
+  - Run build process (execute build script or call main function)
+  - Verify `dist/index.html` exists using `fs.existsSync`
+  - Verify file contains valid HTML structure (`<!doctype html>`, `<html>`, `<body>`)
+  - Explanation: Ensures homepage is generated for site root
+
+- [ ] Test build creates blog post pages
+  - Run build process
+  - For each non-test post in `posts/`, verify `dist/blog/{slug}/index.html` exists
+  - Example: If posts/ has `hello-world.md`, verify `dist/blog/hello-world/index.html` exists
+  - Explanation: Ensures all production posts have static pages generated
+
+- [ ] Test build excludes test posts
+  - Add test post with `test: true` frontmatter to `posts/`
+  - Run build process
+  - Verify no directory/page exists for test post in `dist/blog/`
+  - Clean up test post after test
+  - Explanation: Verifies test flag prevents page generation
+
+- [ ] Test build creates 404 page
+  - Run build process
+  - Verify `dist/404.html` exists
+  - Verify file contains valid HTML structure
+  - Explanation: Ensures custom 404 page is generated
+
+---
+
+### Test: Build HTML Structure
+
+**What to Test:**
+- Generated HTML has proper DOCTYPE
+- Generated HTML includes CSS link to `/assets/style.css`
+- Generated HTML has valid `<head>` with meta tags
+- Generated HTML wraps component output in `<body>`
+
+**File:** Continue in `scripts/__tests__/build-static.test.ts`
+
+- [ ] Test HTML shell structure
+  - Read `dist/index.html` content
+  - Verify file contains `<!doctype html>` (case-insensitive)
+  - Verify file contains `<html lang="en">`
+  - Verify file contains `<meta charset="UTF-8">`
+  - Verify file contains `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+  - Verify file contains `<link href="/assets/style.css" rel="stylesheet">`
+  - Explanation: Ensures HTML template includes all required meta tags and assets
+
+- [ ] Test homepage contains expected content
+  - Read `dist/index.html` content
+  - Verify page contains "Recent Posts" heading (or whatever Home component renders)
+  - Verify page contains links to blog posts (`/blog/{slug}/`)
+  - Explanation: Verifies homepage component rendered correctly
+
+- [ ] Test blog post pages contain expected content
+  - Pick a sample blog post, read its generated HTML
+  - Verify page contains the post title (from frontmatter)
+  - Verify page contains the post content (from markdown body)
+  - Verify page contains reading time display
+  - Verify page contains tags display
+  - Explanation: Ensures blog post component renders full post data
+
+---
+
+### Test: Build Error Handling
+
+**What to Test:**
+- Build fails gracefully when posts directory is missing
+- Build fails gracefully with clear error messages
+- Build process exits with non-zero code on failure
+
+**File:** Continue in `scripts/__tests__/build-static.test.ts`
+
+- [ ] Test build handles missing posts directory
+  - Temporarily rename `posts/` directory
+  - Run build process
+  - Verify build throws an error or exits with non-zero code
+  - Restore `posts/` directory
+  - Explanation: Ensures build fails clearly when posts are missing
+
+- [ ] Test build handles corrupted post files
+  - Create a post file with invalid YAML frontmatter (unclosed delimiters)
+  - Run build process
+  - Verify build completes or logs error for that specific post
+  - Clean up corrupted post after test
+  - Explanation: Tests robustness against malformed post files
+
+---
+
+## Phase 4: Component Rendering Tests (Medium ROI)
+
+### Why These Tests Matter
+Component tests verify UI renders correctly with various data inputs. These are less critical than build tests because visual issues are easier to catch in development, but they provide confidence in UI behavior.
+
+---
+
+### Test: PostList Component
+
+**What to Test:**
+- Renders list of post titles and dates
+- Links to correct blog post URLs
+- Shows "No posts available" when empty
+
+**File to Create:** `src/components/__tests__/PostList.test.tsx`
+
+- [ ] Test renders posts with titles and dates
+  - Mock post data: `[{ slug: 'post-1', title: 'Post 1', date: '2026-01-01' }]`
+  - Render `<PostList posts={mockPosts} />`
+  - Verify page contains text "Post 1"
+  - Verify page contains a link to `/blog/post-1/`
+  - Verify page displays a formatted date
+  - Explanation: Ensures component renders post list with correct links
+
+- [ ] Test shows message when empty
+  - Render `<PostList posts={[]} />`
+  - Verify page contains text "No posts available"
+  - Explanation: Ensures empty state is handled gracefully
+
+---
+
+### Test: BlogPost Component
+
+**What to Test:**
+- Renders "Post not found" for invalid slug
+- Displays post content when slug is valid
+- Shows "Next post" link when there is a newer post
+
+**File to Create:** `src/pages/__tests__/BlogPost.test.tsx`
+
+- [ ] Test renders not found for invalid slug
+  - Mock `getPostBySlug` to return `null`
+  - Render `<BlogPost slug="invalid-post" />`
+  - Verify page contains "Post not found" heading
+  - Verify page contains "← Back to home" link
+  - Explanation: Ensures component handles missing posts gracefully
+
+- [ ] Test renders post content for valid slug
+  - Mock post data with title, content, date, tags, readingTime
+  - Mock `getPostBySlug` to return the post
+  - Render `<BlogPost slug="valid-post" />`
+  - Verify page contains post title
+  - Verify page displays reading time
+  - Verify page displays tags
+  - Explanation: Ensures component renders post metadata correctly
+
+- [ ] Test shows next post link when applicable
+  - Mock `getPostBySlug` to return current post
+  - Mock `getAllPosts` to return posts where a newer post exists
+  - Render `<BlogPost slug="current-post" />`
+  - Verify page contains "Next post:" text
+  - Verify page contains link to next post
+  - Explanation: Ensures navigation to next post works
+
+---
+
+### Test: PostContent Component
+
+**What to Test:**
+- Displays post metadata (date, reading time, tags)
+- Renders HTML content from post.body
+- Shows back to home link
+- Renders tags as styled badges
+
+**File to Create:** `src/components/__tests__/PostContent.test.tsx`
+
+- [ ] Test displays post metadata
+  - Mock post with date: '2026-01-01', readingTime: 5, tags: ['react', 'testing']
+  - Render `<PostContent post={mockPost} nextPost={null} />`
+  - Verify page displays a formatted date
+  - Verify page displays "5 min read" (or similar)
+  - Verify page displays tags "react" and "testing"
+  - Explanation: Ensures component renders all post metadata fields
+
+- [ ] Test renders HTML content
+  - Mock post with `content: '<h1>Hello</h1><p>World</p>'`
+  - Render `<PostContent post={mockPost} nextPost={null} />`
+  - Verify page contains `<h1>Hello</h1>`
+  - Verify page contains `<p>World</p>`
+  - Explanation: Ensures HTML content is rendered via dangerouslySetInnerHTML
+
+- [ ] Test shows back to home link
+  - Render `<PostContent post={mockPost} nextPost={null} />`
+  - Verify page contains "← Back to home" text
+  - Verify link href is `/`
+  - Explanation: Ensures navigation back to homepage
+
+---
+
+### Test: Home Component
+
+**What to Test:**
+- Renders first 5 posts (slice behavior)
+- Displays "Recent Posts" heading
+- Links to PostList component
+
+**File to Create:** `src/pages/__tests__/Home.test.tsx`
+
+- [ ] Test renders recent posts heading
+  - Mock `getAllPosts` to return array of posts
+  - Render `<Home />`
+  - Verify page contains "Recent Posts" heading
+  - Explanation: Ensures component displays page title
+
+- [ ] Test renders first 5 posts
+  - Mock `getAllPosts` to return array of 10 posts
+  - Render `<Home />`
+  - Verify PostList component is rendered
+  - Verify only 5 posts are passed to PostList (use toHaveBeenCalledWith mock)
+  - Explanation: Ensures component limits to recent 5 posts
+
+---
+
+## Phase 5: Frontmatter Validation (Lower Priority)
+
+### Why These Tests Matter
+TypeScript catches type errors, but runtime validation catches data errors in markdown files. These tests are lower priority because they're caught quickly in development, but provide safety against data regressions.
+
+---
+
+**File to Create:** `src/lib/__tests__/frontmatter.test.ts`
+
+- [ ] Test date format validation
+  - Create test posts with various date formats:
+    - `2026-01-01` (valid)
+    - `01/01/2026` (invalid)
+    - `January 1, 2026` (invalid)
+  - Verify only valid format is accepted
+  - Explanation: Ensures consistent date format across posts
+
+- [ ] Test tags field validation
+  - Create test post with `tags: "single-tag"` (string instead of array)
+  - Verify function handles this gracefully (converts to array or logs warning)
+  - Explanation: Tests robustness against malformed tags
+
+- [ ] Test required fields presence
+  - Create test post missing `title` field
+  - Verify function logs warning and provides default
+  - Create test post missing `date` field
+  - Verify function logs warning and provides default
+  - Explanation: Ensures required fields are validated
+
+---
+
+## Implementation Notes
+
+### Test Organization
+- Keep tests co-located with source: `src/lib/__tests__/` for `src/lib/`
+- Use descriptive test names that describe the behavior, not the implementation
+- Use `describe` blocks to group related tests
+- Use `it` or `test` for individual test cases
+
+### Test Isolation
+- Each test should be independent and runnable in isolation
+- Clean up temporary files and mocks in `afterEach` hooks
+- Use `beforeEach` to reset state between tests
+
+### Avoiding Change Detectors
+- **DO** test: "When user visits /, they see the 5 most recent posts"
+- **DON'T** test: "getAllPosts is called exactly once"
+- **DO** test: "Post content is rendered as HTML"
+- **DON'T** test: "dangerouslySetInnerHTML is called with content"
+
+### Running Tests
+- `npm run test` - Run tests in watch mode
+- `npm run test:run` - Run tests once
+- `npm run test:ui` - Run tests with UI interface
+
+---
 
 ## Completion Criteria
 
-- [x] Homepage (`/`) displays up to 5 most recent posts with titles and dates
-- [x] Post pages (`/blog/{slug}/`) display full content with metadata
-- [x] All pages are pre-rendered as static HTML
-- [x] Date formatting uses user's locale
-- [x] Reading time is displayed on post pages
-- [x] "Next post" navigation works when applicable
-- [x] Build process completes without errors
-- [x] `npm run lint` passes
-- [x] `npm run build` generates correct static files
-- [x] `npm run preview` shows working static site
+Phase is complete when:
+- [ ] All tests in the phase pass (`npm run test:run`)
+- [ ] `npm run lint` passes (no new lint errors)
+- [ ] `npm run build` succeeds (tests don't break build)
+- [ ] Code review completed
+
+---
+
+## Recommended Implementation Order
+
+1. **Phase 1**: Setup test infrastructure (1-2 hours)
+2. **Phase 2**: Blog utilities tests (2-3 hours) ← START HERE (highest ROI)
+3. **Phase 3**: Build integration tests (2-3 hours) ← CRITICAL
+4. **Phase 4**: Component rendering tests (1-2 hours)
+5. **Phase 5**: Frontmatter validation tests (optional, 1 hour)
+
+**Total Estimated Time**: 8-12 hours for comprehensive test suite
+
+---
+
+## Notes for New Engineers
+
+- Read the existing codebase before writing tests to understand the system
+- Focus on the behavior tests (Phase 2-3) first for maximum impact
+- Don't strive for 100% coverage - aim for high-value tests that catch real bugs
+- Use the provided test examples as templates for your own tests
+- Ask questions if unsure about what to test - testing is a skill that improves with practice

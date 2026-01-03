@@ -232,10 +232,10 @@
 
 ## Phase 11: Verify Static Output
 
-- [ ] Inspect generated HTML files
-  - [ ] Read `dist/index.html` - verify homepage structure
-  - [ ] Read `dist/blog/opencode-cursor-thoughts/index.html` - verify post structure
-  - [ ] Check that HTML includes proper DOCTYPE, head, and body
+- [x] Inspect generated HTML files
+   - [x] Read `dist/index.html` - verify homepage structure
+   - [x] Read `dist/blog/opencode-cursor-thoughts/index.html` - verify post structure
+   - [x] Check that HTML includes proper DOCTYPE, head, and body
 
 - [ ] Test preview mode
   - [ ] Run `npm run preview`
@@ -282,9 +282,9 @@
 
 ## Phase 14: Edge Cases and Polish
 
-- [ ] Handle missing frontmatter fields gracefully
-  - [ ] Update `getPostBySlug` to provide default values for missing fields
-  - [ ] Log warnings when required fields are missing
+- [x] Handle missing frontmatter fields gracefully
+   - [x] Update `getPostBySlug` to provide default values for missing fields
+   - [x] Log warnings when required fields are missing
 
 - [ ] Handle malformed markdown
   - [ ] Test with markdown that has syntax errors

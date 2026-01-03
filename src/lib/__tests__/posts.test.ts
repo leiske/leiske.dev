@@ -75,4 +75,56 @@ This is paragraph with **bold** text.
       }
     }
   });
+
+  it('defaults tags to empty array when not provided', () => {
+    const testSlug = 'test-missing-tags';
+    const testFilePath = join(process.cwd(), 'posts', `${testSlug}.md`);
+    const frontmatter = `---
+title: Test Post
+date: 2026-01-02
+slug: test-missing-tags
+description: Test description
+---
+Some content
+`;
+
+    writeFileSync(testFilePath, frontmatter, 'utf-8');
+
+    try {
+      const result = getPostBySlug(testSlug);
+      expect(result).not.toBe(null);
+      expect(result?.tags).toEqual([]);
+    } finally {
+      if (existsSync(testFilePath)) {
+        unlinkSync(testFilePath);
+      }
+    }
+  });
+
+  it('defaults test to false when not provided', () => {
+    const testSlug = 'test-missing-test-field';
+    const testFilePath = join(process.cwd(), 'posts', `${testSlug}.md`);
+    const frontmatter = `---
+title: Test Post
+date: 2026-01-02
+slug: test-missing-test-field
+description: Test description
+tags:
+  - test
+---
+Some content
+`;
+
+    writeFileSync(testFilePath, frontmatter, 'utf-8');
+
+    try {
+      const result = getPostBySlug(testSlug);
+      expect(result).not.toBe(null);
+      expect(result?.test).toBe(false);
+    } finally {
+      if (existsSync(testFilePath)) {
+        unlinkSync(testFilePath);
+      }
+    }
+  });
 });

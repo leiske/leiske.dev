@@ -858,15 +858,15 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 10.4 Run Linting
 
-- [] Run linter
-   - Run: `npm run lint`
-   - Review linting errors
-   - Fix any linting issues
+  - [x] Run linter
+    - Run: `npm run lint`
+    - Review linting errors
+    - Fix any linting issues
 
- - [] Run TypeScript type checking
-   - Run: `tsc -b` (or use npm run build which includes typecheck)
-   - Review type errors
-   - Fix any type errors
+  - [x] Run TypeScript type checking
+    - Run: `tsc -b` (or use npm run build which includes typecheck)
+    - Review type errors
+    - Fix any type errors
 
 ### 10.5 Final Verification Checklist
 

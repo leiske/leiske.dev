@@ -212,16 +212,16 @@
 
 ## Phase 10: Integrate Build Script into npm Scripts
 
-- [ ] Compile build script
-  - [ ] Run `tsc scripts/build-static.ts --outDir dist-scripts` or similar
-  - [ ] Verify compiled JS is created
-  - [ ] Update `tsconfig.node.json` to include `scripts` if not already done
+- [x] Compile build script
+  - [x] Run `tsc scripts/build-static.ts --outDir dist-scripts` or similar
+  - [x] Verify compiled JS is created
+  - [x] Update `tsconfig.node.json` to include `scripts` if not already done
 
-- [ ] Update package.json build script
-  - [ ] Modify `"build"` script in `package.json`
-  - [ ] Change from: `"build": "tsc -b && vite build"`
-  - [ ] Change to: `"build": "tsc -b && vite build && node dist-scripts/build-static.js"`
-  - [ ] Ensure script executes in order
+- [x] Update package.json build script
+  - [x] Modify `"build"` script in `package.json`
+  - [x] Change from: `"build": "tsc -b && vite build"`
+  - [x] Change to: `"build": "tsc -b && vite build && node dist-scripts/build-static.js"`
+  - [x] Ensure script executes in order
 
 - [ ] Test full build process
   - [ ] Run `npm run build`

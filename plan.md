@@ -504,31 +504,31 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 6.1 Update main.tsx
 
-- [ ] Read src/main.tsx
-  - Review current implementation
+- [x] Read src/main.tsx
+   - Review current implementation
 
-- [ ] Update imports
-  - Import StrictMode from 'react'
-  - Import createRoot from 'react-dom/client'
-  - Import RouterProvider, createRouter from '@tanstack/react-router'
-  - Import routeTree from './routeTree.gen'
+ - [x] Update imports
+   - Import StrictMode from 'react'
+   - Import createRoot from 'react-dom/client'
+   - Import RouterProvider, createRouter from '@tanstack/react-router'
+   - Import routeTree from './routeTree.gen'
 
-- [ ] Create router
-  - Call createRouter({ routeTree })
-  - Store in router variable
+ - [x] Create router
+   - Call createRouter({ routeTree })
+   - Store in router variable
 
-- [ ] Augment TanStack Router module
-  - Add declare module '@tanstack/react-router'
-  - Add interface Register with router type
+ - [x] Augment TanStack Router module
+   - Add declare module '@tanstack/react-router'
+   - Add interface Register with router type
 
-- [ ] Update render call
-  - Keep createRoot(document.getElementById('root')!)
-  - Render RouterProvider with router prop
-  - Wrap in StrictMode
+ - [x] Update render call
+   - Keep createRoot(document.getElementById('root')!)
+   - Render RouterProvider with router prop
+   - Wrap in StrictMode
 
-- [ ] Remove old imports
-  - Remove App.tsx import if present
-  - Remove any routing-related imports
+ - [x] Remove old imports
+   - Remove App.tsx import if present
+   - Remove any routing-related imports
 
 ### 6.2 Update or Remove App.tsx
 

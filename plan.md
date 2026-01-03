@@ -788,10 +788,10 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 9.2 Create robots.txt
 
-- [ ] Create public directory if it doesn't exist
+- [x] Create public directory if it doesn't exist
   - Run: `mkdir -p public`
 
-- [ ] Create public/robots.txt
+- [x] Create public/robots.txt
   - Add: `User-agent: *`
   - Add: `Allow: /`
   - Add: `Sitemap: https://leiske.dev/sitemap.xml`

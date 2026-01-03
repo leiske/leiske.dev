@@ -444,33 +444,33 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 5.2 Update PostContent Component
 
-- [ ] Read src/components/PostContent.tsx
-  - Review current implementation
+- [x] Read src/components/PostContent.tsx
+   - Review current implementation
 
-- [ ] Add Markdown component import
-  - Import Markdown from './Markdown'
+- [x] Add Markdown component import
+   - Import Markdown from './Markdown'
 
-- [ ] Update component signature
-  - Keep Post interface type
-  - Add nextPost parameter (Post | null)
+- [x] Update component signature
+   - Keep Post interface type
+   - Add nextPost parameter (Post | null)
 
-- [ ] Update meta display
-  - Keep date, reading time, tags display
-  - Ensure proper formatting
+- [x] Update meta display
+   - Keep date, reading time, tags display
+   - Ensure proper formatting
 
-- [ ] Replace HTML rendering with Markdown component
-  - Remove dangerouslySetInnerHTML usage
-  - Add Markdown component with post.content
-  - Pass className="prose prose-lg max-w-none" to Markdown
+- [x] Replace HTML rendering with Markdown component
+   - Remove dangerouslySetInnerHTML usage
+   - Add Markdown component with post.content
+   - Pass className="prose prose-lg max-w-none" to Markdown
 
-- [ ] Update navigation links
-  - Replace anchor tags with Link components
-  - Use Link from '@tanstack/react-router'
-  - Set to="/blog/{nextPost.slug}" for next post
-  - Set to="/" for back to home
+- [x] Update navigation links
+   - Replace anchor tags with Link components
+   - Use Link from '@tanstack/react-router'
+   - Set to="/blog/$slug" with params for next post
+   - Set to="/" for back to home
 
-- [ ] Verify component exports
-  - Ensure component is named export
+- [x] Verify component exports
+   - Ensure component is named export
 
 ### 5.3 Create Markdown Component
 

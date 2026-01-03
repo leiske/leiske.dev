@@ -335,7 +335,7 @@
 - [x] Date formatting uses user's locale
 - [x] Reading time is displayed on post pages
 - [x] "Next post" navigation works when applicable
-- [ ] Build process completes without errors
+- [x] Build process completes without errors
 - [ ] `npm run lint` passes
 - [ ] `npm run build` generates correct static files
 - [ ] `npm run preview` shows working static site

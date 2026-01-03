@@ -742,24 +742,25 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 8.11 Build Application
 
-- [ ] Run build command
-  - Run: `npm run build`
-  - Wait for build to complete
-  - Verify no build errors
+- [x] Run build command
+   - Run: `npm run build`
+   - Wait for build to complete
+   - Verify no build errors
 
-- [ ] Check build output
-  - Verify .output directory is created (or dist, depending on config)
-  - Verify HTML files are generated
-  - Verify CSS files are generated
-  - Verify JavaScript bundles are generated
+- [x] Check build output
+   - Verify .output directory is created (or dist, depending on config)
+   - Verify HTML files are generated
+   - Verify CSS files are generated
+   - Verify JavaScript bundles are generated
 
-- [ ] Preview production build
-  - Run: `npm run start`
-  - Wait for server to start
-  - Open browser to localhost
-  - Verify pages load correctly
-  - Test navigation
-  - Verify all functionality works
+- [x] Preview production build
+   - Run: `npm run start`
+   - Wait for server to start
+   - Open browser to localhost
+   - Verify pages load correctly
+   - Test navigation
+   - Verify all functionality works
+   - NOTE: Fixed start script path from `.output/server/index.mjs` to `dist/server/server.js`
 
 ---
 

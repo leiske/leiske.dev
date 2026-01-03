@@ -768,24 +768,27 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 9.1 Generate Sitemap
 
-- [ ] Verify sitemap is configured in app.config.ts
-  - Check that sitemap.enabled is true
-  - Check that sitemap.host is set to 'https://leiske.dev'
+- [x] Verify sitemap is configured in app.config.ts
+   - Check that sitemap.enabled is true
+   - Check that sitemap.host is set to 'https://leiske.dev'
+   - Installed @corentints/tanstack-router-sitemap plugin
+   - Configured sitemap plugin in vite.config.ts with baseUrl: 'https://leiske.dev'
+   - Added manualRoutes to include all non-test blog posts
 
-- [ ] Build application to generate sitemap
-  - Run: `npm run build`
-  - Wait for build to complete
+- [x] Build application to generate sitemap
+   - Run: `npm run build`
+   - Wait for build to complete
 
-- [ ] Check sitemap.xml generation
-  - Look for sitemap.xml in build output directory
-  - Verify sitemap.xml exists
-  - Read sitemap.xml content
-  - Verify it contains URLs for:
-    - Homepage (/)
-    - Blog index (/blog)
-    - All blog posts (/blog/{slug})
-  - Verify URLs have correct host (https://leiske.dev)
-  - Verify lastmod dates are included
+- [x] Check sitemap.xml generation
+   - Look for sitemap.xml in build output directory
+   - Verify sitemap.xml exists
+   - Read sitemap.xml content
+   - Verify it contains URLs for:
+     - Homepage (/)
+     - Blog index (/blog)
+     - All blog posts (/blog/{slug})
+   - Verify URLs have correct host (https://leiske.dev)
+   - Verify lastmod dates are included
 
 ### 9.2 Create robots.txt
 

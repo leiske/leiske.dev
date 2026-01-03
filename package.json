@@ -13,6 +13,7 @@
     "test:run": "vitest run"
   },
   "dependencies": {
+    "@corentints/tanstack-router-sitemap": "^1.0.1",
     "@tailwindcss/typography": "^0.5.19",
     "@tanstack/react-router": "^1.144.0",
     "@tanstack/react-start": "^1.145.3",

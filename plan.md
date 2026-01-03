@@ -914,19 +914,19 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 10.6 Create Migration Summary Document
 
-- [ ] Create MIGRATION.md
-  - Document what was changed
-  - List removed dependencies
-  - List new dependencies
-  - List file changes
-  - Provide migration date
-  - Note any breaking changes for future reference
+ - [x] Create MIGRATION.md
+   - Document what was changed
+   - List removed dependencies
+   - List new dependencies
+   - List file changes
+   - Provide migration date
+   - Note any breaking changes for future reference
 
-- [ ] Commit all changes
-  - Review git diff
-  - Stage all changes
-  - Create commit with descriptive message: "Migrate to TanStack Start"
-  - Verify commit is successful
+ - [x] Commit all changes
+   - Review git diff
+   - Stage all changes
+   - Create commit with descriptive message: "Migrate to TanStack Start"
+   - Verify commit is successful
 
 ---
 

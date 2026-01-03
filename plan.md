@@ -205,10 +205,10 @@
   - [x] Ensure `build.outDir` is set to `'dist'` (default)
   - [x] Add `build.emptyOutDir: true` to clean dist before build
 
-- [ ] Test Vite build works
-  - [ ] Run `npm run build` (should just run `tsc -b && vite build`)
-  - [ ] Verify `dist/` is created with assets
-  - [ ] Check that CSS and JS are generated
+- [x] Test Vite build works
+  - [x] Run `npm run build` (should just run `tsc -b && vite build`)
+  - [x] Verify `dist/` is created with assets
+  - [x] Check that CSS and JS are generated
 
 ## Phase 10: Integrate Build Script into npm Scripts
 

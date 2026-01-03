@@ -829,26 +829,26 @@ Migrate the custom static site generator to TanStack Start with content-collecti
 
 ### 10.2 Update AGENTS.md
 
-- [ ] Read current AGENTS.md
-  - Review agent instructions
+ - [x] Read current AGENTS.md
+   - Review agent instructions
 
-- [ ] Update development commands
-  - Update dev command description
-  - Update build command description
-  - Update tech stack section
-  - Add TanStack Start, TanStack Router
-  - Add content-collections
-  - Add unified ecosystem for markdown
-  - Update Tailwind CSS notes (import-based approach)
+ - [x] Update development commands
+   - Update dev command description
+   - Update build command description
+   - Update tech stack section
+   - Add TanStack Start, TanStack Router
+   - Add content-collections
+   - Add unified ecosystem for markdown
+   - Update Tailwind CSS notes (import-based approach)
 
-- [ ] Update code style guidelines
-  - Add TanStack Router file-based routing conventions
-  - Add route configuration patterns
-  - Add head property usage for SEO
+ - [x] Update code style guidelines
+   - Add TanStack Router file-based routing conventions
+   - Add route configuration patterns
+   - Add head property usage for SEO
 
-- [ ] Remove old build script references
-  - Remove references to custom build scripts
-  - Remove references to manual HTML generation
+ - [x] Remove old build script references
+   - Remove references to custom build scripts
+   - Remove references to manual HTML generation
 
 ### 10.3 Remove GitHub Pages Deployment Workflow
 

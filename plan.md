@@ -313,14 +313,14 @@
    - [x] Check homepage shows newest 5 posts
    - [x] Verify "Next post" links work in chronological order
 
-- [ ] Test tag rendering
-  - [ ] Ensure tags are rendered as badges or list items
-  - [ ] Test with varying numbers of tags (0, 1, many)
+ - [ ] Test tag rendering
+   - [ ] Ensure tags are rendered as badges or list items
+   - [ ] Test with varying numbers of tags (0, 1, many)
 
-- [ ] Test reading time calculation
-  - [ ] Create a very short post and verify reading time
-  - [ ] Create a long post and verify reading time
-  - [ ] Check that reading time is reasonable
+ - [x] Test reading time calculation
+   - [x] Create a very short post and verify reading time
+   - [x] Create a long post and verify reading time
+   - [x] Check that reading time is reasonable
 
 - [ ] Clean up test posts
   - [ ] Delete test posts after verification

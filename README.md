@@ -133,6 +133,29 @@ TanStack Router uses file-based routing:
 - **Sitemap**: Auto-generated sitemap.xml with all routes
 - **Robots.txt**: Configured to allow crawling
 
+## RSS/Atom Feeds
+
+The blog provides automated RSS 2.0 and Atom 1.0 feeds that auto-regenerate when content changes.
+
+### Feed URLs
+
+- **RSS Feed**: `https://leiske.dev/feed.xml` (RSS 2.0)
+- **Atom Feed**: `https://leiske.dev/atom.xml` (Atom 1.0)
+
+### Features
+
+- **Auto-update**: Feeds automatically update when new blog posts are added
+- **Zero maintenance**: No manual configuration required
+- **Feed discovery**: RSS readers can auto-discover feeds via HTML head links
+- **Test posts excluded**: Posts marked with `test: true` are not included in feeds
+
+### Implementation
+
+- **Feed package**: Uses `feed` npm package for generation
+- **Route handlers**: Server-side routes at `/feed.xml` and `/atom.xml`
+- **Utility function**: `generateFeed()` in `src/utils/feed.ts` handles feed generation
+- **Discovery links**: HTML head contains `rel="alternate"` links with proper MIME types
+
 ## Migration History
 
 This project migrated from a custom static site generator to TanStack Start in January 2026.

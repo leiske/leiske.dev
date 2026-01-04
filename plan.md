@@ -174,11 +174,11 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
    - Wait for server to start completely
    - **Output**: Development server running at http://localhost:3001 (port 3000 was in use)
 
-- [ ] Test RSS feed endpoint
-  - Open browser and visit `http://localhost:3000/feed.xml`
-  - Verify XML is displayed in browser
-  - Check for RSS 2.0 opening tag: `<rss version="2.0">`
-  - **Output**: Valid RSS XML displayed in browser
+ - [x] Test RSS feed endpoint
+   - Open browser and visit `http://localhost:3000/feed.xml`
+   - Verify XML is displayed in browser
+   - Check for RSS 2.0 opening tag: `<rss version="2.0">`
+   - **Output**: Valid RSS XML displayed in browser
 
 - [ ] Test Atom feed endpoint
   - Open browser and visit `http://localhost:3000/atom.xml`

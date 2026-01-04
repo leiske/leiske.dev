@@ -194,13 +194,13 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
    - Confirm test posts are excluded
    - **Output**: RSS feed contains correct blog posts with proper metadata - Verified RSS 2.0 feed at http://localhost:3001/feed.xml contains 2 published posts (Learn for no reason, Checking out opencode) with correct metadata, excludes 6 test posts
 
-- [ ] Verify Atom feed content
-  - Inspect Atom XML content in browser
-  - Verify feed title, description, links are correct
-  - Check that posts appear as `<entry>` elements
-  - Verify post titles, links, updated dates are present
-  - Confirm test posts are excluded
-  - **Output**: Atom feed contains correct blog posts with proper metadata
+- [x] Verify Atom feed content
+   - Inspect Atom XML content in browser
+   - Verify feed title, description, links are correct
+   - Check that posts appear as `<entry>` elements
+   - Verify post titles, links, updated dates are present
+   - Confirm test posts are excluded
+   - **Output**: Atom feed contains correct blog posts with proper metadata - Verified Atom 1.0 feed at http://localhost:3001/atom.xml contains 2 published posts (Learn for no reason, Checking out opencode) with correct metadata, excludes 6 test posts
 
 - [ ] Verify feed discovery in HTML source
   - Visit `http://localhost:3000/` (homepage)

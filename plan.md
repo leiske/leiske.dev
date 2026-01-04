@@ -36,7 +36,7 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
    - Check for any dependency conflicts or warnings
    - **Output**: Successful output showing `feed` package tree with no errors
 
-- [ ] Review content-collections structure
+- [x] Review content-collections structure
   - Read `content-collections.ts` to understand Post schema
   - Read a sample blog post from `posts/` directory to understand frontmatter
   - **Output**: Understanding of Post type structure (title, date, description, slug, tags, content)

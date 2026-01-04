@@ -1,5 +1,5 @@
 ---
-date: 2026-01-02
+date: 2026-01-01
 title: Checking out opencode
 slug: opencode-cursor-thoughts
 description: My experience transitioning from early Cursor to opencode as an AI-powered development tool

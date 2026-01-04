@@ -145,7 +145,7 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
    - Note existing links and meta tags
    - **Output**: Understanding of current head configuration structure
 
-- [ ] Add RSS feed discovery link to root route
+ - [x] Add RSS feed discovery link to root route
   - In `head` function's `links` array, add new object:
     - `rel: 'alternate'`
     - `type: 'application/rss+xml'`

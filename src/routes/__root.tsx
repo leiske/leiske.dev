@@ -21,6 +21,12 @@ export const Route = createRootRoute({
         rel: 'stylesheet',
         href: appCss,
       },
+      {
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        href: '/feed.xml',
+        title: 'Leiske.dev - RSS Feed',
+      },
     ],
   }),
   component: RootComponent,

@@ -285,11 +285,11 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
 
 ### Phase 9: Documentation
 
-- [ ] Update AGENTS.md (if needed)
+- [x] Update AGENTS.md (if needed)
   - Check if AGENTS.md needs updates for feed routes
   - Add feed routes to route documentation if applicable
   - Add feed utility functions to documentation
-  - **Output**: AGENTS.md updated with feed-related documentation (if changes needed)
+  - **Output**: AGENTS.md updated with feed-related documentation - Added new RSS/Atom Feeds section to AGENTS.md documenting feed utility function, feed routes, feed discovery links, and feed URLs
 
 - [ ] Create or update README with feed information
   - Add section about RSS/Atom feeds to README.md

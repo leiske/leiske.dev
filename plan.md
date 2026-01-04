@@ -270,14 +270,16 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
    - Fix any errors or warnings reported
    - **Output**: Atom feed passes W3C validation with no errors - Validated Atom 1.0 feed using Python xml.etree.ElementTree: XML is well-formed, Atom namespace correct, contains required elements (id, title, updated, subtitle, rights), 2 published entries with all required fields (title, id, link, updated, summary, author). Feed structure follows Atom 1.0 specification. Note: Content-Type header shows as text/html in development due to TanStack Start/Cloudflare Workers middleware, but XML content is valid and properly structured.
 
-- [ ] Test feed with Feedly (optional)
+- [ ] Test feed with Feedly (optional - manual testing required)
+  - Requires manual account creation and cannot be automated
   - Create Feedly account or use existing one
   - Add your blog URL to Feedly
   - Verify Feedly auto-discovers the feed
   - Confirm posts appear in Feedly
   - **Output**: Feed successfully subscribed in Feedly
 
-- [ ] Test feed with another RSS reader (optional)
+- [ ] Test feed with another RSS reader (optional - manual testing required)
+  - Requires manual account creation and cannot be automated
   - Use another reader (e.g., Inoreader, NewsBlur, or RSS Guard)
   - Subscribe to your blog feed
   - Verify feed content displays correctly

@@ -27,6 +27,12 @@ export const Route = createRootRoute({
         href: '/feed.xml',
         title: 'Leiske.dev - RSS Feed',
       },
+      {
+        rel: 'alternate',
+        type: 'application/atom+xml',
+        href: '/atom.xml',
+        title: 'Leiske.dev - Atom Feed',
+      },
     ],
   }),
   component: RootComponent,

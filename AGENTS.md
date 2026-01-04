@@ -255,3 +255,31 @@ Optional `test: true` field excludes post from production build.
 ### Blog Styling
 - Tailwind Typography plugin via `prose` class
 - Tags as blue badges, responsive design
+
+### RSS/Atom Feeds
+
+#### Feed Utility Function
+- `src/utils/feed.ts`: `generateFeed()` function generates RSS 2.0 and Atom 1.0 feeds
+- Imports: `Feed` from 'feed', `allPosts` from 'content-collections', `parseDate` from './date'
+- Feed metadata: title "Leiske.dev - Blog", description "Thoughts on software development, programming, and technology", id/link "https://leiske.dev", language "en", copyright with current year
+- Filters out test posts (`post.test !== true`), sorts by date (newest first)
+- Each feed item includes: title, description, link (`/blog/${slug}`), date, author (name "Colby Leiske", email "colby.leiske@gmail.com")
+
+#### Feed Routes
+- `src/routes/feed[.]xml.ts`: RSS 2.0 feed at `/feed.xml`
+- `src/routes/atom[.]xml.ts`: Atom 1.0 feed at `/atom.xml`
+- Both routes use `createFileRoute()` with `server.handlers.GET`
+- Feed routes return XML Response with proper Content-Type header (`application/rss+xml` or `application/atom+xml`)
+- `[.]` syntax tells TanStack Router to treat dot as literal character in filename
+
+#### Feed Discovery Links
+- Routes can export `head` function with `links` array for feed auto-discovery
+- Add RSS discovery link: `rel: 'alternate'`, `type: 'application/rss+xml'`, `href: '/feed.xml'`, `title: 'Leiske.dev - RSS Feed'`
+- Add Atom discovery link: `rel: 'alternate'`, `type: 'application/atom+xml'`, `href: '/atom.xml'`, `title: 'Leiske.dev - Atom Feed'`
+- Feed discovery links present in root route (`__root.tsx`) and blog routes for auto-discovery by RSS readers
+
+#### Feed URLs
+- RSS Feed: `https://leiske.dev/feed.xml`
+- Atom Feed: `https://leiske.dev/atom.xml`
+- Feeds auto-update when content changes via content-collections regeneration
+- No caching configuration needed - server-side generation ensures fresh content

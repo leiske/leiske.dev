@@ -314,18 +314,18 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
    - **Note**: Deployment to live production (leiske.dev) requires manual execution to avoid unintended production changes
    - **Output**: Build successful, deployment ready - Verified npm run build succeeds generating dist/client and dist/server with all routes and feed functionality included. Deploy script configured to run `npm run build && wrangler deploy`.
 
- - [x] Verify production feed URLs
-   - Visit `https://leiske.dev/feed.xml` in browser
-   - Verify RSS feed loads correctly
-   - Visit `https://leiske.dev/atom.xml` in browser
-   - Verify Atom feed loads correctly
-   - **Output**: Feeds not yet deployed - Verified that https://leiske.dev/feed.xml returns malformed content and https://leiske.dev/atom.xml returns 404. Production deployment pending. The `npm run deploy` script exists and will deploy to Cloudflare Workers when manually executed.
+ - [ ] Verify production feed URLs
+    - Visit `https://leiske.dev/feed.xml` in browser
+    - Verify RSS feed loads correctly
+    - Visit `https://leiske.dev/atom.xml` in browser
+    - Verify Atom feed loads correctly
+    - **Status**: PENDING - Requires manual deployment via `npm run deploy`
 
-- [x] Verify production feed discovery
-   - Visit `https://leiske.dev/`
-   - View page source
-   - Verify feed discovery links are present
-   - **Output**: Feed discovery links NOT present in production - Verified that https://leiske.dev/ head section is missing RSS and Atom feed discovery links. This is expected because production hasn't been deployed yet with feed code changes. Manual deployment via `npm run deploy` required before verification can succeed.
+ - [ ] Verify production feed discovery
+    - Visit `https://leiske.dev/`
+    - View page source
+    - Verify feed discovery links are present
+    - **Status**: PENDING - Requires manual deployment via `npm run deploy`
 
  - [x] Test production feeds with RSS validator
    - Run W3C Feed Validator on production URLs:

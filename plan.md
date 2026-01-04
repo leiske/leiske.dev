@@ -103,39 +103,39 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
    - Set `Content-Type` header to `application/rss+xml`
    - **Output**: GET handler returning valid RSS Response
 
-- [ ] Complete RSS route export
-  - Export the Route object as default
-  - Ensure proper file extension and path handling
-  - Verify no component function needed (XML response only)
-  - **Output**: Complete RSS route ready to serve at `/feed.xml`
+- [x] Complete RSS route export
+   - Export the Route object as default
+   - Ensure proper file extension and path handling
+   - Verify no component function needed (XML response only)
+   - **Output**: Complete RSS route ready to serve at `/feed.xml`
 
 ### Phase 4: Create Atom Feed Route
 
-- [ ] Create Atom route file structure
-  - Create new file `src/routes/atom[.]xml.ts`
-  - Import `createFileRoute` from '@tanstack/react-router'
-  - Import `generateFeed` function from '../utils/feed.js'
-  - **Output**: New route file created with proper imports
+ - [x] Create Atom route file structure
+   - Create new file `src/routes/atom[.]xml.ts`
+   - Import `createFileRoute` from '@tanstack/react-router'
+   - Import `generateFeed` function from '../utils/feed.js'
+   - **Output**: New route file created with proper imports
 
-- [ ] Implement Atom route configuration
-  - Use `createFileRoute('/atom.xml')` to define route
-  - Set `ssr: false` since we're returning XML, not React component
-  - Add type definition for route
-  - **Output**: Route configured with path and SSR disabled
+- [x] Implement Atom route configuration
+   - Use `createFileRoute('/atom.xml')` to define route
+   - Set `ssr: false` since we're returning XML, not React component
+   - Add type definition for route
+   - **Output**: Route configured with path and SSR disabled
 
-- [ ] Implement GET handler for Atom route
-  - Configure `server` object with `GET` handler
-  - In handler, call `generateFeed()` to get Feed object
-  - Get Atom XML by calling `feed.atom1()` method
-  - Create Response with Atom XML string as body
-  - Set `Content-Type` header to `application/atom+xml`
-  - **Output**: GET handler returning valid Atom Response
+- [x] Implement GET handler for Atom route
+   - Configure `server` object with `GET` handler
+   - In handler, call `generateFeed()` to get Feed object
+   - Get Atom XML by calling `feed.atom1()` method
+   - Create Response with Atom XML string as body
+   - Set `Content-Type` header to `application/atom+xml`
+   - **Output**: GET handler returning valid Atom Response
 
-- [ ] Complete Atom route export
-  - Export the Route object as default
-  - Ensure proper file extension and path handling
-  - Verify no component function needed (XML response only)
-  - **Output**: Complete Atom route ready to serve at `/atom.xml`
+- [x] Complete Atom route export
+   - Export the Route object as default
+   - Ensure proper file extension and path handling
+   - Verify no component function needed (XML response only)
+   - **Output**: Complete Atom route ready to serve at `/atom.xml`
 
 ### Phase 5: Add Feed Discovery Links
 

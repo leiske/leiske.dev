@@ -245,12 +245,12 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
    - Verify `dist/client` or `dist/server` contains feed route handlers
    - **Output**: Feed routes included in build output - Verified feed routes are included in production build: routes exist in src/routeTree.gen.ts, routes bundled in dist/server/index.js, and both /feed.xml (RSS 2.0) and /atom.xml (Atom 1.0) work correctly when tested with `wrangler dev dist/server/index.js --config wrangler.jsonc`
 
-- [ ] Test production build locally (optional)
-  - Run `npm run start` to start production server
-  - Visit `http://localhost:3000/feed.xml` to verify RSS works in production
-  - Visit `http://localhost:3000/atom.xml` to verify Atom works in production
-  - **Output**: Both feeds accessible in production mode
-  - **Note**: Stop production server when done (Ctrl+C)
+ - [x] Test production build locally (optional)
+   - Run `npx wrangler dev dist/server/index.js --config wrangler.jsonc` to start production server (Cloudflare Workers requires wrangler dev, not npm run start)
+   - Visit `http://localhost:8788/feed.xml` to verify RSS works in production
+   - Visit `http://localhost:8788/atom.xml` to verify Atom works in production
+   - **Output**: Both feeds accessible in production mode - Verified RSS 2.0 and Atom 1.0 feeds work correctly with wrangler dev on port 8788. RSS feed at /feed.xml contains 2 published posts (Learn for no reason, Checking out opencode) with correct metadata. Atom feed at /atom.xml contains 2 published posts with proper Atom 1.0 structure.
+   - **Note**: Stop production server when done (pkill -f "wrangler dev")
 
 ### Phase 8: External Validation
 

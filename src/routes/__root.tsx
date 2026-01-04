@@ -42,7 +42,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <HeadContent />
       </head>
       <body>
-        <header className="sticky top-0 z-10">
+        <header className="z-10">
           <div className="flex items-center max-w-4xl mx-auto px-4 py-4">
             <Link to="/" className="text-xl font-semibold text-gray-900 hover:text-blue-600">
               colby leiske

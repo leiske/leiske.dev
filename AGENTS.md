@@ -5,7 +5,10 @@
 ### Development
 - `npm run dev` - Start development server with HMR
 - `npm run build` - Full build: TypeScript + Vite (builds to dist/client and dist/server)
-- `npm run start` - Start production server (runs dist/server/server.js)
+- `npx wrangler dev dist/server/index.js --config wrangler.jsonc` - Test Cloudflare Workers production build locally
+  - Use this instead of `npm run start` for Cloudflare Workers deployment
+  - `npm run start` will fail because Cloudflare Workers builds require the Cloudflare runtime
+  - Wrangler simulates the Cloudflare Workers environment for local testing
 - `npm run lint` - Run ESLint on all files
 
 ### Testing
@@ -245,8 +248,9 @@ Optional `test: true` field excludes post from production build.
 
 ### Development vs Production
 - Development: Server-side rendering with HMR at `http://localhost:3000`
-- Production: Server-side rendering from `dist/server/server.js`
+- Production: Deploy to Cloudflare Workers or test locally with `npx wrangler dev dist/server/index.js --config wrangler.jsonc`
 - Same components and routes in both modes
+- NOTE: Production builds require Cloudflare runtime; use `wrangler dev` for local testing, not `npm run start`
 
 ### Blog Styling
 - Tailwind Typography plugin via `prose` class

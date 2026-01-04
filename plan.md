@@ -95,13 +95,13 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
    - Add type definition for route
    - **Output**: Route configured with path and SSR disabled
 
-- [ ] Implement GET handler for RSS route
-  - Configure `server` object with `GET` handler
-  - In handler, call `generateFeed()` to get Feed object
-  - Get RSS XML by calling `feed.rss2()` method
-  - Create Response with RSS XML string as body
-  - Set `Content-Type` header to `application/rss+xml`
-  - **Output**: GET handler returning valid RSS Response
+ - [x] Implement GET handler for RSS route
+   - Configure `server` object with `GET` handler
+   - In handler, call `generateFeed()` to get Feed object
+   - Get RSS XML by calling `feed.rss2()` method
+   - Create Response with RSS XML string as body
+   - Set `Content-Type` header to `application/rss+xml`
+   - **Output**: GET handler returning valid RSS Response
 
 - [ ] Complete RSS route export
   - Export the Route object as default

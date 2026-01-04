@@ -9,13 +9,13 @@ export const Route = createFileRoute('/')({
   component: Home,
   head: () => ({
     meta: [
-      { title: 'Leiske.dev - Blog' },
+      { title: 'Colby Leiske' },
       { name: 'description', content: 'Thoughts on software development, programming, and technology' },
-      { property: 'og:title', content: 'Leiske.dev - Blog' },
+      { property: 'og:title', content: 'Colby Leiske' },
       { property: 'og:description', content: 'Thoughts on software development, programming, and technology' },
       { property: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:title', content: 'Leiske.dev - Blog' },
+      { name: 'twitter:title', content: 'Colby Leiske' },
       { name: 'twitter:description', content: 'Thoughts on software development, programming, and technology' },
     ],
   }),

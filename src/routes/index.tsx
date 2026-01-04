@@ -28,7 +28,7 @@ function Home() {
     .slice(0, 5);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-3xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Recent Posts</h1>
       <PostList posts={recentPosts} />
       <div className="mt-12 pt-8 border-t">

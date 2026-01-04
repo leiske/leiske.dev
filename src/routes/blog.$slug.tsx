@@ -48,6 +48,8 @@ export const Route = createFileRoute('/blog/$slug')({
       ],
       links: [
         { rel: 'canonical', href: `https://leiske.dev/blog/${loaderData.post.slug}` },
+        { rel: 'alternate', type: 'application/rss+xml', href: '/feed.xml', title: 'Leiske.dev - RSS Feed' },
+        { rel: 'alternate', type: 'application/atom+xml', href: '/atom.xml', title: 'Leiske.dev - Atom Feed' },
       ],
       scripts: [
         {

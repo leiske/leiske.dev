@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import type { PostMeta } from '../types/post.js';
+import { formatDate } from '../utils/date.js';
 
 interface PostListProps {
   posts: PostMeta[];
@@ -22,7 +23,7 @@ export function PostList({ posts }: PostListProps) {
             {post.title}
           </Link>
           <time className="text-sm text-gray-600">
-            {new Date(post.date).toLocaleDateString()}
+            {formatDate(post.date)}
           </time>
         </li>
       ))}

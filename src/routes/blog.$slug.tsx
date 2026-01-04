@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from '@tanstack/react-router'
 import { allPosts } from 'content-collections'
 import type { Post } from 'content-collections'
 import { PostContent } from '../components/PostContent'
+import { parseDate } from '../utils/date.js'
 
 export const Route = createFileRoute('/blog/$slug')({
   ssr: true,
@@ -22,7 +23,7 @@ export const Route = createFileRoute('/blog/$slug')({
     
     const filteredPosts = allPosts
       .filter((p: Post) => !p.test)
-      .sort((a: Post, b: Post) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .sort((a: Post, b: Post) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
     
     const currentIndex = filteredPosts.findIndex((p: Post) => p.slug === slug)
     const nextPost = currentIndex > 0 ? filteredPosts[currentIndex - 1] : null

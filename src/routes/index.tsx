@@ -3,6 +3,7 @@ import { allPosts } from 'content-collections';
 import type { Post } from 'content-collections';
 import { PostList } from '../components/PostList.js';
 import { SocialLinks } from '../components/SocialLinks';
+import { parseDate } from '../utils/date.js';
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -23,7 +24,7 @@ export const Route = createFileRoute('/')({
 function Home() {
   const recentPosts = allPosts
     .filter((post: Post) => !post.test)
-    .sort((a: Post, b: Post) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort((a: Post, b: Post) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
     .slice(0, 5);
 
   return (

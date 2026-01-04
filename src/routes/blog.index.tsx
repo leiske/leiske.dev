@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { allPosts } from 'content-collections';
 import type { Post } from 'content-collections';
 import { PostList } from '../components/PostList.js';
+import { parseDate } from '../utils/date.js';
 
 export const Route = createFileRoute('/blog/')({
   component: BlogIndex,
@@ -26,7 +27,7 @@ export const Route = createFileRoute('/blog/')({
 function BlogIndex() {
   const sortedPosts = allPosts
     .filter((post: Post) => !post.test)
-    .sort((a: Post, b: Post) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort((a: Post, b: Post) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">

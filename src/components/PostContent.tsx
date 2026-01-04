@@ -2,6 +2,7 @@ import type { Post } from '../types/post.js';
 import { Link } from '@tanstack/react-router';
 import { Markdown } from './Markdown';
 import { SocialLinks } from './SocialLinks';
+import { formatDate } from '../utils/date.js';
 
 interface PostContentProps {
   post: Post;
@@ -14,7 +15,7 @@ export function PostContent({ post, nextPost }: PostContentProps) {
       <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
       
       <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-8">
-        <time>{new Date(post.date).toLocaleDateString()}</time>
+        <time>{formatDate(post.date)}</time>
         <span>•</span>
         <span>{post.readingTime} min read</span>
         {post.tags.length > 0 && (

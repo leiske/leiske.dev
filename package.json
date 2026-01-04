@@ -21,6 +21,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tanstack/react-router": "^1.144.0",
     "@tanstack/react-start": "^1.145.3",
+    "feed": "^5.1.0",
     "gray-matter": "^4.0.3",
     "hast-util-to-string": "^3.0.1",
     "react": "^19.2.0",

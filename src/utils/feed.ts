@@ -2,6 +2,28 @@ import { Feed } from 'feed'
 import { allPosts } from 'content-collections'
 import { parseDate } from './date'
 
+/**
+ * Generates RSS 2.0 and Atom 1.0 feeds for the blog
+ *
+ * Creates a fully configured Feed object containing all published blog posts
+ * sorted by date (newest first). Test posts are excluded automatically.
+ * The feed includes proper metadata and can be converted to RSS or Atom format.
+ *
+ * @returns A configured Feed object ready to be serialized as RSS 2.0 or Atom 1.0
+ *
+ * @example
+ * ```ts
+ * import { generateFeed } from './utils/feed'
+ *
+ * const feed = generateFeed()
+ *
+ * // Get RSS 2.0 XML
+ * const rssXml = feed.rss2()
+ *
+ * // Get Atom 1.0 XML
+ * const atomXml = feed.atom1()
+ * ```
+ */
 export function generateFeed(): Feed {
   const feed = new Feed({
     title: 'Colby Leiske',

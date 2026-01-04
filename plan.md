@@ -43,10 +43,10 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
 
 ### Phase 2: Create Feed Generation Utility
 
-- [ ] Create `src/utils/feed.ts` file
-  - Create new file with imports: `Feed` from 'feed', `allPosts` from 'content-collections'
-  - Define `generateFeed()` function with no parameters
-  - **Output**: New file created at `src/utils/feed.ts` with basic structure
+ - [x] Create `src/utils/feed.ts` file
+   - Create new file with imports: `Feed` from 'feed', `allPosts` from 'content-collections'
+   - Define `generateFeed()` function with no parameters
+   - **Output**: New file created at `src/utils/feed.ts` with basic structure
 
 - [ ] Implement Feed initialization in utility function
   - Create new `Feed` instance with metadata (title, description, id, link, language, copyright)

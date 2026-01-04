@@ -83,17 +83,17 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
 
 ### Phase 3: Create RSS Feed Route
 
-- [ ] Create RSS route file structure
+- [x] Create RSS route file structure
   - Create new file `src/routes/feed[.]xml.ts`
   - Import `createFileRoute` from '@tanstack/react-router'
   - Import `generateFeed` function from '../utils/feed.js'
   - **Output**: New route file created with proper imports
 
-- [ ] Implement RSS route configuration
-  - Use `createFileRoute('/feed.xml')` to define route
-  - Set `ssr: false` since we're returning XML, not React component
-  - Add type definition for route
-  - **Output**: Route configured with path and SSR disabled
+ - [x] Implement RSS route configuration
+   - Use `createFileRoute('/feed.xml')` to define route
+   - Set `ssr: false` since we're returning XML, not React component
+   - Add type definition for route
+   - **Output**: Route configured with path and SSR disabled
 
 - [ ] Implement GET handler for RSS route
   - Configure `server` object with `GET` handler

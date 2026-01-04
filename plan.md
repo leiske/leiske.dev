@@ -230,10 +230,10 @@ Add automated RSS 2.0 and Atom 1.0 feeds to leiske.dev blog using the `feed` pac
    - Fix any compilation errors if present
    - **Output**: Successful TypeScript compilation with no errors
 
-- [ ] Run ESLint check
-  - Run `npm run lint` to check for linting errors
-  - Fix any linting issues if present
-  - **Output**: No ESLint errors or warnings
+ - [x] Run ESLint check
+   - Run `npm run lint` to check for linting errors
+   - Fix any linting issues if present
+   - **Output**: No ESLint errors or warnings
 
 - [ ] Build production bundle
   - Run `npm run build` to create production build

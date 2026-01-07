@@ -4,7 +4,7 @@ import { parseDate } from './date'
 
 export function generateFeed(): Feed {
   const feed = new Feed({
-    title: 'Leiske.dev - Blog',
+    title: 'Colby Leiske',
     description: 'Thoughts on software development, programming, and technology',
     id: 'https://leiske.dev',
     link: 'https://leiske.dev',

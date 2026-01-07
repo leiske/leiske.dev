@@ -10,13 +10,13 @@ export const Route = createFileRoute('/blog/')({
   ssr: true,
   head: () => ({
     meta: [
-      { title: 'Leiske.dev - All Posts' },
+      { title: 'Colby Leiske' },
       { name: 'description', content: 'Browse all blog posts' },
-      { property: 'og:title', content: 'Leiske.dev - All Posts' },
+      { property: 'og:title', content: 'Colby Leiske' },
       { property: 'og:description', content: 'Browse all blog posts' },
       { property: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:title', content: 'Leiske.dev - All Posts' },
+      { name: 'twitter:title', content: 'Colby Leiske' },
       { name: 'twitter:description', content: 'Browse all blog posts' },
     ],
     links: [

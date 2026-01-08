@@ -25,6 +25,10 @@ import { parseDate } from './date'
  * ```
  */
 export function generateFeed(): Feed {
+  const posts = allPosts
+    .filter((post) => post.test !== true)
+    .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
+
   const feed = new Feed({
     title: 'Colby Leiske',
     description: 'Thoughts on software development, programming, and technology',
@@ -35,11 +39,8 @@ export function generateFeed(): Feed {
     feedLinks: {
       atom: 'https://leiske.dev/atom.xml',
     },
+    updated: posts.length > 0 ? parseDate(posts[0].date) : new Date(),
   })
-
-  const posts = allPosts
-    .filter((post) => post.test !== true)
-    .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
 
   posts.forEach((post) => {
     feed.addItem({

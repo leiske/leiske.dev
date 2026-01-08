@@ -31,7 +31,7 @@ export function generateFeed(): Feed {
     id: 'https://leiske.dev',
     link: 'https://leiske.dev',
     language: 'en',
-    copyright: `© ${new Date().getFullYear()} Colby Leiske`,
+    copyright: `${new Date().getFullYear()} Colby Leiske`,
   })
 
   const posts = allPosts

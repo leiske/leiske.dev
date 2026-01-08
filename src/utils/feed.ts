@@ -28,10 +28,13 @@ export function generateFeed(): Feed {
   const feed = new Feed({
     title: 'Colby Leiske',
     description: 'Thoughts on software development, programming, and technology',
-    id: 'https://leiske.dev',
+    id: 'https://leiske.dev/',
     link: 'https://leiske.dev',
     language: 'en',
     copyright: `${new Date().getFullYear()} Colby Leiske`,
+    feedLinks: {
+      atom: 'https://leiske.dev/atom.xml',
+    },
   })
 
   const posts = allPosts
@@ -42,7 +45,7 @@ export function generateFeed(): Feed {
     feed.addItem({
       title: post.title,
       description: post.description,
-      link: `/blog/${post.slug}`,
+      link: `https://leiske.dev/blog/${post.slug}`,
       date: parseDate(post.date),
       author: [
         {

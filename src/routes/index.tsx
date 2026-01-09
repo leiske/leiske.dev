@@ -4,7 +4,6 @@ import type { Post } from 'content-collections';
 import { PostList } from '../components/PostList.js';
 import { SocialLinks } from '../components/SocialLinks';
 import { parseDate } from '../utils/date.js';
-import css from '../index.css?url'
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -19,9 +18,6 @@ export const Route = createFileRoute('/')({
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:title', content: 'Colby Leiske' },
       { name: 'twitter:description', content: 'Thoughts on software development, programming, and technology' },
-    ],
-    links: [
-      { rel: 'stylesheet', href: css },
     ],
   }),
 });

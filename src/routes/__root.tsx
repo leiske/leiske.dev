@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Outlet, createRootRoute, HeadContent, Scripts, Link } from '@tanstack/react-router'
+import css from '../index.css?url'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -20,6 +21,10 @@ export const Route = createRootRoute({
       },
     ],
     links: [
+      {
+        rel: 'stylesheet',
+        href: css,
+      },
       {
         rel: 'alternate',
         type: 'application/rss+xml',

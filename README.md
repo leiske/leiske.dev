@@ -1,4 +1,4 @@
-# Leiske.dev
+# leiske.dev
 
 My blog
 

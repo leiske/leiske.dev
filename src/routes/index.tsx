@@ -30,7 +30,7 @@ function Home() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Recent Posts</h1>
+      <h1 className="text-4xl font-bold mb-6">Recent Posts</h1>
       <PostList posts={recentPosts} />
       <div className="mt-12 pt-8 border-t">
         <SocialLinks />

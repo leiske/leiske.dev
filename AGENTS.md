@@ -59,7 +59,6 @@
 ### Styling
 - Prefer Tailwind utility classes in className prop
 - Example: `className="flex flex-col items-center justify-center"`
-- For complex styles, add to `src/App.css`
 - Tailwind imported via `@import "tailwindcss"` in index.css
 
 ### Naming Conventions

@@ -7,6 +7,7 @@ import { parseDate } from '../utils/date.js';
 
 export const Route = createFileRoute('/')({
   component: Home,
+  ssr: true,
   head: () => ({
     meta: [
       { title: 'Colby Leiske' },

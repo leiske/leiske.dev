@@ -13,7 +13,8 @@
     "test:run": "vitest run",
     "deploy": "npm run build && wrangler deploy",
     "preview": "npm run build && vite preview",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "new": "node scripts/new-post.mjs"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.17.1",

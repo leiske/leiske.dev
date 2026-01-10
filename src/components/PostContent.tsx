@@ -56,6 +56,7 @@ export function PostContent({ post, nextPost }: PostContentProps) {
               to="/blog/$slug"
               params={{ slug: nextPost.slug }}
               className="text-blue-600 hover:text-blue-800 font-medium"
+              resetScroll={true}
             >
               Next post: {nextPost.title} →
             </Link>

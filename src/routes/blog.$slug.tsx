@@ -1,5 +1,4 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
-import { allPosts } from 'content-collections'
 import type { Post } from 'content-collections'
 import { PostContent } from '../components/PostContent'
 import { parseDate } from '../utils/date.js'
@@ -7,6 +6,7 @@ import { parseDate } from '../utils/date.js'
 export const Route = createFileRoute('/blog/$slug')({
   ssr: true,
   loader: async ({ params }) => {
+    const { allPosts } = await import('content-collections')
     const { slug } = params
     
     const post = allPosts.find((p: Post) => p.slug === slug)

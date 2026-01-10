@@ -1,11 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { allPosts } from 'content-collections';
 import type { Post } from 'content-collections';
 import { PostList } from '../components/PostList.js';
 import { SocialLinks } from '../components/SocialLinks';
 import { parseDate } from '../utils/date.js';
 
 export const Route = createFileRoute('/blog/')({
+  loader: async () => {
+    const { allPosts } = await import('content-collections');
+    const sortedPosts = allPosts
+      .filter((post: Post) => !post.wip)
+      .sort((a: Post, b: Post) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
+    return { posts: sortedPosts };
+  },
   component: BlogIndex,
   ssr: true,
   head: () => ({
@@ -26,14 +32,12 @@ export const Route = createFileRoute('/blog/')({
 });
 
 function BlogIndex() {
-  const sortedPosts = allPosts
-    .filter((post: Post) => !post.wip)
-    .sort((a: Post, b: Post) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
+  const { posts } = Route.useLoaderData();
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">All Posts</h1>
-      <PostList posts={sortedPosts} />
+      <PostList posts={posts} />
       <div className="mt-12 pt-8 border-t">
         <SocialLinks />
       </div>

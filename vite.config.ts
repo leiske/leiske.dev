@@ -10,9 +10,6 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 export default defineConfig({
   server: {
     port: 3000,
-    watch: {
-      ignored: ['**/.content-collections/**', '**/src/routeTree.gen.ts'],
-    },
   },
   plugins: [
     contentCollections(),

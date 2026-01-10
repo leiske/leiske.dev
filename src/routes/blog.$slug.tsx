@@ -8,26 +8,26 @@ export const Route = createFileRoute('/blog/$slug')({
   loader: async ({ params }) => {
     const { allPosts } = await import('content-collections')
     const { slug } = params
-    
+
     const post = allPosts.find((p: Post) => p.slug === slug)
-    
+
     if (!post) {
       throw notFound()
     }
-    
+
     const filteredPosts = allPosts
       .filter((p: Post) => !p.wip)
       .sort((a: Post, b: Post) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
-    
+
     const currentIndex = filteredPosts.findIndex((p: Post) => p.slug === slug)
     const nextPost = currentIndex > 0 ? filteredPosts[currentIndex - 1] : null
-    
+
     return { post, nextPost }
   },
-  
+
   head: ({ loaderData }) => {
     if (!loaderData) throw new Error('Loader data is required')
-    
+
     const meta = [
       { title: loaderData.post.title },
       { name: 'description', content: loaderData.post.description },
@@ -39,11 +39,11 @@ export const Route = createFileRoute('/blog/$slug')({
       { name: 'twitter:title', content: loaderData.post.title },
       { name: 'twitter:description', content: loaderData.post.description },
     ]
-    
+
     if (loaderData.post.wip) {
       meta.push({ name: 'robots', content: 'noindex, nofollow' })
     }
-    
+
     return {
       meta,
       links: [
@@ -66,12 +66,12 @@ export const Route = createFileRoute('/blog/$slug')({
       ],
     }
   },
-  
+
   component: BlogPost,
 })
 
 function BlogPost() {
   const { post, nextPost } = Route.useLoaderData()
-  
+
   return <PostContent post={post} nextPost={nextPost} />
 }

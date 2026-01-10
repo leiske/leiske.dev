@@ -3,6 +3,7 @@ import { Outlet, createRootRoute, HeadContent, Scripts, Link } from '@tanstack/r
 import css from '../index.css?url'
 
 export const Route = createRootRoute({
+  ssr: true,
   head: () => ({
     meta: [
       {

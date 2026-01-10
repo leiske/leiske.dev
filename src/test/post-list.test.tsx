@@ -25,7 +25,7 @@ describe('PostList Component (Task 10.5)', () => {
       date: '2026-01-01',
       description: 'First post description',
       tags: ['test', 'first'],
-      test: undefined,
+      wip: false,
     },
     {
       slug: 'post-2',
@@ -33,7 +33,7 @@ describe('PostList Component (Task 10.5)', () => {
       date: '2026-01-02',
       description: 'Second post description',
       tags: ['test', 'second'],
-      test: undefined,
+      wip: false,
     },
   ]
 

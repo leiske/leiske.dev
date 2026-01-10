@@ -10,7 +10,7 @@ type MockPost = {
   content: string
   tags: string[]
   readingTime: number
-  test: boolean | undefined
+  wip: boolean | undefined
 }
 
 // Mock Markdown component
@@ -45,7 +45,7 @@ describe('Blog Post Page (Task 8.4)', () => {
     content: '# Heading 1\n\nThis is test content.',
     tags: ['test', 'blog'],
     readingTime: 3,
-    test: undefined,
+    wip: false,
   }
 
   const mockNextPost: MockPost = {
@@ -56,7 +56,7 @@ describe('Blog Post Page (Task 8.4)', () => {
     content: '# Next Heading',
     tags: ['next'],
     readingTime: 2,
-    test: undefined,
+    wip: false,
   }
 
   it('displays post title', () => {

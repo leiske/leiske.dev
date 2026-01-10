@@ -53,9 +53,9 @@ title: ${title}
 slug: ${slug}
 description: 
 wip: true
-# tags:
-#   - tag1
-#   - tag2
+tags:
+  - tag1
+  - tag2
 ---
 
 `

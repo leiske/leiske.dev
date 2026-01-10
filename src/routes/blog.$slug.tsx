@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from '@tanstack/react-router'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 import type { Post } from 'content-collections'
 import { PostContent } from '../components/PostContent'
 import { parseDate } from '../utils/date.js'
@@ -12,7 +12,9 @@ export const Route = createFileRoute('/blog/$slug')({
     const post = allPosts.find((p: Post) => p.slug === slug)
 
     if (!post) {
-      throw notFound()
+      throw redirect({
+        to: '/404',
+      })
     }
 
     const filteredPosts = allPosts

@@ -33,6 +33,28 @@ const posts = defineCollection({
   },
 })
 
+const pages = defineCollection({
+  name: 'pages',
+  directory: './src/pages',
+  include: '*.md',
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    description: z.string(),
+    content: z.string(),
+  }),
+  transform: (document) => {
+    const { content: body } = matter(document.content)
+    
+    return {
+      title: document.title,
+      slug: document.slug,
+      description: document.description,
+      content: body,
+    }
+  },
+})
+
 export default defineConfig({
-  collections: [posts],
+  collections: [posts, pages],
 })

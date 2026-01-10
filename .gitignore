@@ -14,7 +14,7 @@ dist-scripts
 *.local
 
 # Generated files
-.content-collections/
+.content-collections/*
 src/routeTree.gen.ts
 public/sitemap.xml
 .wrangler/

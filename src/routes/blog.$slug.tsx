@@ -22,7 +22,7 @@ export const Route = createFileRoute('/blog/$slug')({
     }
     
     const filteredPosts = allPosts
-      .filter((p: Post) => !p.test)
+      .filter((p: Post) => !p.test && !p.wip)
       .sort((a: Post, b: Post) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
     
     const currentIndex = filteredPosts.findIndex((p: Post) => p.slug === slug)
@@ -34,18 +34,24 @@ export const Route = createFileRoute('/blog/$slug')({
   head: ({ loaderData }) => {
     if (!loaderData) throw new Error('Loader data is required')
     
+    const meta = [
+      { title: loaderData.post.title },
+      { name: 'description', content: loaderData.post.description },
+      { property: 'og:title', content: loaderData.post.title },
+      { property: 'og:description', content: loaderData.post.description },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:url', content: `https://leiske.dev/blog/${loaderData.post.slug}` },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: loaderData.post.title },
+      { name: 'twitter:description', content: loaderData.post.description },
+    ]
+    
+    if (loaderData.post.wip) {
+      meta.push({ name: 'robots', content: 'noindex, nofollow' })
+    }
+    
     return {
-      meta: [
-        { title: loaderData.post.title },
-        { name: 'description', content: loaderData.post.description },
-        { property: 'og:title', content: loaderData.post.title },
-        { property: 'og:description', content: loaderData.post.description },
-        { property: 'og:type', content: 'article' },
-        { property: 'og:url', content: `https://leiske.dev/blog/${loaderData.post.slug}` },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: loaderData.post.title },
-        { name: 'twitter:description', content: loaderData.post.description },
-      ],
+      meta,
       links: [
         { rel: 'canonical', href: `https://leiske.dev/blog/${loaderData.post.slug}` },
         { rel: 'alternate', type: 'application/rss+xml', href: '/feed.xml', title: 'Leiske.dev - RSS Feed' },

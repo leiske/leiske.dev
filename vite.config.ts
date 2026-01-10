@@ -46,7 +46,7 @@ export default defineConfig({
           const modulePath = `file://${process.cwd()}/.content-collections/generated/index.js`
           const { allPosts } = await import(modulePath)
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const posts = allPosts.filter((post: any) => !post.test)
+          const posts = allPosts.filter((post: any) => !post.test && !post.wip)
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           return posts.map((post: any) => ({
             location: `/blog/${post.slug}`,

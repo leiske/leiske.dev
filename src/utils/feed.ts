@@ -26,7 +26,7 @@ import { parseDate } from './date'
  */
 export function generateFeed(): Feed {
   const posts = allPosts
-    .filter((post) => post.test !== true)
+    .filter((post) => post.test !== true && post.wip !== true)
     .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
 
   const feed = new Feed({

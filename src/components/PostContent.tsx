@@ -14,6 +14,12 @@ export function PostContent({ post, nextPost }: PostContentProps) {
     <article className="max-w-3xl mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
       
+      {post.wip && (
+        <div className="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full mb-6">
+          Draft - Work in Progress
+        </div>
+      )}
+      
       <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-8">
         <time>{formatDate(post.date)}</time>
         <span>•</span>

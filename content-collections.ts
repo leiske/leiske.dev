@@ -13,6 +13,7 @@ const posts = defineCollection({
     slug: z.string(),
     tags: z.array(z.string()),
     test: z.boolean().optional(),
+    wip: z.boolean().optional(),
     content: z.string(),
   }),
   transform: (document) => {
@@ -27,6 +28,7 @@ const posts = defineCollection({
       slug: document._meta.path,
       tags: document.tags,
       test: document.test,
+      wip: document.wip,
       content: body,
       readingTime,
     }

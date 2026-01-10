@@ -27,7 +27,7 @@ export const Route = createFileRoute('/blog/')({
 
 function BlogIndex() {
   const sortedPosts = allPosts
-    .filter((post: Post) => !post.test)
+    .filter((post: Post) => !post.test && !post.wip)
     .sort((a: Post, b: Post) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
 
   return (

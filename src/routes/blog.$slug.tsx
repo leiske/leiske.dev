@@ -15,14 +15,8 @@ export const Route = createFileRoute('/blog/$slug')({
       throw notFound()
     }
     
-    const isDevelopment = import.meta.env.DEV
-    
-    if (!isDevelopment && post.test) {
-      throw notFound()
-    }
-    
     const filteredPosts = allPosts
-      .filter((p: Post) => !p.test && !p.wip)
+      .filter((p: Post) => !p.wip)
       .sort((a: Post, b: Post) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
     
     const currentIndex = filteredPosts.findIndex((p: Post) => p.slug === slug)

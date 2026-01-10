@@ -24,7 +24,7 @@ export const Route = createFileRoute('/')({
 
 function Home() {
   const recentPosts = allPosts
-    .filter((post: Post) => !post.test && !post.wip)
+    .filter((post: Post) => !post.wip)
     .sort((a: Post, b: Post) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
     .slice(0, 5);
 

@@ -5,3 +5,4 @@
 * if i do ludum dare again then post about that
 * enshittification of discord
 * Should you run kubernetes at home? (probably not)
+* Detecting "good" moments of a stream to create highlights

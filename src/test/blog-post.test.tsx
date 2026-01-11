@@ -2,16 +2,17 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, within } from '@testing-library/react'
 import { PostContent } from '../components/PostContent'
 
-type MockPost = {
-  slug: string
-  title: string
-  date: string
-  description: string
-  content: string
-  tags: string[]
-  readingTime: number
-  wip: boolean | undefined
-}
+  type MockPost = {
+    slug: string
+    title: string
+    date: string
+    description: string
+    content: string
+    tags: string[]
+    readingTime: number
+    wip: boolean | undefined
+  }
+
 
 // Mock Markdown component
 vi.mock('../components/Markdown', () => ({
@@ -42,7 +43,7 @@ describe('Blog Post Page (Task 8.4)', () => {
     title: 'Test Post Title',
     date: '2026-01-01',
     description: 'Test description',
-    content: '# Heading 1\n\nThis is test content.',
+    content: Array.from({ length: 600 }).fill('word').join(' '),
     tags: ['test', 'blog'],
     readingTime: 3,
     wip: false,
@@ -53,9 +54,9 @@ describe('Blog Post Page (Task 8.4)', () => {
     title: 'Next Post Title',
     date: '2026-01-02',
     description: 'Next post description',
-    content: '# Next Heading',
+    content: Array.from({ length: 200 }).fill('word').join(' '),
     tags: ['next'],
-    readingTime: 2,
+    readingTime: 1,
     wip: false,
   }
 
@@ -95,7 +96,7 @@ describe('Blog Post Page (Task 8.4)', () => {
     render(<PostContent post={mockPost as MockPost} nextPost={null} />)
     const markdownContent = screen.getByTestId('markdown-content')
     expect(markdownContent).toBeInTheDocument()
-    expect(markdownContent).toHaveTextContent('This is test content')
+    expect(markdownContent).toHaveTextContent('word')
   })
 
   it('has back to home link', () => {

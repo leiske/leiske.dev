@@ -22,9 +22,12 @@ export function PostList({ posts }: PostListProps) {
           >
             {post.title}
           </Link>
-          <time className="text-sm text-gray-600">
-            {formatDate(post.date)}
-          </time>
+          <div className="mt-1 flex items-center gap-2 text-sm text-gray-600">
+            <time>{formatDate(post.date)}</time>
+            <span aria-hidden="true">·</span>
+            <span>{post.readingTime} min read</span>
+          </div>
+          <p className="mt-2 text-gray-700">{post.description}</p>
         </li>
       ))}
     </ul>

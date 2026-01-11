@@ -23,6 +23,7 @@ describe('PostList Component (Task 10.5)', () => {
       slug: 'post-1',
       title: 'First Post Title',
       date: '2026-01-01',
+      readingTime: 3,
       description: 'First post description',
       tags: ['test', 'first'],
       wip: false,
@@ -31,6 +32,7 @@ describe('PostList Component (Task 10.5)', () => {
       slug: 'post-2',
       title: 'Second Post Title',
       date: '2026-01-02',
+      readingTime: 5,
       description: 'Second post description',
       tags: ['test', 'second'],
       wip: false,
@@ -61,9 +63,18 @@ describe('PostList Component (Task 10.5)', () => {
 
   it('displays post dates', () => {
     render(<PostList posts={mockPosts} />)
-    
+
     const dates = screen.getAllByRole('time')
     expect(dates).toHaveLength(2)
+  })
+
+  it('displays reading time and descriptions', () => {
+    render(<PostList posts={mockPosts} />)
+
+    expect(screen.getByText('3 min read')).toBeInTheDocument()
+    expect(screen.getByText('5 min read')).toBeInTheDocument()
+    expect(screen.getByText('First post description')).toBeInTheDocument()
+    expect(screen.getByText('Second post description')).toBeInTheDocument()
   })
 
   it('displays empty message when no posts', () => {

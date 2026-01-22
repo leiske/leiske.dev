@@ -1,6 +1,7 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
 import matter from 'gray-matter'
 import { z } from 'zod'
+import { estimateReadingTime } from './src/utils/reading-time.js'
 
 const posts = defineCollection({
   name: 'posts',
@@ -17,9 +18,8 @@ const posts = defineCollection({
   }),
   transform: (document) => {
     const { content: body } = matter(document.content)
-    const wordCount = body.split(/\s+/).length
-    const readingTime = Math.ceil(wordCount / 200)
-    
+    const readingTime = estimateReadingTime(body)
+
     return {
       title: document.title,
       date: document.date,
